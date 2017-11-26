@@ -1,5 +1,6 @@
 #In this exercise I will rename number of file names
 
+import os
 def rename_files():
 	#get the file names form the folder
 	file_list = os.listdir(r"C:\Personal\GitHub\Udacity-Full-Stack-Web-Developer-Nanodegree\Supporting courses\Programming Foundations with Python\prank")
@@ -10,8 +11,9 @@ def rename_files():
 	os.chdir(r"C:\Personal\GitHub\Udacity-Full-Stack-Web-Developer-Nanodegree\Supporting courses\Programming Foundations with Python\prank")
 	# rename each file name in the folder
 	for file_name in file_list:
-		print("Old name -" +file_name)
+		#print("Old name -" +file_name)
 		#os.rename(old name,new name)
-		os.rename(file_name, file_name.stranslate(None,"0123456789")
-		print("New name - "+file_name)
-print(rename_files())
+		deletedigits = str.maketrans(dict.fromkeys("0123456789"))
+		os.rename(file_name, file_name.translate(deletedigits))
+		print("New name -" + file_name)
+rename_files()
