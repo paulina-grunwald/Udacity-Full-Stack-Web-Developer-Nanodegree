@@ -16,6 +16,7 @@ def check_profanity(text_to_check):
         print("Can not scan the Document Properly")
     url.close()
 
+#read text fromt he file and check for profanities
 def read_text():
     quotes = open(r"C:\Personal\GitHub\Udacity-Full-Stack-Web-Developer-Nanodegree\Supporting courses\Programming Foundations with Python\text.txt")
     contents_of_file = quotes.read()

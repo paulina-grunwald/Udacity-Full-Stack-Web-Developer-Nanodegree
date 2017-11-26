@@ -12,8 +12,10 @@ def draw_art():
     #create turtle brad
     brad = turtle.Turtle()
     brad.shape("turtle")
-    brad.speed(3)
-    draw_square(brad)
+    brad.speed(5)
+    for i in range(1,36):
+        draw_square(brad)
+        brad.right(10)
     #create turtle angie
     angie = turtle.Turtle()
     angie.shape("arrow")
