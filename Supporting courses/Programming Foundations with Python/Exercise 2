@@ -2,4 +2,6 @@
 
 def rename_files:
 	#get the file names form the folder
-	os.listdir("C:\Personal\GitHub\Udacity-Full-Stack-Web-Developer-Nanodegree\Supporting courses\Programming Foundations with Python\prank")
+	file_list = os.listdir(r"C:\Personal\GitHub\Udacity-Full-Stack-Web-Developer-Nanodegree\Supporting courses\Programming Foundations with Python\prank")
+	print(file_list)
+	# rename each file name in the folder
