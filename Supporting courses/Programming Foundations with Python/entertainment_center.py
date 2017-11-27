@@ -1,12 +1,13 @@
 #use classes to build movie website. The website will include trailer of the movie
 #class movie will include: movie title, sotryline, poster and link to youtube trailer
 #add show trailer option
+
 import os
 import sys
+
+import media
 import fresh_tomatoes
 
-from PIL import Image
-from pygraphics import media
 #create instance toy_story
 toy_story = media.Movie("Toy Story",
                         "A story of a boy and his toys",
