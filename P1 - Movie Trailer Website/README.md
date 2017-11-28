@@ -12,7 +12,7 @@ This project is a par of Udacity's full-stack [nanodegree program](https://www.u
 
 ## Link to the project
 
-For a demo, check out <http://htmlpreview.github.io/?https://github.com/paulina-grunwald/Udacity-Full-Stack-Web-Developer-Nanodegree/blob/master/P1%20-%20Movie%20Trailer%20Website/fresh_tomatoes.html>!
+For a demo, check out [here](http://htmlpreview.github.io/?https://github.com/paulina-grunwald/Udacity-Full-Stack-Web-Developer-Nanodegree/blob/master/P1%20-%20Movie%20Trailer%20Website/fresh_tomatoes.html).
 
 ## Download
 
