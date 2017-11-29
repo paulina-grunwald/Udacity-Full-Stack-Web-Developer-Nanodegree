@@ -1,0 +1,138 @@
+
+html {
+    color: #eeeeee;
+    font-size: 62.5%;
+    font-family: "Open Sans", "Arial", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    background: url('../img/curtains.png') no-repeat center center fixed;
+    background-color: hsla(1,100%,26%,1);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+a, a:hover {
+    color: hsla(38,70%,88%,0.8);
+    text-decoration: none;    
+}
+.content {
+    text-align: center;
+    width: 100%;
+    max-width: 720px;
+    margin: auto;
+}
+.my-hidden {
+    display: none; 
+}
+
+/* HEADER STYLES */
+
+header {
+    background-color: hsla(38,67%,0%,0.4);
+    margin-bottom: 18px;
+}
+header h1 {
+    font-family: "Raleway", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: hsla(38,67%,81%,1);
+    text-shadow: 1px 1px #000;
+    font-size: 30px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* TRAILER STYLES */
+
+#trailer .modal-dialog {
+    margin-top: 175px;
+    width: 640px;
+    height: 480px;
+}
+#trailer .hanging-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    z-index: 9001;
+}
+#trailer-video {
+    width: 100%;
+    height: 100%;
+}
+.scale-media {
+    padding-bottom: 56.25%;
+    position: relative;
+}
+.scale-media iframe {
+    border: none;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: white;
+}
+
+/* MOVIE-TILE STYLES */
+
+.movie-tile {
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+.movie-tile img {
+    text-align: center;
+    width: 188px;
+    height: 292px;
+    border: 2px solid #fff;
+    box-shadow: 3px 3px hsla(38,67%,0%,0.3);
+    -webkit-transition: all 120ms ease-out;
+    -moz-transition: all 120ms ease-out;
+    -o-transition: all 120ms ease-out;
+    -ms-transition: all 120ms ease-out;
+    transition: all 120ms ease-out;    
+}
+.movie-tile img:hover {
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.movie-tile .year {
+    color: hsla(38,67%,81%,0.8);    
+    letter-spacing: 0.125em
+    margin: 1px auto;
+    padding: 0;
+}
+.movie-tile h2 {
+    text-shadow: 1px 1px #000;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: hsla(38,67%,81%,1);
+    margin: 14px auto 4px auto;
+}
+
+/* FOOTER STYLES */
+
+footer {
+    background-color: hsla(38,67%,0%,0.3);
+    font-size: 10px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    color: hsla(38,67%,81%,0.6);
+}
+footer .rights {
+    letter-spacing: 0.2em;
+}
+footer .disclaimer {
+    width: 76%;
+    margin: auto;
+    letter-spacing: 0.1em;
+}
+footer .content {
+    padding-top: 22px;
+    padding-bottom: 22px;
+}
