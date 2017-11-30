@@ -27,7 +27,12 @@ The  **< input >** tag lets you add form fields for the user to enter their info
 ## CSS Syntax
 ## Sixing
 ## Positioning
+
 ## Floats
+- Floats are **not a positioning value**. They are a wholly different flow on the page created by a new property, float.
+- Floats are commonly used to create grid-based layouts,
+
+
 ## Why Responsive
 ## Starting small
 
