@@ -18,5 +18,8 @@
 - __$__ sign in front of the word indicates that it is a shell variable.
 - __pwd__ stands for print working directory.
 - Unix uses __/__ to separate folders in the directory.
-- __ls -l__
--
+- __ls -l__ - prints longer, more details description of files.
+- Shell lets you match file names with the patterns. If you want to find all pdf documents in your directory you can use following code: __ls -l Documents/*.pdf__
+- __ls abc*__   # list all files starting with abc---
+- __ls *abc*__  # list all files containing --abc--
+- __ls *abc__   # list all files ending with --abc
