@@ -31,7 +31,34 @@ The  **< input >** tag lets you add form fields for the user to enter their info
 ## Floats
 - Floats are **not a positioning value**. They are a wholly different flow on the page created by a new property, float.
 - Floats are commonly used to create grid-based layouts,
+- The float property gave developers the ability to add images that sit within text, much like inset images in newspaper articles.
+- Float creates a new flow on the page with a unique behavior.
+- **Normal flow line boxes respect the boundaries of floated elements, but normal flow block elements ignore floats.**
+- Code example:
 
+```
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Float Example</title>
+  <style>
+
+.left {
+      float: left;
+      margin-right: 8px;
+    }
+</style>
+</head>
+<body>
+<p>...</p>
+<img class="left" src="images/Carl_Sagan_Planetary_Society.jpg" alt="Carl Sagan by NASA/JPL [Public domain], via Wikimedia Commons">
+</body>
+</html?
+```
+- Flow has some unique properties that make it perfect for creating responsive, grid-based layouts.
+- When floats push against each other, they wrap to the next line.
 
 ## Why Responsive
 ## Starting small
@@ -40,6 +67,7 @@ The  **< input >** tag lets you add form fields for the user to enter their info
 - Responsive website changes based on the characteristic of the device.
 - Media queries provide logic for applying different styles depending on the device characteristics. In order to use media query you need to add additional stylesheet on your page with media query.
 ```
+
 <link rel="stylesheet href="styles.css">
 
 ```
