@@ -59,7 +59,11 @@ The  **< input >** tag lets you add form fields for the user to enter their info
 ```
 - Flow has some unique properties that make it perfect for creating responsive, grid-based layouts.
 - When floats push against each other, they wrap to the next line.
+- **Float children are not involved in the box-size calculation of normal flow parents.**
+- There are number of ways to force elements in the normal flow to respect the boundaries of floats:
+  - __<em>Block formatting context</em>__ (this method will force flow siblings to respect boundaries of floats. Elements with a block formating context may not overlap. Overflow property is used to set a block formatting context (any value other than visible, including auto, forces an element to take on a block formatting context).
 
+  - __<em>Clearning<em>__ -
 ## Why Responsive
 ## Starting small
 
