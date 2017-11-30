@@ -7,11 +7,7 @@ html {
 }
 body {
     background: url('../img/curtains.png') no-repeat center center fixed;
-    background-color: hsla(1,100%,26%,1);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background-repeat: no-repeat;
 }
 a, a:hover {
     color: hsla(38,70%,88%,0.8);
