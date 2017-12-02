@@ -26,5 +26,7 @@
 - __ls *abc__   # list all files ending with --abc
 - __mkdir__ is used for creating new directory.
 - In order to move file to another folder you can use command __mv__. You need to specify which file are you moving to which directory __mv 'file_to_move' drectory_name__
-- It is also possible to match many documents at the same time and move them together to the new directory e.g __mv Documents/*pdf Documents/Books
--
+- It is also possible to match many documents at the same time and move them together to the new directory e.g __mv Documents/*pdf Documents/Books__
+- to download file from the web you can use command __curl__. It will show the html for the page. If you add __curl L_ followed by the website addres in ' '__ you will be able to see the source code for the website.
+- Curl is very useful to download files by URL: __curl -0 google.html -L 'http://google.com'__.
+- The file can be downloaded from URl using following code __curl -L -o dictionary.txt 'https://tinyurl.com/zeyq9vc'__
