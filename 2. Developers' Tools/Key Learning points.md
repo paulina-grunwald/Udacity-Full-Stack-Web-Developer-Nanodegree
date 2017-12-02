@@ -30,3 +30,8 @@
 - to download file from the web you can use command __curl__. It will show the html for the page. If you add __curl L_ followed by the website addres in ' '__ you will be able to see the source code for the website.
 - Curl is very useful to download files by URL: __curl -0 google.html -L 'http://google.com'__.
 - The file can be downloaded from URl using following code __curl -L -o dictionary.txt 'https://tinyurl.com/zeyq9vc'__
+- command __cat__ reads the file and outputs the content. It can read multiple files.
+- command __less__ read file and shows one page at the time. Use can use __space__ or arrows to scroll down, __b__ to go back and __/__ to search and __q__ to quit.
+- __rm__ is the command to remove of the file.
+- __grep__ command can look for words in the file.
+- To count number of words in the file we can use following code: __grep -c ibo filename__. You can use regular expressions for patterns matching using grep.
