@@ -46,13 +46,15 @@
 - __Id__ can be used only once per page. __Class__ can be used multiple times on one page.
 - HTML elements can have mutiple classes assigned to them.
 - __Tag Selector__
-```h1 {
+```
+h1 {
   color: green;
 }
 ```
 
 - __class Attribute Selector__
-```.book-summary {
+```
+.book-summary {
   color: blue;
 }
 ```
