@@ -73,5 +73,6 @@ h1 {
 ## 4. CSS Syntax Problem Set
 - It is recommended to write your CSS in a file called a stylesheet and then link to that file in your HTML.
 - In order to link stylesheet file with your index.html you need add following code in the <head> of your index.html file:
-```<link href="path-to-stylesheet/stylesheet.css" rel="stylesheet">
+```
+<link href="path-to-stylesheet/stylesheet.css" rel="stylesheet">
 ```
