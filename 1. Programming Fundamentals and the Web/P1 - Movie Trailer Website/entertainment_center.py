@@ -37,7 +37,8 @@ my_neighbor_totoro = media.Movie("My Neighbor Totoro",
                      "https://upload.wikimedia.org/wikipedia/en/0/02/My_Neighbor_Totoro_-_Tonari_no_Totoro_%28Movie_Poster%29.jpg",
                      "https://www.youtube.com/watch?v=92a7Hj0ijLs")
 
+#create array with all the movies
 movies = [spirited_away, under_the_tuscan_sun, hachi, race, john_wick, my_neighbor_totoro]
-#print(race.storyline)
-#race.show_trailer()
+
+#run fresh_tomatoes.py script with movies variable to create html website with my favourite movies
 fresh_tomatoes.open_movies_page(movies)
