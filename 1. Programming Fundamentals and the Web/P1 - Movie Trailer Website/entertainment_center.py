@@ -3,6 +3,10 @@ import sys
 import media
 import fresh_tomatoes
 
+
+#create instances of my favourite movies. They will include movie title, short description,
+# url to the poster and url to the movie trailer
+
 #create instance of the Spirited Away movie
 spirited_away = media.Movie("Spirited Away",
                         "Travel of ten-year old Chihiro and her parents to their new home",
@@ -27,11 +31,13 @@ race = media.Movie("Race",
                      "https://upload.wikimedia.org/wikipedia/en/0/02/Race_2016_film_poster.jpg",
                      "https://www.youtube.com/watch?v=E31LnSw47xo")
 
+#create instance of John Wick movie
 john_wick = media.Movie("John Wick: Chapter 2 Action",
                      "Retired super-assassin John Wick's plans to resume a quiet civilian life",
                      "http://aisleseat.com/johnwick2.jpg",
                      "https://www.youtube.com/watch?v=nMqETeQrgqU")
 
+#create instance of My neighbour totoro movie
 my_neighbor_totoro = media.Movie("My Neighbor Totoro",
                      "Japanese animated fantasy film written and directed by Hayao Miyazaki ",
                      "https://upload.wikimedia.org/wikipedia/en/0/02/My_Neighbor_Totoro_-_Tonari_no_Totoro_%28Movie_Poster%29.jpg",
