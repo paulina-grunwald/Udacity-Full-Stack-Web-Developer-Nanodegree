@@ -7,7 +7,7 @@
 2. HTML Syntax Problem Set
 3. CSS Syntax
 4. CSS Syntax Problem Set
-5. Floats
+
 
 ## 1. HTML Syntax
 - Paragraph element: __<p>This is paragraph</p>__
@@ -23,16 +23,14 @@
 - A image can be added using following code: ```<img src="http://somewebsite.com/image.jpg" alt="short description">```
 - A caption can be associated with the <figure> element by inserting a <figcaption> inside it (as the first or the last child).
 - The __< form>__  tag contain all of the code for the form. The form fields, the buttons, etc. need to be enclosed inside these tags.
-```
-<form action="" method="">
+```<form action="" method="">
 <!-- stuff goes here -->
 </form>
 ```
 - The __< input>__ tag lets you add form fields for the user to enter their information
 -  __< textarea>__ tag is similar to ```<input type="text">``` but you can use it to create a multi-line text input box for your user.
 - The __< label>__ tag adds text to an __< input>___ field so the user knows what information is being asked for e.g
-```
-<label for="name">What is your name?</label> <input type="text" id="name">
+```<label for="name">What is your name?</label> <input type="text" id="name">
 ```
 
 
@@ -54,19 +52,23 @@
 ```
 
 - __class Attribute Selector__
-```
-.book-summary {
+```.book-summary {
   color: blue;
 }
 ```
 - __id attribute Selector__
-```
-#site-description {
+```#site-description {
   color: red;
 }
 ```
+- CSS Units:
+  - Absolute (e.g px, mm, cm)
+  - Relative (%, em, vw, vh)
+- RGB (red, green, blue -> 0-255)
+- The Hexadecimal Numeral System
 
 ## 4. CSS Syntax Problem Set
-
-
-## 5. Floats
+- It is recommended to write your CSS in a file called a stylesheet and then link to that file in your HTML.
+- In order to link stylesheet file with your index.html you need add following code in the <head> of your index.html file:
+```<link href="path-to-stylesheet/stylesheet.css" rel="stylesheet">
+```
