@@ -5,6 +5,7 @@
 ## Table of contents
 
 1. Shell Workshop
+2. What is version control?
 
 ## 1.  Shell Workshop
 - __echo__ command is used to print messages in the shell.
@@ -35,3 +36,11 @@
 - __rm__ is the command to remove of the file.
 - __grep__ command can look for words in the file.
 - To count number of words in the file we can use following code: __grep -c ibo filename__. You can use regular expressions for patterns matching using grep.
+- In shell whenever you create or modify variable you just give it name and = e.g __numbers='one two tree'__.
+- If you want to print new variable you need to follow following command: __echo $file_name__.
+- The value of __$PWD__ is the current working directory.
+- __LOGNAME__ is an environment variable that contains the username of the account you're logged in as.
+- Files contain shell comands are called shell scripts.
+
+## 3. What is version control?
+Version control helps you to create save points that will help you save a current state of your work.
