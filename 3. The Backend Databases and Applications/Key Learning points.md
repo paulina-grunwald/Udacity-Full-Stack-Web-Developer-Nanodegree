@@ -17,3 +17,4 @@
   - JSON {property: data}
   - HTML >div></div
 - __An asynchronous request__ can be fired off at any time (before or after a page has loaded) and the response to an asynchronous request often includes HTML that can be dynamically inserted into a page.
+-
