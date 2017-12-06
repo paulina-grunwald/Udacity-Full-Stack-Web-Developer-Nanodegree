@@ -19,6 +19,18 @@ main_page_head = '''
     <style type="text/css" media="screen">
         body {
             padding-top: 80px;
+            background: black url("http://wellbeings.us/wp-content/uploads/2017/06/unusual-stage-curtain-stage-curtain-wallpaper-companies-rental-curtains-for-schools-black-names-legs-portable-vector-cost-pulley-system-hooks-how-to-make-design-uk-cleaning-second-hand-track-church-f.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 95%;
+        }
+
+        footer {
+            font-style: italic;
+            color: white;
+            font-size: 10px;
+            text-align: center;
+            padding: 20px;
         }
         #trailer .modal-dialog {
             margin-top: 200px;
@@ -55,6 +67,12 @@ main_page_head = '''
             left: 0;
             top: 0;
             background-color: white;
+        }
+        h2{
+            font-size: 20px;
+            color: #ffa719;
+            font-weight: bold;
+            font-family: sans-serif;
         }
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -116,6 +134,9 @@ main_page_content = '''
       {movie_tiles}
     </div>
   </body>
+  <footer>
+    <p>This website was created by Paulina Grunwald as a part of Full Stack Well Developer Nanodegree (Udacity).</p>
+  </footer>
 </html>
 '''
 
