@@ -9,14 +9,27 @@
       font-family: 'Source Sans Pro', sans-serif;
       font-weight: bold;
     }
-    .inline-block { /* hasn't been assigned! */
+    .inline-block { 
       display: inline-block;
+      font-size: 25px;
+      font-style: bold;
+      background-color: #ff4d4d;
     }
     .random {
       border: 2px solid #2e3d49;
-      background-color: #ecc81a;
+      font-size: 10px;
+      background-color: #e6f2ff;
       width: 20em;
-      height: 40px;
+      height: 30px;
+    }
+    .normaldiv {
+      background-color: lightgrey;
+      font-style: Arial;
+      color: darkblue;
+    }
+    .normalspan {
+      background-color: #ffcc99;
+      color: red;
     }
   </style>
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
@@ -26,6 +39,10 @@
     <span>...</span>
     <span class="random">This is a random span.</span>
     <span>...</span>
+    <div class="normaldiv">This is a normal div.</div>
+    <span class="normalspan">this is a normal span</span>
+    <div class ="inline-block">this is a div with inline-block property</div>
+    <div class="normaldiv">This is a normal div.</div>
   </div>
 </body>
 </html>
