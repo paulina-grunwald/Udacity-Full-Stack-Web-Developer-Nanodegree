@@ -19,15 +19,24 @@
   - __floats__, which interact with normal flow in their own way and form the basis of most modern CSS grid frameworks
   - __absolute positioning__, which deals with absolute and fixed elements relative to the normal flow.
 
--  __Relative flow__ is a variant of normal flow but it allows to shift the position of the element after they have been laid out in the normal flow. That means we can define relative position of element in the normal flow by specfying top, bottom, left and right distance from the end of the container.
+-  __Relative flow__ is a variant of normal flow but it allows to shift the position of the element after they have been laid out in the normal flow. That means we can define relative position of element in the normal flow by specifying top, bottom, left and right distance from the end of the container.
 
-```
-.relative {
+  ```
+  .relative {
     position: relative;
     top: 10px;
     left: 10px;
-}
-```
+  }
+  ```
+  
+- shift can move blocks by specified px distance.
+  ```
+  .shift {
+    /*position: relative;*/
+      top: 10px;
+      left: 10px;
+  }
+      ```
 
 - __nth-child(n) selector__ matches every element that is the nth child, regardless of type, of its parent. e.g
 
