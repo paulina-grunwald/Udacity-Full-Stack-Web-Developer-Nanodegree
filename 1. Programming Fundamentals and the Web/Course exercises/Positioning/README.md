@@ -11,8 +11,9 @@
   display: inline-block;
   }
   ```
-
+- The relative positioning of block and inline elements is not actually determined by the element __display__ property but by the formatting context which is influenced by the siblings of the element.
 -  Whitespace, the newline and the tab, between the .child elements is turned into an __anonymous box__. Anonymous boxes arise in situations where there is a mix of block and inline elements inside a container. __Anonymous box__ generation is used to deal with cases where a parent element contains a mixture of inline-level and block-level child elements (in which case "anonymous block boxes" are generated) and with cases where the markup contains inline-level elements mixed with surrounding text (in which case "anonymous inline boxes" are generated), such as an em or i tag inside a paragraph of text.
+
 
 - CSS defines three positioning schemes, which are:
   - __normal flow__, which consists of three formatting contexts: the block, inline and relative formatting contexts
@@ -28,7 +29,7 @@
     left: 10px;
   }
   ```
-  
+
 - shift can move blocks by specified px distance.
   ```
   .shift {
