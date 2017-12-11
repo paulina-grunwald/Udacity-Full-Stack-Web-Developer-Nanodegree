@@ -24,7 +24,13 @@
 - __max-width__ rules are applied anytime when the value specified is less than viewport value.
 - It's not recommended to use min-device-width/max-device-width.
 - Breakpoints should be found in relation to content.
+- __Grid fluid system__ -
+- __Flexbox__ -
+- __display: flex;__
+- __flex-wrap: wrap;__ (elements will wrap to the next line)
+
 
 
 ## References:
 - https://css-tricks.com/css-media-queries/
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
