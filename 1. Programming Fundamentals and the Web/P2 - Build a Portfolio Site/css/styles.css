@@ -1,14 +1,61 @@
 body {
     font-family: "Titillium Web", sans-serif;
     color: #2d3c49;
-    font-weight: 300;
+    font-weight: 30px;
+    
 }
+
+.topnav{
+    list-style-type: none
+
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 16px;
+    text-decoration: none;
+
+}
+
+li a:hover {
+    background-color: #111;
+}
+
 
 .image {
     padding-left: 60px;
     padding-right: 60px;
     width: 100%;
+
 }
+
+
+hr {
+    display: block;
+    height: 0px;
+    border: 0;
+    border-bottom: 1.5px solid red;
+    margin: 2px 0;
+    padding: 0;
+    color: red;
+}
+
 
 .separator {
     height: 5px;
@@ -19,6 +66,22 @@ body {
 
 h3{
     font-family: 'Indie Flower', cursive;
-    font-size: 20px; 
+    font-size: 15px; 
 }
 
+
+body {
+  background: #eee;
+  color: #666;
+  margin: 0px;
+  overflow-y: scroll;
+  line-height: 21px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.box2{
+    height: 200px;
+}
