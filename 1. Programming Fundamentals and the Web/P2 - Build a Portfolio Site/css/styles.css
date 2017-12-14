@@ -2,10 +2,19 @@ body {
     font-family: "Titillium Web", sans-serif;
     color: #2d3c49;
     font-weight: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+
     
 }
 
+
+.container{
+
+}
 .topnav{
+    padding-left: 30px;
+    padding-right: 30px;
     list-style-type: none
 
 }
@@ -55,6 +64,27 @@ hr {
     padding: 0;
     color: red;
 }
+
+
+
+    .btn-linkedin {
+      background: #0E76A8;
+      border-radius: 0;
+      color: #fff;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #084461;
+    }
+    .btn-linkedin:link, .btn-linkedin:visited {
+      color: #fff;
+    }
+    .btn-linkedin:active, .btn-linkedin:hover {
+      background: #084461;
+      color: #fff;
+    }
+
+
+
 
 
 .separator {
