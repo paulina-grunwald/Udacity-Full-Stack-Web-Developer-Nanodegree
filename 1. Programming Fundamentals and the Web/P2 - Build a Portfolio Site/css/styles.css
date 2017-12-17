@@ -1,101 +1,60 @@
-body {
+body,
+html{
     font-family: "Titillium Web", sans-serif;
     background-color: white;
-    font-weight: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
-    overflow-y: scroll;
-
-    
-}
-
-.container-header{
-    padding:0;
+    color: black;
+    height: 100%;
+    width:100%;
 
 }
-.topnav{
-    background-color: #333;
-    list-style-type: none
-
-}
-
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-
-
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 15px 16px;
-    text-decoration: none;
-
-}
-
-li a:hover {
-    background-color: #111;
-}
-
-
-.image {
-    padding-left: 60px;
-    padding-right: 60px;
-    width: 100%;
-
-}
-
-
-hr {
-    display: block;
-    height: 0px;
-    border: 0;
-    border-bottom: 1.5px solid red;
-    margin: 2px 0;
-    padding: 0;
-    color: red;
-}
-
-
-
-.btn-linkedin {
-        background: #0E76A8;
-        border-radius: 0;
-        color: #fff;
-        border-width: 0px;
-        border-style: solid;
-        border-color: #084461;
-    }
-.btn-linkedin:link, .btn-linkedin:visited {
-      color: #fff;
-    }
-.btn-linkedin:active, .btn-linkedin:hover {
-    background: #084461;
-    color: #fff;
-    }
-
-
 
 h3{
     font-family: 'Indie Flower', cursive;
     font-size: 15px; 
 }
 
+.htop{
+	position: relative;
+	
+	width: 100%
+	height:200px;
+	text-align: center;
+	min-height: auto;
+	background-color: #c1ccdd;
+	background-size: cover;
+	color:white;
+	color: black;
+	font-size: 1em;
+	padding:3em;
 
-img {
-  max-width: 100%;
-  max-height: 50%;
+}
+#minimenu{
+	background-color: black;
+	height: 30px;
+	color:white;
+	vertical-align: center;
+
 }
 
-.box2{
-    height: 200px;
+
+
+#about{
+	background-image: url(http://lorempixel.com/1600/700/sports/5);
+	background-size: cover;
 }
+
+#projects{
+	background-image: url(http://lorempixel.com/1600/700/sports/6);
+	background-size: cover;
+
+}
+
+#contact{
+
+}
+
+li {
+    display: inline;
+ 
+}
+   
