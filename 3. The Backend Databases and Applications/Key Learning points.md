@@ -130,7 +130,17 @@ db.close()
 
 - __atomicity__ - in a transaction involving two or more discrete pieces of information, either all of the pieces are committed or none are.
 
+-  When having problems with starting up your vagrant you can try following command: __VAGRANT_PREFER_SYSTEM_BIN=1 vagrant ssh__
+- PostgreSQL documentation: https://www.postgresql.org/docs/9.4/static/app-psql.html
+- useful commands:
+  - <em>select * from posts;</em> (shows the columns in the table)
+  - <em>\d posts</em> - see the types of the columns
+  - <em>\dt</em> — list all the tables in the database
+  - <em>\dt+</em> — list tables plus additional information (notably, how big each table is on disk).
+  - <em>\H</em> — switch between printing tables in plain text vs. HTML.
+  - <em>select * from posts \watch</em> - display the contents of the posts table and refresh it every two seconds, so you can see changes to the table as you use the app.
 
+-  SQL injection attacks
 
 ## Deeper Into SQL
 
