@@ -140,14 +140,36 @@ db.close()
   - <em>\H</em> — switch between printing tables in plain text vs. HTML.
   - <em>select * from posts \watch</em> - display the contents of the posts table and refresh it every two seconds, so you can see changes to the table as you use the app.
 
--  SQL injection attacks
+-  SQL injection attacks - https://www.acunetix.com/websitesecurity/sql-injection/
+- Bleach - is an allowed-list-based HTML sanitizing library that escapes or strips markup and attributes. Bleach can also linkify text safely, applying filters that Django’s urlize filter cannot, and optionally setting rel attributes, even on links already in the text. Bleach is intended for sanitizing text from untrusted sources. If you find yourself jumping through hoops to allow your site administrators to do lots of things, you’re probably outside the use cases. Either trust those users, or don’t.
+
+- update is the SQL comand for updating rows.
+```sqlite3
+update table
+  set column= value
+  where restriction;
+```
+
+The restriction works the same as in select and supports the same set of operators on column values. The like operator supports a simple form of text pattern-matching
+
 
 ## Deeper Into SQL
+ - __normalization__ - it's very important idea in relational databes. in a normalized database the relationships among the tables match the relationship that are really among the data.
 
-
+- __Rules for normalization__:
+  - every column has the same number of rows.
+  - Some of more columns are key. The key provides the main type.
+  - Non-key columns describe the key columns.
+  - Tales should not imply relationships that don't exist.
+- __denormalization__
 
 
 ## REFERENCES
 - https://documentation.play-sql.com/display/SQL/The+Basics+of+SQL
 - https://www.python.org/dev/peps/pep-0249/
 - http://searchsqlserver.techtarget.com/definition/ACID
+- http://bleach.readthedocs.io/en/latest/
+- http://www.bkent.net/Doc/simple5.htm
+- https://www.postgresql.org/docs/9.5/static/sql-select.html
+- https://www.postgresql.org/docs/9.5/static/functions-string.html
+- https://www.postgresql.org/docs/9.5/static/functions-aggregate.html
