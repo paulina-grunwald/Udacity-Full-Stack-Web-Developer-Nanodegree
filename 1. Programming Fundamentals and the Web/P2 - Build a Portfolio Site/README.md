@@ -17,3 +17,8 @@ For a demo, check out [here]().
 ## Download
 
 You can find all the files of my project here [downloaded here](https://github.com/paulina-grunwald/Udacity-Full-Stack-Web-Developer-Nanodegree/tree/master/P1%20-%20Movie%20Trailer%20Website).
+
+
+## REFERENCES
+- https://www.sitepoint.com/javascript-media-queries/
+- https://www.w3schools.com/howto/howto_js_topnav_responsive.asp
