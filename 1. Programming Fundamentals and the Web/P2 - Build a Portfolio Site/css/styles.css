@@ -13,12 +13,12 @@ h3{
     font-size: 15px; 
 }
 
+/*styling of header top*/
 .htop{
 	position: relative;
-	
-	width: 100%
-	height:200px;
 	text-align: center;
+	width: 100%;
+	height: 150px;
 	min-height: auto;
 	background-color: #c1ccdd;
 	background-size: cover;
@@ -27,16 +27,44 @@ h3{
 	font-size: 1em;
 	padding:3em;
 
+
+
+/*navbar styling*/
+
 }
-#minimenu{
-	background-color: black;
+#minimenu {
+	width: 100%;
+	background-color: darkblue;
+	overflow: hidden;
 	height: 30px;
 	color:white;
 	vertical-align: center;
+	border: blue;
+	text-decoration: none;
+	font-size: 17px;
 
 }
 
+#minimenu a {
 
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+
+}
+
+#minimenu  a:hover {
+	background-color: #42d7f4;
+	color: black;
+ }
+
+
+
+
+
+/*styling of content sections*/
 
 #about{
 	background-image: url(http://lorempixel.com/1600/700/sports/5);
@@ -57,4 +85,15 @@ li {
     display: inline;
  
 }
+
+/* Add an active class to highlight the current page */
+.active {
+    background-color: #4CAF50;
+    color: white;
    
+
+@media(min-width:768px){
+	#minimenu {
+		min-height: 100%;
+	}
+}
