@@ -161,7 +161,21 @@ The restriction works the same as in select and supports the same set of operato
   - Some of more columns are key. The key provides the main type.
   - Non-key columns describe the key columns.
   - Tales should not imply relationships that don't exist.
-- __denormalization__
+
+- create table and types
+```sqlite3
+create table tablename (
+  column1 type [constrains],
+  column2 type [constrains],
+    .
+    .
+    .
+  )
+```
+
+
+
+
 
 
 ## REFERENCES
@@ -173,3 +187,4 @@ The restriction works the same as in select and supports the same set of operato
 - https://www.postgresql.org/docs/9.5/static/sql-select.html
 - https://www.postgresql.org/docs/9.5/static/functions-string.html
 - https://www.postgresql.org/docs/9.5/static/functions-aggregate.html
+- [A Simple Guide to Five Normal Forms in Relational Database Theory](http://www.bkent.net/Doc/simple5.htm)
