@@ -173,7 +173,14 @@ create table tablename (
   )
 ```
 
+- __References (declaring relationships)__ provide referential integrity - columns that are supposed to refer to each other are guaranteed to do so.
 
+- __Foregin key__ is a column or set of columns in one table that uniquely identifies rows in another table.
+- __Self Joins__
+- __Subqueries__
+  - [Scalar Subqueries](https://www.postgresql.org/docs/9.4/static/sql-expressions.html#SQL-SYNTAX-SCALAR-SUBQUERIES)
+  - [Subquery Expressions](https://www.postgresql.org/docs/9.4/static/functions-subquery.html)
+  - [FROM Clause](https://www.postgresql.org/docs/9.4/static/sql-select.html#SQL-FROM)
 
 
 
