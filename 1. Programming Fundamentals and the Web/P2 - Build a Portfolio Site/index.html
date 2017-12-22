@@ -7,18 +7,23 @@
     <title>Paulina Grunwalds's Portfolio</title>
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Domine" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://use.fontawesome.com/ccc891835b.js"></script>
     <script src="js/jquery-1.12.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
-    
 
 <body>
-      
-    <nav id=mainNav" class="navbar navbar-full background-primary navbar-fixed-top container">
-         <button class="navbar-toggler hidden-sm-up pull-right" type="button" data-toggle="collapse" data-target="#minimenu">
-            ☰
+    <nav id="mainNav" class="navbar navbar-full navbar-dark navbar-fixed-top" role="navigation">
+        <button type="button" class="navbar-toggler hidden-sm-up light float-xs-right" data-toggle="collapse" data-target="#minimenu"> 
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
         </button>
         <div id="minimenu" class="topnav collapse navbar-collapse navbar-toggleable-xs">
             <ul class="nav navbar-nav text-uppercase ">
@@ -27,6 +32,11 @@
                 <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul> 
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+            </div>
         </div>
     </nav>
 
@@ -43,20 +53,23 @@
             </header>
         </div>
 
-           
         <div class="container">
             <section id="main">
             <h2>Main</h2>
+            <div class="container">
                 <div>
                    <p>Lorem Ipsum – tas ir teksta salikums, kuru izmanto poligrāfijā un maketēšanas darbos. Lorem Ipsum ir kļuvis par vispārpieņemtu teksta aizvietotāju kopš 16. gadsimta sākuma. Tajā laikā kāds nezināms iespiedējs izveidoja teksta fragmentu, lai nodrukātu grāmatu ar burtu paraugiem. Tas ir ne tikai pārdzīvojis piecus gadsimtus, bet bez ievērojamām izmaiņām saglabājies arī mūsdienās, pārejot uz datorizētu teksta apstrādi. Tā popularizēšanai 60-tajos gados kalpoja Letraset burtu paraugu publicēšana ar Lorem Ipsum teksta fragmentiem un, nesenā pagātnē, tādas.
                    </p> 
 
                 </div>
-        </section>
-        <section id="about">
+            </div>
+            </section>
+            <section id="about">
             <h2>About</h2>
+            <div class="container">
                 <div>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo</p>
+                    <p class="">My name is Paulina Grunwald. I am project Engineer with 7 years of experience in Oil&Gas industry. Skilled in mudlogging, logging, coring, hydraulic fracturing, offshore operations, project management and data analytics. Worked in Netherlands, Poland and Romania. IASSC Green Belt Lean Six Sigma certified. Passionate about data analytics, Python and R programming, machine learning, predictive analytics and web development. Speak fluently Polish, Romanian and English.</p>
+            </div>
         </section>
         <section id="projects">
             <h2>Projects</h2>
@@ -65,10 +78,20 @@
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-block">
-                                    <h3 class="card-title">Project1</h3></div> 
-                                    <img src="http://via.placeholder.com/350x150" class="img-fluid">
+                                    <h4 class="card-title">Investigate a Titanic dataset</h4></div> 
+                                    <img src="img/data1.jpg" class="img-fluid">
                                 <div class="card-block">
-                                    <p class="card-text">information about project</p>
+                                    <p class="card-text">The purpose of this data investigation project was to determine what factors (if any) made it more likely that a person survived on the Titanic. Specifically, three variables were analyzed: class, sex, and age.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-block">
+                                    <h3 class="card-title">Movie Trailer Project</h3></div> 
+                                    <img src="img/data2.jpg" class="img-fluid">
+                                <div class="card-block">
+                                    <p class="card-text">The project's goal was to build a simple movie trailer website to showcase my favorite movies. In this project I have demonstrated the usege of class in Python programming language, HTML and CSS.</p>
                                 </div>
                             </div>
                         </div>
@@ -76,19 +99,9 @@
                             <div class="card">
                                 <div class="card-block">
                                     <h3 class="card-title">Project1</h3></div> 
-                                    <img src="http://via.placeholder.com/350x150" class="img-fluid">
+                                    <img src="img/data3.jpg" class="img-fluid">
                                 <div class="card-block">
-                                    <p class="card-text">information about project</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-block">
-                                    <h3 class="card-title">Project1</h3></div> 
-                                    <img src="http://via.placeholder.com/350x150" class="img-fluid">
-                                <div class="card-block">
-                                    <p class="card-text">information about project</p>
+                                    <p class="card-text">he project's goal was to build a simple movie trailer website to showcase my favorite movies. In this project I have demonstrated the usege of class in Python programming language, HTML and CSS.</p>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +110,7 @@
                             <div class="card">
                                 <div class="card-block">
                                     <h3 class="card-title">Project1</h3></div> 
-                                    <img src="http://via.placeholder.com/350x150" class="img-fluid">
+                                    <img src="img/data4.jpg" class="img-fluid">
                                 <div class="card-block">
                                     <p class="card-text">information about project</p>
                                 </div>
@@ -107,7 +120,7 @@
                             <div class="card">
                                 <div class="card-block">
                                     <h3 class="card-title">Project1</h3></div> 
-                                    <img src="http://via.placeholder.com/350x150" class="img-fluid">
+                                    <img src="img/data5.jpg" class="img-fluid">
                                 <div class="card-block">
                                     <p class="card-text">information about project</p>
                                 </div>
@@ -117,7 +130,7 @@
                             <div class="card">
                                 <div class="card-block">
                                     <h3 class="card-title">Project1</h3></div> 
-                                    <img src="http://via.placeholder.com/350x150" class="img-fluid">
+                                    <img src="img/data6.jpg" class="img-fluid">
                                 <div class="card-block">
                                     <p class="card-text">information about project</p>
                                 </div>
@@ -128,17 +141,25 @@
         </section>
         <section id="contact" class="container">
             <h2>Contact</h2>
-                <div>
-                Contact me using Linkedin
-                </div>
+            <p class='lead'>If you have any questions about myself or my web site please conact me on my e-mail or through my social media :)</p>
+            <div class="container contact">
+                    <a href="mailto:paulina.grunwald@gmail.com" class="fa fa-envelope fa-3x" aria-hidden="true"></a>
+                    <a href="https://www.linkedin.com/in/paulinagrunwald" class="fa fa-linkedin-square fa-3x" aria-hidden="true"></a>
+                    <a href="https://www.facebook.com/paulina.grunwald" class="fa fa-facebook-square fa-3x" aria-hidden="true"></a>
+                    <a href="https://github.com/paulina-grunwald" class="fa fa-github-square fa-3x" aria-hidden="true"></a>
+
+            </div>
         </section>
       
         </div>
     </div>
-
-    <footer class="footer">
+    <div>
+    </br>
+    </br>
+    </div>
+    <footer class="footer cotainer">
         <div class="col-md-12">
-            <p>Paulina Grunwald Copyright ©2017. All rights reserved.</p>
+            <p class="footer display-block">Paulina Grunwald Copyright ©2017. All rights reserved.</p>
         </div>
     </footer>
 </body>
