@@ -23,7 +23,8 @@ You can find all the files of my project here [downloaded here](https://github.c
 - https://www.sitepoint.com/javascript-media-queries/
 - https://www.w3schools.com/howto/howto_js_topnav_responsive.asp
 - - [Mastering Bootstrap 4 by Laurence Svekis](https://www.safaribooksonline.com/library/view/mastering-bootstrap-4/9781787124141/)
-
+- https://tympanus.net/codrops/2010/06/02/smooth-vertical-or-horizontal-page-scrolling-with-jquery/
+- https://codepen.io/BuiltBySam/pen/merjWp
 # Image REFERENCES
 - https://designshack.net/images/designs/analytics-icon_1.jpg
 - http://www.aym-institute.com/wp-content/uploads/2013/10/Analytics-350x150.jpg
