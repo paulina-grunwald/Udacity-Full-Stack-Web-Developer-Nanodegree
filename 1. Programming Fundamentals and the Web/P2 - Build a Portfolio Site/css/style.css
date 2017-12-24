@@ -18,7 +18,9 @@ h4{
     font-family: 'Domine', bold;
     font-size: 15px;
 }
-
+.fa-css3{
+  color: white;
+}
 .navbar-toggle {
   position: relative;
   float: right;
@@ -44,6 +46,7 @@ h4{
 	background-size: cover;
 	font-size: 1em;
 	padding:3em;
+
 }
 
 /*navbar styling*/
@@ -64,12 +67,12 @@ li {
 }
 
 #minimenu {
+
     background-color: black;
     overflow: hidden;
     height: auto;
     width: 100%; /* Full width */
     vertical-align: center;
-    border: blue;
     text-decoration: none;
     font-size: 17px;
     position: fixed; /* Set the navbar to fixed position */
@@ -87,9 +90,11 @@ li {
 }
 
 #minimenu  a:hover {
-    background-color: #42d7f4;
+    background-color: #70e575
+;
     color: black;
  }
+
 
 
 .section{
@@ -109,10 +114,10 @@ li {
 
 /*styling for contact icons in contact section*/
 .fa {
-	padding-right:5px;
-	padding-left:5px;
+	padding-right: 10px;
 	color: black;
 }
+
 
 /*footer styling*/
 .footer {
@@ -127,12 +132,17 @@ li {
 /* Add an active class to highlight the current page */
 .active {
     background-color: #4CAF50;
-    color: white;
 }
 
 /* Media query */
 
-@media (max-width: 767px) {
+@media(min-width: 768px){
+  .htop{
+    min-height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
   .navbar-nav .nav-item + .nav-item {
     margin-left: 0;
   }
@@ -140,3 +150,4 @@ li {
     clear: both;
   }
 }
+
