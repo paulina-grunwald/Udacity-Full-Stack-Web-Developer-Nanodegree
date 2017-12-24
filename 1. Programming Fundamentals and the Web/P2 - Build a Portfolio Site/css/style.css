@@ -19,16 +19,29 @@ h4{
     font-size: 15px;
 }
 
+.navbar-toggle {
+  position: relative;
+  float: right;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-right: 15px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid #333333;
+  border-radius: 4px;
+}
+
 /*styling of header top*/
 .htop{
-
+	position: relative;
 	text-align: center;
+	margin-top:45px;
 	width: 100%;
-	height: 150px;
 	min-height: auto;
-	background-color: #c1ccdd;
+	min-height: auto;
+	background-image: url("../img/bg_2.jpg");
 	background-size: cover;
-	color: black;
 	font-size: 1em;
 	padding:3em;
 }
@@ -53,7 +66,7 @@ li {
 #minimenu {
     background-color: black;
     overflow: hidden;
-    height: 30px;
+    height: auto;
     width: 100%; /* Full width */
     vertical-align: center;
     border: blue;
