@@ -8,56 +8,63 @@ html{
 
 }
 
+/*font styling for h3 and h4*/
 h3{
     font-family: 'Indie Flower', cursive;
-    font-size: 15px; 
+    font-size: 15px;
 }
 
 h4{
     font-family: 'Domine', bold;
-    font-size: 15px; 
+    font-size: 15px;
 }
 
 /*styling of header top*/
 .htop{
-	position: relative;
+
 	text-align: center;
 	width: 100%;
 	height: 150px;
 	min-height: auto;
 	background-color: #c1ccdd;
 	background-size: cover;
-	color:white;
 	color: black;
 	font-size: 1em;
 	padding:3em;
-
-.htop div, #about .container, #contact .container {
-	background-color: rgb(0,0,0,6);
-	background-color: rgba(0,0,0,6);
-	padding: 10px;
-	color:white;
-
 }
 
 /*navbar styling*/
-
+/*this make the text of the navbar layed out horizontally*/
+li {
+    display: inline;
 }
+
+#mainNav{
+	position: fixed;
+  	top: 0;
+ 	z-index: 9999;
+ 	width: 100%;
+    -webkit-transition: height .5s, line-height .5s; /* Safari */
+    transition: height .5s, line-height .5s;
+	color: black;
+	
+}
+
 #minimenu {
-    width: 100%;
     background-color: black;
     overflow: hidden;
     height: 30px;
-    color:white;
+    width: 100%; /* Full width */
     vertical-align: center;
     border: blue;
     text-decoration: none;
     font-size: 17px;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
 
 }
 
-.minimenu a {
-
+#minimenu a {
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
@@ -66,7 +73,7 @@ h4{
 
 }
 
-.minimenu  a:hover {
+#minimenu  a:hover {
     background-color: #42d7f4;
     color: black;
  }
@@ -82,41 +89,35 @@ h4{
 	background-size: cover;
 }
 
-#projects{
-	background-image: url();
-	background-size: cover;
-
-}
-
+/*styling for contact section*/
 .contact{
 		padding: 10px;
 }
 
+/*styling for contact icons in contact section*/
 .fa {
-	padding-right:5px; 
+	padding-right:5px;
 	padding-left:5px;
 	color: black;
 }
 
+/*footer styling*/
 .footer {
 	display: block;
 	text-align: center;
 	vertical-align: middle;
-	line-height: 10px; 
-}   
-
-
-li {
-    display: inline;
- 
+	line-height: 10px;
 }
+
+
 
 /* Add an active class to highlight the current page */
 .active {
     background-color: #4CAF50;
     color: white;
+}
 
-
+/* Media query */
 
 @media (max-width: 767px) {
   .navbar-nav .nav-item + .nav-item {
