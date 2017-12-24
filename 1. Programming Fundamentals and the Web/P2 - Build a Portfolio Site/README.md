@@ -27,5 +27,6 @@ You can find all the files of my project here [downloaded here](https://github.c
 - https://codepen.io/BuiltBySam/pen/merjWp
 # Image REFERENCES
 - https://designshack.net/images/designs/analytics-icon_1.jpg
+- http://www.sveltia.com/wp-content/uploads/2016/04/background_slider_equipos.jpg
 - http://www.aym-institute.com/wp-content/uploads/2013/10/Analytics-350x150.jpg
 - https://www.cloudways.com/blog/wp-content/uploads/GItCloudwaysSublime-THumb.jpg
