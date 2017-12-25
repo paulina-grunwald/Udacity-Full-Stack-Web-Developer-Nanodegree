@@ -1,7 +1,5 @@
 # Key Learning points for The Frontend: JavasSript & Ajax course
 
-
-
 ## Table of contents
 
 1. Requests and APIS
@@ -17,4 +15,10 @@
   - JSON {property: data}
   - HTML >div></div
 - __An asynchronous request__ can be fired off at any time (before or after a page has loaded) and the response to an asynchronous request often includes HTML that can be dynamically inserted into a page.
--
+- AJAX - Asynchronous JavaScript And XML
+- AJAX Response:
+  - XML <entry></entry>
+  - JSON {property: data}
+  - HTML <div></div>
+
+- [jQuery's AJAX Documentation](http://api.jquery.com/jquery.ajax/)
