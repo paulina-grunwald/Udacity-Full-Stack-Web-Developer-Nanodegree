@@ -22,10 +22,9 @@ You can find all the files of my project here [downloaded here](https://github.c
 ## REFERENCES
 - https://www.sitepoint.com/javascript-media-queries/
 - https://www.w3schools.com/howto/howto_js_topnav_responsive.asp
-- [Mastering Bootstrap 4 by Laurence Svekis](https://www.safaribooksonline.com/library/view/mastering-bootstrap-4/9781787124141/)
+- - [Mastering Bootstrap 4 by Laurence Svekis](https://www.safaribooksonline.com/library/view/mastering-bootstrap-4/9781787124141/)
 - https://tympanus.net/codrops/2010/06/02/smooth-vertical-or-horizontal-page-scrolling-with-jquery/
 - https://codepen.io/BuiltBySam/pen/merjWp
-- https://stackoverflow.com/questions/9068587/accounting-for-a-fixed-header-with-animate-scrolltop-and-target-offset-top
 # Image REFERENCES
 - https://designshack.net/images/designs/analytics-icon_1.jpg
 - http://www.sveltia.com/wp-content/uploads/2016/04/background_slider_equipos.jpg
