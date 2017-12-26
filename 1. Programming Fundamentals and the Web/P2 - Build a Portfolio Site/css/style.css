@@ -119,6 +119,17 @@ li {
 	color: black;
 }
 
+.img-fluid{
+  border-radius: 8px;
+}
+.card-block{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.text{
+  text-align: justify;
+}
 
 /*footer styling*/
 .footer {

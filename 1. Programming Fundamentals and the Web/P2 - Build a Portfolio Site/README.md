@@ -11,6 +11,7 @@ This project is a par of Udacity's full-stack [nanodegree program](https://www.u
 
 ## Link to the project
 
+You can find all the files of my project here [downloaded here](https://github.com/paulina-grunwald/Udacity-Full-Stack-Web-Developer-Nanodegree/tree/master/P1%20-%20Movie%20Trailer%20Website).
 
 ## Design and used code
 
