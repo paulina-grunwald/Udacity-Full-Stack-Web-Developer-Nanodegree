@@ -1,3 +1,4 @@
+/*styling for the body section*/
 body,
 html{
     font-family: "Titillium Web", sans-serif;
@@ -18,6 +19,8 @@ h4{
     font-family: 'Domine', bold;
     font-size: 15px;
 }
+
+
 .fa-css3{
   color: white;
 }
@@ -54,6 +57,7 @@ h4{
 li {
     display: inline;
 }
+
 
 #mainNav{
 	position: fixed;
@@ -103,9 +107,25 @@ li {
 }
 /*styling of content sections*/
 
-#about{
-	background-image: url();
-	background-size: cover;
+
+.text{
+  text-align: justify;
+}
+/*padding for the projec card-blocks in the Project section*/
+
+
+.card-block, {
+  padding: 20px;
+}
+
+.card-text{
+  padding-top: 5px;
+  text-align: justify;
+}
+
+/*creates rounded edges on images in the project section*/
+.img-fluid{
+    border-radius: 8px;
 }
 
 /*styling for contact section*/

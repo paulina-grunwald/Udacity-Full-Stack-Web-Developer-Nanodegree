@@ -1,12 +1,17 @@
-$( document ).ready(function() {
-	$(".nav-link").on("click", function(e){
-		e.preventDefault();
-		var hash = this.hash;
-		console.log(hash);
-		$("html, body").animate({
-			scrollTop: $(hash).offset().top},1000,function(){
-			window.location.hash=hash;
+var headerHeight = $("header").height();
 
-		})
-	});
+
+        $(document).ready(function(){
+    $('a[href^="#"]').on('click',function (e) {
+        e.preventDefault();
+
+        var target = this.hash,
+        $target = $(target);
+
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top
+        }, 900, 'swing', function () {
+            window.location.hash = target;
+        });
+    });
 });
