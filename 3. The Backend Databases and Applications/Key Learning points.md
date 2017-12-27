@@ -50,7 +50,7 @@ birthdate <= '1998-12-31';
  birthdate <= '31-12-1998';
 ```
 
-- comparision operators work the same in SQL like in python.
+- comparison operators work the same in SQL like in python.
 
 - create a table:
 
@@ -113,7 +113,7 @@ db.close()
 - if we want to commit change to the database  we need to execute __commit ;__ otherwise the changes will not be executed.
 
 ```python
-# This code attempts to insert a new row into the database, but doesn't
+# This code attempts to insert a new rFow into the database, but doesn't
 # commit the insertion.  Add a commit call in the right place to make
 # it work properly.
 #
@@ -143,7 +143,7 @@ db.close()
 -  SQL injection attacks - https://www.acunetix.com/websitesecurity/sql-injection/
 - Bleach - is an allowed-list-based HTML sanitizing library that escapes or strips markup and attributes. Bleach can also linkify text safely, applying filters that Django’s urlize filter cannot, and optionally setting rel attributes, even on links already in the text. Bleach is intended for sanitizing text from untrusted sources. If you find yourself jumping through hoops to allow your site administrators to do lots of things, you’re probably outside the use cases. Either trust those users, or don’t.
 
-- update is the SQL comand for updating rows.
+- update is the SQL command for updating rows.
 ```sqlite3
 update table
   set column= value
@@ -154,7 +154,7 @@ The restriction works the same as in select and supports the same set of operato
 
 
 ## Deeper Into SQL
- - __normalization__ - it's very important idea in relational databes. in a normalized database the relationships among the tables match the relationship that are really among the data.
+ - __normalization__ - it's very important idea in relational database. in a normalized database the relationships among the tables match the relationship that are really among the data.
 
 - __Rules for normalization__:
   - every column has the same number of rows.
