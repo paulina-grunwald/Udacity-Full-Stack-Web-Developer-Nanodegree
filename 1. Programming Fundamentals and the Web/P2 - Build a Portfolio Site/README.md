@@ -25,9 +25,11 @@ Those are following steps I took before I started to work on writing code for th
 ```html
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 ```
-5. Add text to main and skills and experience section. H
+5. Add text to main and skills and experience section.
+6. Create two rows with 3 images using Boostrap 4 grid. I made this grid responsive. It resizes with changing window size.
+7. Add contact section. I have used E-mail, Facebook, Linkedin, Github icons provided [Font Awesome](http://fontawesome.io/icon/) in the contact section.
 
-
+8. At the end I have added jquery code in script.js file in order to have smooth scroll transition when clicking on the different sections in the navbar.
 
 
 
@@ -42,3 +44,9 @@ Those are following steps I took before I started to work on writing code for th
 - http://www.sveltia.com/wp-content/uploads/2016/04/background_slider_equipos.jpg
 - http://www.aym-institute.com/wp-content/uploads/2013/10/Analytics-350x150.jpg
 - https://www.cloudways.com/blog/wp-content/uploads/GItCloudwaysSublime-THumb.jpg
+- http://fontawesome.io/icon/facebook-square/
+- https://stackoverflow.com/questions/31832227/jquery-smooth-scrolling-anchor-navigation
+- https://www.drupal.org/project/bootstrap_agency/issues/2718871
+- https://v4-alpha.getbootstrap.com/layout/grid/
+- https://udacity.github.io/frontend-nanodegree-styleguide/css.html
+-
