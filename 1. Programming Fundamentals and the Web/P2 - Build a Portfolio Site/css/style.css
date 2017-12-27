@@ -9,6 +9,12 @@ html{
 }
 
 /*font styling for h3 and h4*/
+h1 {
+  font-size: 40px;
+}
+h2{
+  font-style: bold;
+}
 h3{
     font-family: 'Indie Flower', cursive;
     font-size: 15px;
@@ -18,9 +24,8 @@ h4{
     font-family: 'Domine', bold;
     font-size: 15px;
 }
-.fa-css3{
-  color: white;
-}
+
+/*navigation bar styling*/
 .navbar-toggle {
   position: relative;
   float: right;
@@ -34,36 +39,21 @@ h4{
   border-radius: 4px;
 }
 
-/*styling of header top*/
-.htop{
-	position: relative;
-	text-align: center;
-	margin-top:45px;
-	width: 100%;
-	min-height: auto;
-	min-height: auto;
-	background-image: url("../img/bg_2.jpg");
-	background-size: cover;
-	font-size: 1em;
-	padding:3em;
-
-}
-
-/*navbar styling*/
-/*this make the text of the navbar layed out horizontally*/
+/*this make the text of the navbar layout out horizontally*/
 li {
     display: inline;
 }
 
+
 #mainNav{
-	position: fixed;
-  	top: 0;
- 	z-index: 9999;
- 	width: 100%;
-    -webkit-transition: height .5s, line-height .5s; /* Safari */
-    transition: height .5s, line-height .5s;
-	color: black;
-	
+  position: fixed;
+    top: 0;
+  z-index: 9999;
+  width: 100%;
+  -webkit-transition: height .5s, line-height .5s; /* Safari */
+  transition: height .5s, line-height .5s;
+  color: black;
+  
 }
 
 #minimenu {
@@ -91,22 +81,32 @@ li {
 
 
 #minimenu  a:hover {
-    background-color: #70e575
-;
+    background-color: #70e575;
     color: black;
  }
 
 
 
+/*styling of header top*/
+.htop{
+	position: relative;
+	text-align: center;
+	margin-top:45px;
+	width: 100%;
+	min-height: auto;
+	min-height: auto;
+	background-image: url("../img/bg_2.jpg"); /*add image for main banner*/
+	background-size: cover;
+	font-size: 1em;
+	padding:3em;
+
+}
+
+/*styling of content sections*/
 .section{
 	mix-blend-mode: 100vh;
 }
-/*styling of content sections*/
 
-#about{
-	background-image: url();
-	background-size: cover;
-}
 
 /*styling for contact section*/
 .contact{
@@ -119,14 +119,17 @@ li {
 	color: black;
 }
 
+/*styles the images in the project section - rounded edges*/
 .img-fluid{
   border-radius: 8px;
 }
+/*add additional padding for project card-blocks in project section*/
 .card-block{
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
+/*justify all text on the page*/
 .text{
   text-align: justify;
 }
@@ -140,11 +143,12 @@ li {
 }
 
 
-
 /* Add an active class to highlight the current page */
 .active {
     background-color: #4CAF50;
 }
+
+
 
 /* Media query */
 
