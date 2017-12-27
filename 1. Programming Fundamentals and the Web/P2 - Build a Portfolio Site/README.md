@@ -20,11 +20,10 @@ Below you can find steps I took to create my portfolio website:
 3. Create index.html, style.css  and script.js files.
 4. Create high level a skeleton of the website including navbar, various sections (main, my skills and experience , projects and contact).
 5. Create responsive and collapsible navigation bar. Here I have used Boostrap 4 class navbar-collapse. I split items on my navbar using nav-item class. After that I have added styling in style.css file (that included color of the navbar when static and while hovering and clicking on it).
-6. Add header section (htop class). Here I have added text and styled it using h1 and h3 headers. For h3 I have used google font Indie Flower which I have imported in the head using:
+6. Add header section (htop class). Here I have added text and styled it using h1 and h3 headers. For h3 I have used google font Indie Flower which I have imported in the head using following code(For h4 I have used Domine Google font):
 ```html
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 ```
-For h4 I have used Domine Google font.
 5. Add text to main and skills and experience section.
 6. Create two rows with 3 images and text sections using Boostrap 4 grid. I made this grid responsive. It resizes with changing window size.
 7. Add contact section. I have used E-mail, Facebook, Linkedin, Github icons provided [Font Awesome](http://fontawesome.io/icon/) in the contact section.
