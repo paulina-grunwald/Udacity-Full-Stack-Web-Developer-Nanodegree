@@ -1,4 +1,5 @@
 # Build a Portfolio Site
+> by Paulina Grunwald
 
 This project is a part of Udacity's full-stack [nanodegree program](https://www.udacity.com/nanodegree). For this project, I have built a personal portfolio website. I was provided a design mockup as a PDF-file, and had to replicate the design in HTML and CSS. Developing the portfolio website included display of images, adding description and links to completed project through the course  of my Nanodegree programe. I have roughly followed design mockup provided by Udacity but added many additional functionalities especially using Boostrap 4 and jquery.  
 
