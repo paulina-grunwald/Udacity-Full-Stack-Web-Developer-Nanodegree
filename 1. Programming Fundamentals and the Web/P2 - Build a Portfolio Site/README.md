@@ -47,3 +47,5 @@ Below you can find steps I took to create my portfolio website:
 - https://www.drupal.org/project/bootstrap_agency/issues/2718871
 - https://v4-alpha.getbootstrap.com/layout/grid/
 - https://udacity.github.io/frontend-nanodegree-styleguide/css.html
+- https://www.sitepoint.com/how-to-build-responsive-images-with-srcset/
+- http://www.websiteoptimization.com/speed/tweak/hex/
