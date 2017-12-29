@@ -4,7 +4,7 @@ html{
     background-color: white;
     color: black;
     height: 100%;
-    width:100%;
+    width: 100%;
 
 }
 
@@ -12,16 +12,18 @@ html{
 h1 {
   font-size: 40px;
 }
+
 h2{
   font-style: bold;
 }
+
 h3{
-    font-family: 'Indie Flower', cursive;
+    font-family: "Indie Flower", cursive;
     font-size: 15px;
 }
 
 h4{
-    font-family: 'Domine', bold;
+    font-family: "Domine", bold;
     font-size: 15px;
 }
 
@@ -95,7 +97,7 @@ li {
 	width: 100%;
 	min-height: auto;
 	min-height: auto;
-	background-image: url("../img/bg_2.jpg"); /*add image for main banner*/
+	background-image: url(../img/bg_2.jpg); /*add image for main banner*/
 	background-size: cover;
 	font-size: 1em;
 	padding:3em;
@@ -123,6 +125,7 @@ li {
 .img-fluid{
   border-radius: 8px;
 }
+
 /*add additional padding for project card-blocks in project section*/
 .card-block{
   padding-top: 5px;
@@ -139,13 +142,13 @@ li {
 	display: block;
 	text-align: center;
 	vertical-align: middle;
-	line-height: 10px;
+	line-height: 10px; 
 }
 
 
 /* Add an active class to highlight the current page */
 .active {
-    background-color: #4CAF50;
+    background-color: #4caf50;
 }
 
 
