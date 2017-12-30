@@ -44,10 +44,43 @@ My task was to write a programme that will run from the command line. It won't t
 ## Questions for this assigment
 
 To get familiar with the database I run few quick commands:
-- \dt+ — the datbase has three columns: articles, authors and log. The biggest in size is log (129MB).
+- __\dt+__ — the database has three columns: articles, authors and log. The biggest in size is log (129MB).
+__Articles__ table has following columns:
+  - author (integer),
+  - title (text)
+  - slug (text)
+  - lead (text)
+  - body (text)
+  - time (timestamp with time zone)
+  - id (integer)
+
+__Author__ table has following columns:
+  - name (text)
+  - bio (text)
+  - id (integer)
+
+__Log__ table has following columns:
+- path (text)
+- ip (inet)
+- method (text)
+- status (text)
+- timestamp (timestamp)
+- id (integer)
+
+- __select * from authors;__ - There are 4 authors present in the database:
+  - Ursula La Multa,
+  - Rudolf van Treppenwitz,
+  - Anonymous Contributor,
+  - Markoff Chaney.
+
 
 1. What are the most popular three articles of all time? Which articles have been accessed the most? Present this information as a sorted list with the most popular article at the top.
 
 2. Who are the most popular article authors of all time? That is, when you sum up all of the articles each author has written, which authors get the most page views? Present this as a sorted list with the most popular author at the top.
 
 3. On which days did more than 1% of requests lead to errors? The log table includes a column status that indicates the HTTP status code that the news site sent to the user's browser. (Refer to this lesson for more information about the idea of HTTP status codes.)
+
+
+## REFERENCES
+
+- https://pypi.python.org/pypi/psycopg2
