@@ -11,7 +11,7 @@ This project is a part of Udacity's full-stack [nanodegree program](https://www.
 
 ## Link to the project
 
-You can find all the files of my project here [downloaded here](https://github.com/paulina-grunwald/Udacity-Full-Stack-Web-Developer-Nanodegree/tree/master/P1%20-%20Movie%20Trailer%20Website).
+You can find all the files of my project here [downloaded here](https://github.com/paulina-grunwald/Udacity-Full-Stack-Web-Developer-Nanodegree/tree/master/P1%20-%20Movie%20Trailer%20Website). Here you can view [my portfolio website](http://htmlpreview.github.io/?https://github.com/paulina-grunwald/Udacity-Full-Stack-Web-Developer-Nanodegree/blob/master/1.%20Programming%20Fundamentals%20and%20the%20Web/P2%20-%20Build%20a%20Portfolio%20Site/index.html)
 
 ## Design and used code
 
