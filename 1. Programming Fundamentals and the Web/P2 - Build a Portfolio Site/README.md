@@ -49,3 +49,5 @@ Below you can find steps I took to create my portfolio website:
 - https://udacity.github.io/frontend-nanodegree-styleguide/css.html
 - https://www.sitepoint.com/how-to-build-responsive-images-with-srcset/
 - http://www.websiteoptimization.com/speed/tweak/hex/
+- https://stackoverflow.com/questions/21203111/bootstrap-3-collapsed-menu-doesnt-close-on-click
+-  https://github.com/twbs/bootstrap/issues/9013#issuecomment-39698247
