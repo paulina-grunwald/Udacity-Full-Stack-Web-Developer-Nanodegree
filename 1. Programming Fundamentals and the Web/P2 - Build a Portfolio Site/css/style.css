@@ -81,12 +81,10 @@ li {
 
 }
 
-
 #minimenu  a:hover {
     background-color: #70e575;
     color: black;
  }
-
 
 
 /*styling of header top*/
@@ -150,7 +148,6 @@ li {
 .active {
     background-color: #4caf50;
 }
-
 
 
 /* Media query */
