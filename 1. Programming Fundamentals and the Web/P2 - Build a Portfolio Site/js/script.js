@@ -25,3 +25,11 @@ $(document).ready(function(){
     });
 });
 
+
+/*this script allows navbar to collapse when clicking on it 
+(this will be applied to small devices)*/
+ $(document).on('click.nav','.navbar-collapse.in',function(e) {
+    if( $(e.target).is('a') ) {
+        $(this).removeClass('in').addClass('collapse');
+    }
+});
