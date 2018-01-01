@@ -1,7 +1,7 @@
 # Build a Portfolio Site
 > by Paulina Grunwald
 
-This project is a part of [Udacity's Full Stack Nanodegree] program](https://www.udacity.com/nanodegree). For this project, I have built a personal portfolio website. I was provided a design mockup as a PDF-file, and had to replicate the design in HTML and CSS. Developing the portfolio website included display of images, adding description and links to completed project through the course  of my Nanodegree programe. I have roughly followed design mockup provided by Udacity but added many additional functionalities especially using Boostrap 4, jquery and javascript.  
+This project is a part of [Udacity's Full Stack Nanodegree program](https://www.udacity.com/nanodegree). For this project, I have built a personal portfolio website. I was provided a design mockup as a PDF-file. My task was to replicate the design using HTML and CSS. Developing the portfolio website included display of images, adding description and links to completed project through the course of my Nanodegree programe. I have roughly followed mockup design provided by Udacity. I have added many additional functionalities using Boostrap 4, jquery and javascript.  
 
 ## Table of contents
 
@@ -11,17 +11,17 @@ This project is a part of [Udacity's Full Stack Nanodegree] program](https://www
 
 ## Link to the project
 
-You can find all the files of my project here [downloaded here](https://github.com/paulina-grunwald/Udacity-Full-Stack-Web-Developer-Nanodegree/tree/master/P1%20-%20Movie%20Trailer%20Website). Here you can view [my portfolio website](http://htmlpreview.github.io/?https://github.com/paulina-grunwald/Udacity-Full-Stack-Web-Developer-Nanodegree/blob/master/1.%20Programming%20Fundamentals%20and%20the%20Web/P2%20-%20Build%20a%20Portfolio%20Site/index.html)
+All my project files can be  [downloaded here](https://github.com/paulina-grunwald/Udacity-Full-Stack-Web-Developer-Nanodegree/tree/master/P1%20-%20Movie%20Trailer%20Website). [Here](http://htmlpreview.github.io/?https://github.com/paulina-grunwald/Udacity-Full-Stack-Web-Developer-Nanodegree/blob/master/1.%20Programming%20Fundamentals%20and%20the%20Web/P2%20-%20Build%20a%20Portfolio%20Site/index.html) you can view my portfolio website.
 
 ## Design and used code
 
 Below you can find steps I took to create my portfolio website:
 
 1. Review Udacity design mockup and decide which additional sections should be added to my portfolio website design.
-2. Design high level portfolio on a piece of paper. I have separated the portfolio website in number of sections taking into the consideration that I will use Boostrap 4 grid system. This part was very important as I have discovered it's much easier to start writing code with concert high level design in mind.
+2. Design high level portfolio on a piece of paper. I have separated the portfolio website in number of sections taking into the consideration that I will use Boostrap 4 grid system. This part was very important as I have discovered it is much easier to start writing code with high level design in mind.
 3. Create index.html, style.css  and script.js files.
 4. Create high level a skeleton of the website including navbar, various sections (main, my skills and experience , projects and contact).
-5. Create responsive and collapsible navigation bar. Here I have used Boostrap 4 class navbar-collapse. I split items on my navbar using nav-item class. After that I have added styling in style.css file (that included color of the navbar when static and while hovering and clicking on it).
+5. Create responsive and collapsible navigation bar. Here I have used Boostrap 4 (class navbar-collapse). I split items on my navbar using nav-item class. After that I have added styling in style.css file (that included color of the navbar when static and while hovering and clicking on it).
 6. Add header section (htop class). Here I have added text and styled it using h1 and h3 headers. For h3 I have used google font Indie Flower which I have imported in the head using following code(For h4 I have used Domine Google font):
 ```html
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
@@ -41,7 +41,7 @@ Below you can find steps I took to create my portfolio website:
 - https://designshack.net/images/designs/analytics-icon_1.jpg
 - http://www.sveltia.com/wp-content/uploads/2016/04/background_slider_equipos.jpg
 - http://www.aym-institute.com/wp-content/uploads/2013/10/Analytics-350x150.jpg
--https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwihnaLJ1qrYAhWGvhQKHX-8A8gQjBwIBA&url=https%3A%2F%2Fdzone.com%2Fstorage%2Ftemp%2F3110735-4-an-effective-leader.jpg&psig=AOvVaw3otyC1fgsDuuwj8Rl5J9Jz&ust=1514480725953829
+- https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwihnaLJ1qrYAhWGvhQKHX-8A8gQjBwIBA&url=https%3A%2F%2Fdzone.com%2Fstorage%2Ftemp%2F3110735-4-an-effective-leader.jpg&psig=AOvVaw3otyC1fgsDuuwj8Rl5J9Jz&ust=1514480725953829
 - https://www.cloudways.com/blog/wp-content/uploads/GItCloudwaysSublime-THumb.jpg
 - http://fontawesome.io/icon/facebook-square/
  https://stackoverflow.com/questions/31832227/jquery-smooth-scrolling-anchor-navigation
@@ -51,4 +51,4 @@ Below you can find steps I took to create my portfolio website:
 - https://www.sitepoint.com/how-to-build-responsive-images-with-srcset/
 - http://www.websiteoptimization.com/speed/tweak/hex/
 - https://stackoverflow.com/questions/21203111/bootstrap-3-collapsed-menu-doesnt-close-on-click
--  https://github.com/twbs/bootstrap/issues/9013#issuecomment-39698247
+- https://github.com/twbs/bootstrap/issues/9013#issuecomment-39698247
