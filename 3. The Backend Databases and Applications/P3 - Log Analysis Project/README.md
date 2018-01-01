@@ -1,7 +1,7 @@
 # Log Analysis Project
 > by Paulina Grunwald
 
-This project is a part of Udacity's full-stack [nanodegree program](https://www.udacity.com/nanodegree). In this project, I had to use my SQL database skills. I practiced interacting with a live database both from the command line and from your code. I have explored a large database with over a million rows. I have also  built and refined complex queries and use them to draw business conclusions from data.
+This project is a part of [Udacity's Full Stack Nanodegree program](https://www.udacity.com/nanodegree). In this project, I had to use my SQL database knowledge in order to extract various data from the database. I practiced interacting with a live database both from the command line and from your code. I have explored a large database with over a million rows. I have also  built and refined complex queries and use them to draw business conclusions from data.
 
 In this project, I have used  PostgreSQL database. My task was to create a reporting tool that prints out reports (in plain text) based on the data in the database. This reporting tool is a Python program using the psycopg2 module to connect to the database.
 
@@ -25,13 +25,13 @@ Steps:
 - Clone this repository
 - Launch Vagrant VM by running __vagrant up__, you can the log in with __vagrant ssh__
 - When having problems with starting up your vagrant you can try following command instead vagrant ssh: __VAGRANT_PREFER_SYSTEM_BIN=1 vagrant ssh__
-- To load the data, use the command __psql -d news -f newsdata__ to connect a database and run the necessary SQL statements.
+- To load the data go to the folder where the database is stored, use the command __psql -d news -f newsdata.sql__ to connect a database and run the necessary SQL statements.
 
 The database includes three tables:
 
-- The authors table includes information about the authors of articles.
-- The articles table includes the articles themselves.
-- The log table includes one entry for each time a user has accessed the site
+- The __authors table__ includes information about the authors of articles.
+- The __articles table__ includes the articles themselves.
+- The __log table__ includes one entry for each time a user has accessed the site
 
 To execute the program, run python3 newsdata.py from the command line.
 
