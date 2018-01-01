@@ -6,14 +6,14 @@ This project is a part of Udacity's full-stack [nanodegree program](https://www.
 In this project, I have used  PostgreSQL database. My task was to create a reporting tool that prints out reports (in plain text) based on the data in the database. This reporting tool is a Python program using the psycopg2 module to connect to the database.
 
 
-## Table of contents
+# Table of contents
 
 - [How to run my project](#how-to-run-my-project)
 - [Data used in the project](#data-used in the project)
 - [References](#references)
 
 
-## How to run my project
+# How to run my project
 In order to be able to run all the files included in this project you need to have installed on your machine following  applications:
 - Python 3.6.x
 - PostgreSQL 9.6.x
@@ -35,13 +35,13 @@ The database includes three tables:
 
 To execute the program, run python3 newsdata.py from the command line.
 
-## Data used in the project
+# Data used in the project
 The database contains newspaper articles, as well as the web server log for the site. The log has a database row for each time a reader loaded a web page. Using that information, your code will answer questions about the site's user activity.
 
-My task was to write a programme that will run from the command line. It won't take any input from the user. Instead, it will connect to that database, use SQL queries to analyze the log data, and print out the answers to some questions.
+My task was to write a program that will run from the command line. It won't take any input from the user. Instead, it will connect to that database, use SQL queries to analyze the log data, and print out the answers to some questions.
 
 
-## Questions for this assigment
+# Questions for this assignment
 
 To get familiar with the database I run few quick commands:
 - __\dt+__ — the database has three columns: articles, authors and log. The biggest in size is log (129MB).
@@ -81,6 +81,6 @@ __Log__ table has following columns:
 3. On which days did more than 1% of requests lead to errors? The log table includes a column status that indicates the HTTP status code that the news site sent to the user's browser. (Refer to this lesson for more information about the idea of HTTP status codes.)
 
 
-## REFERENCES
+# REFERENCES
 
 - https://pypi.python.org/pypi/psycopg2
