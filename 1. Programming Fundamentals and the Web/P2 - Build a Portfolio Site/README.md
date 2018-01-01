@@ -1,7 +1,7 @@
 # Build a Portfolio Site
 > by Paulina Grunwald
 
-This project is a part of Udacity's full-stack [nanodegree program](https://www.udacity.com/nanodegree). For this project, I have built a personal portfolio website. I was provided a design mockup as a PDF-file, and had to replicate the design in HTML and CSS. Developing the portfolio website included display of images, adding description and links to completed project through the course  of my Nanodegree programe. I have roughly followed design mockup provided by Udacity but added many additional functionalities especially using Boostrap 4 and jquery.  
+This project is a part of [Udacity's Full Stack Nanodegree] program](https://www.udacity.com/nanodegree). For this project, I have built a personal portfolio website. I was provided a design mockup as a PDF-file, and had to replicate the design in HTML and CSS. Developing the portfolio website included display of images, adding description and links to completed project through the course  of my Nanodegree programe. I have roughly followed design mockup provided by Udacity but added many additional functionalities especially using Boostrap 4, jquery and javascript.  
 
 ## Table of contents
 
@@ -16,7 +16,8 @@ You can find all the files of my project here [downloaded here](https://github.c
 ## Design and used code
 
 Below you can find steps I took to create my portfolio website:
-1. Review Udacity  design mockup and decide which additional section can I add to my design.
+
+1. Review Udacity design mockup and decide which additional sections should be added to my portfolio website design.
 2. Design high level portfolio on a piece of paper. I have separated the portfolio website in number of sections taking into the consideration that I will use Boostrap 4 grid system. This part was very important as I have discovered it's much easier to start writing code with concert high level design in mind.
 3. Create index.html, style.css  and script.js files.
 4. Create high level a skeleton of the website including navbar, various sections (main, my skills and experience , projects and contact).
