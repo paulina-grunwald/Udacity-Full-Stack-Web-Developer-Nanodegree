@@ -15,16 +15,16 @@ h1 {
   font-size: 40px;
 }
 
-h2{
+h2 {
   font-style: bold;
 }
 
-h3{
+h3 {
     font-family: "Indie Flower", cursive;
     font-size: 15px;
 }
 
-h4{
+h4 {
     font-family: "Domine", bold;
     font-size: 15px;
 }
@@ -49,7 +49,7 @@ li {
 }
 
 
-#main-nav{
+#main-nav {
   position: fixed;
     top: 0;
   z-index: 9999;
@@ -105,13 +105,13 @@ li {
 }
 
 /*styling of content sections*/
-.section{
+.section {
 	mix-blend-mode: 100vh;
 }
 
 
 /*styling for contact section*/
-.contact{
+.contact {
 		padding: 10px;
 }
 
@@ -122,12 +122,12 @@ li {
 }
 
 /*styles the images in the project section - rounded edges*/
-.img-fluid{
+.img-responsive {
   border-radius: 8px;
 }
 
 /*add additional padding for project card-blocks in project section*/
-.card-block{
+.card-block {
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -154,8 +154,8 @@ li {
 
 /* Media query */
 
-@media(min-width: 768px){
-  .htop{
+@media(min-width: 768px) {
+  .htop {
     min-height: 100%;
   }
 }
