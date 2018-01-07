@@ -76,7 +76,7 @@ This command creates two files:
 SSH version 2 supports DSA, ECDSA, ED25519 and RSA key types. You can find this information by running man ssh-keygen and reading the documentation for the -t flag.
 
 
-Installing a public key on the server:
+#### Installing a public key on the server:
 1. Login as a student
   - mkdir .ssh
   - touch .ssh/authorized_keys
@@ -90,8 +90,72 @@ Installing a public key on the server:
 8. restart the service so the new configuration option is used: sudo service ssh restart
 
 
-Introduction to File Permissions
+#### Introduction to File Permissions
+chmod
+ls -al
 
+Permissions are described as r,w, x.
+It's also possible to use values for changing of the permission (__octal form__):
+r = 4
+w = 2
+x = 1
+no permissions = 0
+
+
+
+rw- (read and write) : owner
+r-- (read): group
+r-- (read): everyone
+x - execute
+
+sudo ls -al /var/log
+
+
+#### chgrp (change group) and chown (change owner)
+sudo chown root .bash_history
+cat .bash_history =>
+
+
+#### Intro to Ports
+Each of your applications are configured to respond to request destined to specific port.
+
+__sudo ufw status__ - check status of the preinstalled firewall
+
+Add rules to firewall:
+- __sudo ufw default deny incoming__ - deny incoming
+- __sudo ufw default allow outgoing__ - allow outgoing
+Configure ports in UFW:
+- __sudo ufw allow 2222/tcp__ - configure port for ssh
+- __sudo ufw allow www__ - configure http
+
+- __sudo ufw enable__ - enable firewall
+
+
+```
+sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+2222/tcp                   ALLOW       Anywhere
+80/tcp                     ALLOW       Anywhere
+2222/tcp (v6)              ALLOW       Anywhere (v6)
+80/tcp (v6)                ALLOW       Anywhere (v6)
+```
+
+
+## Web Applications Server
+Now that you have a shiny new server that is safe and secure, it’s time to turn it into a web application server! By the end of this lesson you will accomplish the following:
+
+1. Use the Apache HTTP Server to respond to HTTP requests and serve a static webpage
+2. Configure Apache to hand-off specific requests to Python providing the ability to develop dynamic websites
+3. Setup PostgreSQL and write a simple Python application that generates a data-driven website
 
 # References
 - https://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/
+- https://wiki.archlinux.org/index.php/users_and_groups
+- https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-14-04
+- https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-ubuntu-14-04
+- https://www.digitalocean.com/community/tutorials/how-to-run-your-own-mail-server-and-file-storage-with-peps-on-ubuntu-14-04
+- https://www.digitalocean.com/community/tutorials/how-to-run-your-own-mail-server-with-mail-in-a-box-on-ubuntu-14-04
+- https://www.digitalocean.com/community/tutorials/how-to-install-the-lita-chat-bot-for-irc-on-ubuntu-14-04
