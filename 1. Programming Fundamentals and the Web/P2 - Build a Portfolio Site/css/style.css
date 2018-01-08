@@ -3,14 +3,14 @@ html {
     font-family: "Mukta Malar", sans-serif;
     font-family: "Titillium Web", sans-serif;
 
-    background-color: white;
+    background: white;
     color: black;
     height: 100%;
     width: 100%;
 
 }
 
-/*font styling for h3 and h4*/
+/*font styling for h1, h3, h2, h3 and h4*/
 h1 {
   font-size: 40px;
 }
@@ -37,7 +37,7 @@ h4 {
   margin-top: 8px;
   margin-right: 15px;
   margin-bottom: 8px;
-  background-color: transparent;
+  background: transparent;
   background-image: none;
   border: 1px solid #333333;
   border-radius: 4px;
@@ -54,15 +54,15 @@ li {
     top: 0;
   z-index: 9999;
   width: 100%;
-  -webkit-transition: height .5s, line-height .5s; /* Safari */
-  transition: height .5s, line-height .5s;
+  -webkit-transition: height 0.5s, line-height 0.5s; /* Safari */
+  transition: height 0.5s, line-height 0.5s;
   color: black;
   
 }
 
 #minimenu {
 
-    background-color: black;
+    background: black;
     overflow: hidden;
     height: auto;
     width: 100%; /* Full width */
@@ -75,7 +75,7 @@ li {
 }
 
 #minimenu a {
-  color: #f2f2f2;
+  color: #fff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -84,7 +84,6 @@ li {
 }
 
 #minimenu  a:hover {
-    background-color: #70e575;
     color: black;
  }
 
@@ -148,7 +147,7 @@ li {
 
 /* Add an active class to highlight the current page */
 .active {
-    background-color: #4caf50;
+    background: #4caf50;
 }
 
 
