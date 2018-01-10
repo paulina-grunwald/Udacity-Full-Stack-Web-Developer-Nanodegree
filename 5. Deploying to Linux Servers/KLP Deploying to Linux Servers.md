@@ -147,9 +147,13 @@ To                         Action      From
 ## Web Applications Server
 Now that you have a shiny new server that is safe and secure, it’s time to turn it into a web application server! By the end of this lesson you will accomplish the following:
 
-1. Use the Apache HTTP Server to respond to HTTP requests and serve a static webpage
-2. Configure Apache to hand-off specific requests to Python providing the ability to develop dynamic websites
-3. Setup PostgreSQL and write a simple Python application that generates a data-driven website
+1. <em>Install Apache</em>
+
+  Install Apache using your package manager with the following command: __sudo apt-get install apache2__ Confirm Apache is working by visiting http://localhost:8080 in your browser.Apache, by default, serves its files from the /var/www/html directory. If you explore this directory you will find a file called index.html and if you review that file you will see it contains the HTML of the page you see when you visit http://localhost:8080.
+
+2. Use the Apache HTTP Server to respond to HTTP requests and serve a static webpage
+3. Configure Apache to hand-off specific requests to Python providing the ability to develop dynamic websites
+4. Setup PostgreSQL and write a simple Python application that generates a data-driven website
 
 # References
 - https://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/
