@@ -1,6 +1,6 @@
-# Key Learning points for Developer's Tools
+# Key learning points from The Backend: Databases & Applications Course
 
-
+This course is a part of [Udacity's Full Stack Nanodegree program](https://www.udacity.com/nanodegree).
 
 ## Table of contents
 
