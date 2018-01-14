@@ -9,17 +9,18 @@ This course is a part of [Udacity's Full Stack Nanodegree program](https://www.u
 3. Python DB-API
 4. Deeper Into SQL
 
-## Data and Tables
+## 1. Data and Tables
 - Databases make possible for multiple users and software to access the data without any problems.
 - Databases:
   - key-value storage
   - navigational DB
   - relational databases.
-
 - __Relational Databases__ - offer flexible tools for querying data with aggregation and join operations. Include rules for protecting consistency of our data. Data in relational database is stored in tables.
 - Key in the databases must be unique.
 
-## Elements of SQL
+***
+
+## 2. Elements of SQL
 - SQL has many types of string types e.g char(n), varchar(n), text, ncharm  etc.
 - dates have to be put in quotes.
 - Here more data types can be found: https://www.postgresql.org/docs/9.4/static/datatype.html
@@ -40,7 +41,7 @@ This course is a part of [Udacity's Full Stack Nanodegree program](https://www.u
   - timestamp — a date and time together.
 - Example of __select...where__ statement:
 
-```
+```sql
 select name, birthdate from animals where species != 'gorilla' and name != 'Max';
 
 select name from animals
@@ -55,7 +56,7 @@ birthdate <= '1998-12-31';
 - create a table:
 
 
-```python
+```sql
   create table animals (  
        name text,
        species text,
@@ -71,9 +72,9 @@ birthdate <= '1998-12-31';
 - __where__ is a restriction on the source tables.
 - __having__ is a restriction on the result ...after aggregation
 
+***
 
-
-## Python DB-API
+## 3. Python DB-API
 
 - This API has been defined to encourage similarity between the Python modules that are used to access databases. By doing this, we hope to achieve a consistency leading to more easily understood modules, code that is generally more portable across databases, and a broader reach of database connectivity from Python.
 - It's important to always close
@@ -88,7 +89,7 @@ birthdate <= '1998-12-31';
 # Then modify this code so that the student records are fetched in sorted order
 # by student's name.
 #
-
+```python3
 import sqlite3
 
 # Fetch some student records from the database.
@@ -108,8 +109,9 @@ for row in rows:
   print "  ", row[0]
 
 db.close()
-
 ```
+
+
 - if we want to commit change to the database  we need to execute __commit ;__ otherwise the changes will not be executed.
 
 ```python
@@ -144,7 +146,7 @@ db.close()
 - Bleach - is an allowed-list-based HTML sanitizing library that escapes or strips markup and attributes. Bleach can also linkify text safely, applying filters that Django’s urlize filter cannot, and optionally setting rel attributes, even on links already in the text. Bleach is intended for sanitizing text from untrusted sources. If you find yourself jumping through hoops to allow your site administrators to do lots of things, you’re probably outside the use cases. Either trust those users, or don’t.
 
 - update is the SQL command for updating rows.
-```sqlite3
+```sql
 update table
   set column= value
   where restriction;
@@ -153,29 +155,55 @@ update table
 The restriction works the same as in select and supports the same set of operators on column values. The like operator supports a simple form of text pattern-matching
 
 
-## Deeper Into SQL
- - __normalization__ - it's very important idea in relational database. in a normalized database the relationships among the tables match the relationship that are really among the data.
+***
+
+## 4. Deeper Into SQL
+
+ - __Normalization__ - it's very important idea in relational database. In a normalized database the relationships among the tables match the relationship that are really among the data.
 
 - __Rules for normalization__:
-  - every column has the same number of rows.
+  - Every column has the same number of rows.
   - Some of more columns are key. The key provides the main type.
   - Non-key columns describe the key columns.
   - Tales should not imply relationships that don't exist.
 
-- create table and types
-```sqlite3
+- To add new empty table to your data base we can use <em>create table</em> command:
+
+  ```sql
 create table tablename (
   column1 type [constrains],
   column2 type [constrains],
-    .
-    .
-    .
-  )
-```
+  .
+  .
+  .
+  );
+  ```
+
+- to drop the database we use drop command:
+  ```sql
+ drop database name[options];
+ ```
+
+ - to drop a table we use command:
+  ```sql
+ drop table name[options];
+ ```
+
+- timestampz (PostgreSQL) = timestamp with time zone (SQL standard type name)
+
+#### <em>Exercise</em>:
+Create database fishes and create tables.
+- connect to psql
+- create database fishies
+- connect to the database :\c fishies (*you can't drop database to which you are connected*)
+- create table: CREATE TABLE text ();
+- Insert column into to text table: ALTER TABLE text ADD COLUMN col_1 VARCHAR;
+- Insert data into col_1: INSERT into text (col_1) VALUES ('hello');
+
 
 - __References (declaring relationships)__ provide referential integrity - columns that are supposed to refer to each other are guaranteed to do so.
 
-- __Foregin key__ is a column or set of columns in one table that uniquely identifies rows in another table.
+- __Foreign key__ is a column or set of columns in one table that uniquely identifies rows in another table.
 - __Self Joins__
 - __Subqueries__
   - [Scalar Subqueries](https://www.postgresql.org/docs/9.4/static/sql-expressions.html#SQL-SYNTAX-SCALAR-SUBQUERIES)
