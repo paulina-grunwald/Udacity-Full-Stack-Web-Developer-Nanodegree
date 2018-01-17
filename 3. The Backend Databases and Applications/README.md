@@ -196,21 +196,69 @@ Create database fishes and create tables.
 - connect to psql
 - create database fishies
 - connect to the database :\c fishies (*you can't drop database to which you are connected*)
-- create table: CREATE TABLE text ();
-- Insert column into to text table: ALTER TABLE text ADD COLUMN col_1 VARCHAR;
-- Insert data into col_1: INSERT into text (col_1) VALUES ('hello');
+- create table: __CREATE TABLE text ();__
+- Insert column into to text table: __ALTER TABLE text ADD COLUMN col_1 VARCHAR;__
+- Insert data into col_1: __INSERT into text (col_1) VALUES ('hello');__
 
+- __Primary key__ - a column or columns that are uniquely identify what each row in a table is about.
+
+```SQL
+create table students(
+  id serial primary key,
+  name text,
+  birthdate date
+);
+```
 
 - __References (declaring relationships)__ provide referential integrity - columns that are supposed to refer to each other are guaranteed to do so.
 
 - __Foreign key__ is a column or set of columns in one table that uniquely identifies rows in another table.
+
 - __Self Joins__
-- __Subqueries__
+
+- __Subqueries__ - selecting result of a query as result of a query is always a table.
+-> select -> Result table -> select ->
+
+Highest score per team:
+
+|  Player        | Team           |  Score
+| :------------- | :------------- |:-------------
+| player name    |team name       | number
+
+Highest score per team:
+```SQL
+select max(score)
+  as bigscore
+from table_name
+group by team;
+```
+
+Average high-scorer's score:
+
+```SQL
+select avg(bigscore) from
+(select max(score)
+  as bigscore)
+  from table_name
+  group by team)
+as maxes;  /*subquery result table name*/
+```
+
+
+```SQL
+select name, weight
+  from players,
+    (select avg(weight) as av  /* SUBQUERY */
+      from players) as subq   /* SUBQUERY */
+where weight < av;
+```
+
   - [Scalar Subqueries](https://www.postgresql.org/docs/9.4/static/sql-expressions.html#SQL-SYNTAX-SCALAR-SUBQUERIES)
   - [Subquery Expressions](https://www.postgresql.org/docs/9.4/static/functions-subquery.html)
   - [FROM Clause](https://www.postgresql.org/docs/9.4/static/sql-select.html#SQL-FROM)
 
 
+- __Views__ is a select query stored in the database in a way that lets you use it like a table.
 
 
 ## REFERENCES
