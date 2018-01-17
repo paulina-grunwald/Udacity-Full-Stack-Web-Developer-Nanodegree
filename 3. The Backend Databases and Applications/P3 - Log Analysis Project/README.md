@@ -121,14 +121,35 @@ on articles.author = authors.id;
 
 Let's try to pint nam
 
+Let's have a look closer at the log table.
+```SQl
+SELECT * from log Limit 10;
+```
 
+As mentioned before log table contains following columns:  path, ip, method, status, timestamp and id.
+- Path is a path to the article and includes article's namee.g /article/candidate-is-jerk.
+- Ip signifies IP from which the article was accesses. We would use ip if we would like to find e.g how man unique people viewed certain article.  
+- Status indicates the action requested by the client was received, understood and accepted. We will be only filtering status __200 OK__ which is standard response for successful HTTP requests.
+- Time column shows at what in which day and at what time the article was viewed e.g 2016-07-01 07:00:00+00
+- Id is linked to the specific author
+
+
+```SQL
+select count(*) from log;
+/*1677735*/
+```
 
 # Questions for this assignment
 1. What are the most popular three articles of all time? Which articles have been accessed the most? Present this information as a sorted list with the most popular article at the top.
 
+
+
 To answer this question we need to use following columsn from following tables
 
 2. Who are the most popular article authors of all time? That is, when you sum up all of the articles each author has written, which authors get the most page views? Present this as a sorted list with the most popular author at the top.
+
+
+path
 
 3. On which days did more than 1% of requests lead to errors? The log table includes a column status that indicates the HTTP status code that the news site sent to the user's browser. (Refer to this lesson for more information about the idea of HTTP status codes.)
 
@@ -149,3 +170,4 @@ I took following steps to solve this issue:
 - https://pypi.python.org/pypi/psycopg2
 - https://app.pluralsight.com/library/courses/introduction-to-sql/table-of-contents
 - https://www.w3schools.com/sql/sql_view.asp
+- https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
