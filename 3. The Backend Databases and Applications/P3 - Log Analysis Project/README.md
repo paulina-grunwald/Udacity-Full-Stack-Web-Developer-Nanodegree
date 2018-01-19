@@ -144,7 +144,7 @@ select count(*) from log;
 
 
 
-To answer this question we need to use following columsn from following tables
+To answer this question we need to use following columns from following tables
 
 2. Who are the most popular article authors of all time? That is, when you sum up all of the articles each author has written, which authors get the most page views? Present this as a sorted list with the most popular author at the top.
 
