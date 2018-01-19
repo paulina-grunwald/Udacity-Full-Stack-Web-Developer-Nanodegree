@@ -214,9 +214,43 @@ create table students(
 
 - __Foreign key__ is a column or set of columns in one table that uniquely identifies rows in another table.
 
-- __Self Joins__
+- __Self Joins__ - Join can be used to derive table from two existing tables. It can be used to join table to itself. It's faster to do it with database than in the python.
 
-- __Subqueries__ - selecting result of a query as result of a query is always a table.
+```SQL
+/*This query is intended to find pairs of roommates*/
+select a.id, b.id, a.building, a.room
+       from residences as a, residences as b
+ where a.building = b.building
+   and a.room = b.room
+   and a.id < b.id
+ order by a.building, a.room;
+```
+
+#### Counting What Isn't There
+
+```SQL
+/* returns the number of animals in the zoo */
+select count(*) from animals;
+```
+
+
+```SQL
+/* returns the number of gorillas */
+select count(*) from animals where species = 'gorilla';
+```
+
+```SQL
+/*returns each species’ name and the number of animals of that species */
+select species, count(*) from animals group by species;
+```
+
+
+#### Join, Left Join and Right Join
+
+A regular (inner) join returns only those rows where the two tables have entries matching the join condition. A __left join__ returns all those rows, plus the rows where the left table has an entry but the right table doesn’t. And a __right join__ does the same but for the right table.
+
+#### Subqueries
+Subqueries - selecting result of a query as result of a query is always a table.
 -> select -> Result table -> select ->
 
 Highest score per team:
@@ -259,6 +293,9 @@ where weight < av;
 
 
 - __Views__ is a select query stored in the database in a way that lets you use it like a table.
+```SQL
+CREATE view viewname as select
+```
 
 
 ## REFERENCES
