@@ -23,7 +23,7 @@ In order to be able to run all the files included in this project you need to ha
 Steps:
 - Install Vagrant And VirtualBox
 - Clone this repository
-- Launch Vagrant VM by running ```vagrant u```, you can the log in with ```vagrant ssh```
+- Launch Vagrant VM by running ```vagrant up```, you can the log in with ```vagrant ssh```
 - When having problems with starting up your vagrant you can try following command instead vagrant ssh: ```VAGRANT_PREFER_SYSTEM_BIN=1 vagrant ssh```
 - To load the data go to the folder where the database is stored, use the command ```psql -d news -f newsdata.sql``` to connect a database and run the necessary SQL statements.
 
@@ -139,33 +139,132 @@ In this project I will not use column lead (short description of the article), b
 
 ### Investigation in Author table
 
-Authors table has only 3 columns: name, bio and id. I will focus only on columns name and id as bio is just description of the author career which will not be useful for my investigation. 
+Authors table has only 3 columns: name, bio and id. I will focus only on columns name and id as bio is just description of the author career which will not be useful for my investigation.
 
-Let's find out what are the names of authors:
-
-```sql
-SELECT * from authors;
-```
-Let's now try to print authors name and associated id:
+Let's find out what are the names and id numbers of authors:
 ```sql
 SELECT authors.name, authors.id FROM authors;
 ```
+```
+name                   | id
+------------------------+----
+Ursula La Multa        |  1
+Rudolf von Treppenwitz |  2
+Anonymous Contributor  |  3
+Markoff Chaney         |  4
 
-There are 4 authors present in the database:
-- Ursula La Multa  - id 1
-- Rudolf van Treppenwitz - id 2
-- Anonymous Contributor - id 3
-- Markoff Chaney - id 4
+```
+
+As we can see there are 4 authors present in the database.
+
+### Investigation in Log table
+We have 6 columns in log table: path, ip, method, status, time, id.
+
+There are 1677735 unique rows in log table.
+```SQL
+select count(*) from log;
+/*Output: 1677735*/
+```
+
+Let's have a look first at path column.
+
+```SQL
+SELECT COUNT (DISTINCT log.path) from log;
+
+```
+```
+count
+-------
+  212
+(1 row)
+```
+There are 212 unique rows in path column.
+
+Now we will view sample of 10 rows:
+
+```SQL
+SELECT DISTINCT log.path from log LIMIT 10;
+```
+
+```
+path
+-------------------------------------
+/article/goats-eat-googlesh
+/article/goats-eat-googlesy
+/article/candidate-is-jerkb
+/article/balloon-goons-doomedr
+/article/bad-things-gonex
+/article/bears-love-berriese
+/article/candidate-is-jerkn
+/article/media-obsessed-with-bearsl
+/article/media-obsessed-with-bearsa
+/article/candidate-is-jerky
+(10 rows)
+```
+
+Ip signifies IP from which the article was accesses. We would use ip if we would like to find e.g how man unique people viewed certain article.  
+
+```SQL
+SELECT COUNT (DISTINCT log.ip) from log;
+```
+```
+count
+-------
+  762
+(1 row)
+
+```
+We have 762 unique users that used the database.
+
+Method column has only one value: GET
+```SQL
+SELECT DISTINCT log.method from log;
+```
+
+Status column indicates the action requested by the client was received, understood and accepted. We will be only filtering status __200 OK__ which is standard response for successful HTTP requests.
+
+```SQL
+SELECT DISTINCT log.status from log;
+```
+```
+status
+---------------
+404 NOT FOUND
+200 OK
+(2 rows)
+
+```
+
+In further investigation we will use only status ```200 OK```.
 
 
-Let's now try to print authors name and associated id:
+Column time shows exact date and time when the search was performed by the users.
+```SQL
+SELECT log.time from log limit 3;
+```
+```
+time
+------------------------
+2016-07-14 15:19:47+00
+2016-07-14 15:19:32+00
+2016-07-14 15:19:53+00
+(3 rows)
+```
 
-```sql
-SELECT authors.name, authors.id FROM authors;
+Each performed search (this every column in log database) has unique
+```SQL
+SELECT COUNT (log.time) from log;
+```
+```
+count
+---------
+1677735
+(1 row)
 ```
 
 
 
+### Queries performed using multiple tables
 
 ```SQL
 select title, name
@@ -173,25 +272,7 @@ from articles join authors
 on articles.author = authors.id;
 ```
 
-Let's try to pint nam
 
-Let's have a look closer at the log table.
-```SQl
-SELECT * from log Limit 10;
-```
-
-As mentioned before log table contains following columns:  path, ip, method, status, timestamp and id.
-- Path is a path to the article and includes article's namee.g /article/candidate-is-jerk.
-- Ip signifies IP from which the article was accesses. We would use ip if we would like to find e.g how man unique people viewed certain article.  
-- Status indicates the action requested by the client was received, understood and accepted. We will be only filtering status __200 OK__ which is standard response for successful HTTP requests.
-- Time column shows at what in which day and at what time the article was viewed e.g 2016-07-01 07:00:00+00
-- Id is linked to the specific author
-
-
-```SQL
-select count(*) from log;
-/*1677735*/
-```
 
 # Questions for this assignment
 1. What are the most popular three articles of all time? Which articles have been accessed the most? Present this information as a sorted list with the most popular article at the top.
