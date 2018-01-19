@@ -23,10 +23,11 @@ In order to be able to run all the files included in this project you need to ha
 Steps:
 - Install Vagrant And VirtualBox
 - Clone this repository
-- Launch Vagrant VM by running __vagrant up__, you can the log in with __vagrant ssh__
-- When having problems with starting up your vagrant you can try following command instead vagrant ssh: __VAGRANT_PREFER_SYSTEM_BIN=1 vagrant ssh__
-- To load the data go to the folder where the database is stored, use the command __psql -d news -f newsdata.sql__ to connect a database and run the necessary SQL statements.
+- Launch Vagrant VM by running ```vagrant u```, you can the log in with ```vagrant ssh```
+- When having problems with starting up your vagrant you can try following command instead vagrant ssh: ```VAGRANT_PREFER_SYSTEM_BIN=1 vagrant ssh```
+- To load the data go to the folder where the database is stored, use the command ```psql -d news -f newsdata.sql``` to connect a database and run the necessary SQL statements.
 
+To execute the program, run ```python3 newsdata.py``` from the command line.
 
 The database includes three tables:
 
@@ -97,7 +98,7 @@ SELECT authors.name, authors.id FROM authors;
 
 View all article titles from articles table:
 
-```
+```SQl
 SELECT articles.title FROM articles;
 ```       
 The query displayed 8 articles. They are following:
@@ -142,11 +143,34 @@ select count(*) from log;
 # Questions for this assignment
 1. What are the most popular three articles of all time? Which articles have been accessed the most? Present this information as a sorted list with the most popular article at the top.
 
+```SQl
+SELECT title,
+       author,
+       count(title) AS views
+FROM articles,
+     log
+WHERE log.path LIKE concat('%',articles.slug)
+GROUP BY articles.title,
+         articles.author
+ORDER BY views DESC;
+```
+
 
 
 To answer this question we need to use following columns from following tables
 
 2. Who are the most popular article authors of all time? That is, when you sum up all of the articles each author has written, which authors get the most page views? Present this as a sorted list with the most popular author at the top.
+
+```SQl
+SELECT name,
+       sum(article_view.views) AS total
+FROM article_view,
+     authors
+WHERE authors.id=article_view.author
+GROUP BY authors.name
+ORDER BY total DESC;
+```
+
 
 
 path
