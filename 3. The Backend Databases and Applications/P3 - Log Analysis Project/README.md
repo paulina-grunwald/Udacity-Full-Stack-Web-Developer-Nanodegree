@@ -35,7 +35,6 @@ The database includes three tables:
 - The __articles table__ includes the articles themselves.
 - The __log table__ includes one entry for each time a user has accessed the site
 
-To execute the program, run python3 newsdata.py from the command line.
 
 # Data used in the project
 The database contains newspaper articles, as well as the web server log for the site. The log has a database row for each time a reader loaded a web page. Using that information, your code will answer questions about the site's user activity.
@@ -55,7 +54,7 @@ __Articles__ table has following columns:
   - slug (text)
   - lead (text)
   - body (text)
-  - time (timestamp with time zone)
+  - time (timestamp with time zone) e.g
   - id (integer)
 
 __Author__ table has following columns:
@@ -72,6 +71,75 @@ __Log__ table has following columns:
 - id (integer)
 
 All tables have one column in common - this is __id column__. I will use this column to extract various information from multiple tables in one query.
+
+### Investigation in Articles table
+
+1. View all article titles from articles table:
+
+```SQl
+SELECT articles.title FROM articles;
+```       
+
+The query displayed ```8 articles```. They are following:
+
+- Bad things gone, say good people
+- Balloon goons doomed
+- Bears love berries, alleges bear
+- Candidate is jerk, alleges rival
+- Goats eat Google's lawn
+- Media obsessed with bears
+- Trouble for troubled troublemakers
+- There are a lot of bears
+
+
+Author column has integer values form 1 to 4.
+```SQL
+SELECT articles.author SELECT articles.slug FROM articles;
+ articles;
+```
+
+Let's have a look at slug column in articles table.
+```SQL
+SELECT articles.slug FROM articles;
+```
+Above query results in following output:
+```
+Output:
+bad-things-gone
+balloon-goons-doomed
+bears-love-berries
+candidate-is-jerk
+goats-eat-googles
+media-obsessed-with-bears
+trouble-for-troubled
+so-many-bears
+```
+As we can see slug is actually text which is pretty much shorter version of the title
+
+Article id is simply number assigned to certain article. The numbers in the table fo from 23 to 30
+
+```SQL
+SELECT articles.id, articles.slug FROM articles ORDER BY articles.id ASC;
+```
+```
+id |           slug
+----+---------------------------
+23 | bad-things-gone
+24 | balloon-goons-doomed
+25 | bears-love-berries
+26 | candidate-is-jerk
+27 | goats-eat-googles
+28 | media-obsessed-with-bears
+29 | so-many-bears
+30 | trouble-for-troubled
+
+```
+
+In this project I will not use column lead (short description of the article), body (longer description of the article), time (same value for all articles ``` 2016-08-15 18:55:10.814316+00```).
+
+### Investigation in Author table
+
+Authors table has only 3 columns: name, bio and id. I will focus only on columns name and id as bio is just description of the author career which will not be useful for my investigation. 
 
 Let's find out what are the names of authors:
 
@@ -96,21 +164,6 @@ Let's now try to print authors name and associated id:
 SELECT authors.name, authors.id FROM authors;
 ```
 
-View all article titles from articles table:
-
-```SQl
-SELECT articles.title FROM articles;
-```       
-The query displayed 8 articles. They are following:
-
-- Bad things gone, say good people
-- Balloon goons doomed
-- Bears love berries, alleges bear
-- Candidate is jerk, alleges rival
-- Goats eat Google's lawn
-- Media obsessed with bears
-- Trouble for troubled troublemakers
-- There are a lot of bears
 
 
 
