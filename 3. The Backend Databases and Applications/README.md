@@ -115,7 +115,7 @@ db.close()
 - if we want to commit change to the database  we need to execute __commit ;__ otherwise the changes will not be executed.
 
 ```python
-# This code attempts to insert a new rFow into the database, but doesn't
+# This code attempts to insert a new Fow into the database, but doesn't
 # commit the insertion.  Add a commit call in the right place to make
 # it work properly.
 #
@@ -245,7 +245,7 @@ select species, count(*) from animals group by species;
 ```
 
 
-#### Join, Left Join and Right Join
+#### Join, Left Join and Right K
 
 A regular (inner) join returns only those rows where the two tables have entries matching the join condition. A __left join__ returns all those rows, plus the rows where the left table has an entry but the right table doesn’t. And a __right join__ does the same but for the right table.
 
