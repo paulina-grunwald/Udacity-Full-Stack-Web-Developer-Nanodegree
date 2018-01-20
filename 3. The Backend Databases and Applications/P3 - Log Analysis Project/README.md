@@ -266,12 +266,28 @@ count
 
 ### Queries performed using multiple tables
 
+As we remember from previous investigations we have 8 articles and 4 authors. Let's see which author has the biggest number of articles in the  news database.
+
 ```SQL
-select title, name
-from articles join authors
+SELECT title, name
+FROM articles JOIN authors
 on articles.author = authors.id;
 ```
 
+```
+title                |          name
+------------------------------------+------------------------
+Bad things gone, say good people   | Anonymous Contributor
+Balloon goons doomed               | Markoff Chaney
+Bears love berries, alleges bear   | Ursula La Multa
+Candidate is jerk, alleges rival   | Rudolf von Treppenwitz
+Goats eat Google's lawn            | Ursula La Multa
+Media obsessed with bears          | Ursula La Multa
+Trouble for troubled troublemakers | Rudolf von Treppenwitz
+There are a lot of bears           | Ursula La Multa
+(8 rows)
+
+```
 
 
 # Questions for this assignment
