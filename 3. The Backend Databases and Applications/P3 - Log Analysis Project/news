@@ -1,0 +1,31 @@
+#! /usr/bin/env python3
+
+# Log data analysis assigmen is part of the Udacity's Full Stack Nanodegree program
+
+# Import modules
+import psycopg2
+from datetime import datetime
+
+# Connect to the PostgreSQL database. Returns a database connection 
+def connect(database_name="news"):
+    try:
+        # Connect to the news database
+        db = psycopg2.connect("dbname={}".format(database_name))
+        # Create cursor
+        cursor = db.cursor()
+        return db, cursor
+    # If not possible to connect to the database
+    except:
+        print ("Unable to connect to the database")
+
+
+# Return query results for given query
+    # Connect to the  database
+    db, cursor = connect()
+    # Cursor runs queries and fetches results
+    cursor.execute(query)
+    return cursor.fetchall()
+    # Close database
+    db.close()
+
+
