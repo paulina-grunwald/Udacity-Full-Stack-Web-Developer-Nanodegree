@@ -20,6 +20,7 @@ def connect(database_name="news"):
 
 
 # Return query results for given query
+def get_results(query):
     # Connect to the  database
     db, cursor = connect()
     # Cursor runs queries and fetches results
@@ -27,5 +28,19 @@ def connect(database_name="news"):
     return cursor.fetchall()
     # Close database
     db.close()
+
+# Function prints result of the query
+
+
+
+# Query 1: What are the most popular three articles of all time?
+query1_question = ("What are the most popular three articles of all time?")
+
+# Query 2:  Who are the most popular article authors of all time?
+query2_question = ("Who are the most popular article authors of all time?")
+
+# Query 3: On which days did more than 1% of requests lead to errors
+query2_question = ("Who are the most popular article authors of all time?")
+
 
 
