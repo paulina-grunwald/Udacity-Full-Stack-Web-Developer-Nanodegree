@@ -36,6 +36,11 @@ def get_results(query):
 # Query 1: What are the most popular three articles of all time?
 query1_question = ("What are the most popular three articles of all time?")
 
+query1 = '''select title,count(*) as num from articles,log where
+log.path=CONCAT('/article/',articles.slug) AND log.status like '%200%' group by articles.title order by
+num DESC limit 3;'''
+
+
 # Query 2:  Who are the most popular article authors of all time?
 query2_question = ("Who are the most popular article authors of all time?")
 
