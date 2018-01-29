@@ -34,3 +34,10 @@ Creating database using ```SQLAlchemy``` has few major components:
 - __Class__ (used to represent data in python),
 - __Table__ (represents specific table in the database),
 - __Mapper__ (links the columns of the table to the classes that represent them).
+
+### Create a Database - Class and Table
+
+Class code is an object oriented representation of table in the database. It Extends from the Base class.
+Inside the class declaration we will add table and mapper code.
+
+Full code is included in database_setup.py file.
