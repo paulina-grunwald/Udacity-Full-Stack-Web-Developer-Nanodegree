@@ -1,7 +1,7 @@
 # LINUX SERVER CONFIGURATION PROJECT
 > by Paulina Grunwald
 
-This course is a part of [Udacity's Full Stack Nanodegree program](https://www.udacity.com/nanodegree).
+This course is a part of [Udacity's Full Stack Nanodegree Program](https://www.udacity.com/nanodegree).
 
 My task in this project was to baseline installation of a Linux server and prepare it to host your web applications. I had to secure my server from a number of attack vectors, install and configure a database server, and deploy one of your existing web applications onto it.
 
@@ -9,14 +9,47 @@ This project develops deep understanding of exactly what your web applications a
 
 ## Table of contents
 
-- [Link to the project](#link-to-the-project)
-- [Design and used code](#design-and-used-code)
+- [SSH Client Info](#ssh-client-info)
+- [Project Steps](#project-steps)
 - [References](#references)
 
 
-## Link to the project
+## SSH Client info
 
-## Design and used code
+It's possible to connect to my instance using following address:
+IP address: 52.58.147.11
+Accessible SSH port: 2200
+
+## Project steps
+
+1. Update all currently installed packages.
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
+
+2. Install finger, a utility software to check users' status: ```sudo apt-get install finger```
+
+3. Add new users
+```
+sudo add user grader
+```
+
+4. Give premission to sudo for grader users
+```
+sudo nano /etc/sudoers.d/grader
+```
+
+Veryfiy if premission was given correctly:
+```
+sudo ls /etc/sudoers.d
+```
+
+5. Change the SSH port from 22 to 2200. Make sure to configure the Lightsail firewall to allow it.
+
+6. Configure the Uncomplicated Firewall (UFW) to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123).
+
+
 
 # References
 - https://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/
