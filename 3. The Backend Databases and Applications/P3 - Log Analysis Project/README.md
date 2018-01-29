@@ -215,7 +215,24 @@ count
 (1 row)
 
 ```
+
 We have 762 unique users that used the database.
+
+```SQl
+SELECT ip, count(*) AS num
+FROM Log
+GROUP BY ip
+LIMIT 3;  
+```
+```
+ip       | num
+----------------+------
+192.0.2.233    | 2307
+192.0.2.254    | 2275
+198.51.100.217 | 2154
+
+```
+
 
 Method column has only one value: GET
 ```SQL
@@ -309,15 +326,12 @@ There are a lot of bears           | Ursula La Multa
 1. What are the most popular three articles of all time? Which articles have been accessed the most? Present this information as a sorted list with the most popular article at the top.
 
 ```SQl
-SELECT title,
-       author,
-       count(title) AS views
-FROM articles,
-     log
+SELECT title, author, count(title) AS views
+FROM articles, log
 WHERE log.path LIKE concat('%',articles.slug)
-GROUP BY articles.title,
-         articles.author
-ORDER BY views DESC;
+GROUP BY articles.title, articles.author
+ORDER BY views DESC
+LIMIT 3;
 ```
 
 
