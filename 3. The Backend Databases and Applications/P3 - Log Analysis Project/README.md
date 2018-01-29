@@ -114,9 +114,9 @@ media-obsessed-with-bears
 trouble-for-troubled
 so-many-bears
 ```
-As we can see slug is actually text which is pretty much shorter version of the title
+As we can see slug is actually text which is pretty much shorter version of the title.
 
-Article id is simply number assigned to certain article. The numbers in the table fo from 23 to 30
+Article id is simply number assigned to certain article. The numbers in the table from 23 to 30
 
 ```SQL
 SELECT articles.id, articles.slug FROM articles ORDER BY articles.id ASC;
@@ -172,6 +172,7 @@ Let's have a look first at path column.
 SELECT COUNT (DISTINCT log.path) from log;
 
 ```
+
 ```
 count
 -------
@@ -262,7 +263,21 @@ count
 (1 row)
 ```
 
+```SQL
+SELECT date(time) as date
+FROM log
+GROUP BY date
+LIMIT 3;
+```
 
+```
+date
+------------
+2016-07-01
+2016-07-02
+2016-07-03
+(3 rows)
+```
 
 ### Queries performed using multiple tables
 
@@ -345,3 +360,7 @@ I took following steps to solve this issue:
 - https://app.pluralsight.com/library/courses/introduction-to-sql/table-of-contents
 - https://www.w3schools.com/sql/sql_view.asp
 - https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+- https://stackoverflow.com/questions/4005251/select-from-tbl-where-clm-like-concat-other-sql-query-limit-1-how
+- https://stackoverflow.com/questions/5243596/python-sql-query-string-formatting
+- http://www.sqlines.com/oracle-to-sql-server/to_char_datetime
+- https://stackoverflow.com/questions/35374148/how-to-query-the-percentage-of-aggregate-in-vertica
