@@ -20,7 +20,7 @@ sudo ls -al /home/ubuntu/.ssh - lists all files within ubuntu ssh directory
 - __finger__ - check logged in users
 - __finger vagrant__ - more info on logged in users
 
-Finger is retrives data from the file that stores info about all users: __cat /etc/passwd__
+Finger is retrives  data from the file that stores info about all users: __cat /etc/passwd__
 
 __/etc/passwd__ - This is a very important file on your system! It's used to keep track of all users on the system. Run cat /etc/passwd and look at the output; each line is organized in this format:
 
