@@ -224,13 +224,13 @@ FROM Log
 GROUP BY ip
 LIMIT 3;  
 ```
+
 ```
 ip       | num
 ----------------+------
 192.0.2.233    | 2307
 192.0.2.254    | 2275
 198.51.100.217 | 2154
-
 ```
 
 
@@ -295,6 +295,17 @@ date
 2016-07-03
 (3 rows)
 ```
+
+
+```SQL
+SELECT DATE(time)
+SUM(CASE WHEN status LIKE '404%' THEN 1 ELSE 0 END)ErrCount,
+COUNT(id) AS TotCount
+FROM log
+GROUP BY DATE(time)
+ORDER BY DATE(time)
+```
+
 
 ### Queries performed using multiple tables
 
