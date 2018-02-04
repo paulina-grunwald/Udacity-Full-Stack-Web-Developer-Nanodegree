@@ -37,4 +37,13 @@ query1 = """SELECT title,count(*) AS num FROM articles,log
 
 question2 = ("Who are the most popular article authors of all time?")
 
+
+query2 = """SELECT authors.name, count(*) as views FROM articles inner 
+             JOIN authors on articles.author = authors.id inner 
+             JOIN log on log.path LIKE concat('%', articles.slug, '%')
+             WHERE log.status LIKE '%200%'
+             GROUP BY authors.name
+             ORDER BY views DESC;"""
+
+
 question3 = ("Who are the most popular article authors of all time?")
