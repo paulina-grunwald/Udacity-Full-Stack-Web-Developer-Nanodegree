@@ -26,3 +26,15 @@ def get_query_results(query):
     return cursor.fetchall()
     # Close database
     db.close()
+
+
+question1 = ("What are the most popular three articles of all time?")
+
+query1 = """SELECT title,count(*) AS num FROM articles,log 
+             WHERE log.path=CONCAT('/article/',articles.slug) AND log.status like '%200%'
+             GROUP BY articles.title 
+             ORDER BY num DESC LIMIT 3;"""
+
+question2 = ("Who are the most popular article authors of all time?")
+
+question3 = ("Who are the most popular article authors of all time?")
