@@ -46,4 +46,11 @@ query2 = """SELECT authors.name, count(*) as views FROM articles inner
              ORDER BY views DESC;"""
 
 
-question3 = ("Who are the most popular article authors of all time?")
+question3 = ("On which days did more than 1% of requests lead to errors?")
+
+query_3 = """SELECT * FROM (SELECT date(time),round(100.0*sum(CASE log.status
+            WHEN '200 OK'  THEN 0 ELSE 1 END)/count(log.status),3)
+            AS error FROM log 
+            GROUP BY date(time) 
+            ORDER BY error DESC) AS subquery 
+            WHERE error > 1;"""
