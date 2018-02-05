@@ -9,11 +9,14 @@ In this project, I have used  PostgreSQL database. My task was to create a repor
 # Table of contents
 
 - [How to run my project](#how-to-run-my-project)
-- [Data used in the project](#data-used in the project)
+- [Data used in the project](#data-used-in-the-project)
+- [Data exploration](#data-exploration)
+- [Questions for this assignment](#Questions-for-this-assignment)
+- [Troubleshooting](#troubleshooting)
 - [References](#references)
 
 
-# How to run my project
+# 1. How to run my project
 In order to be able to run all the files included in this project you need to have installed on your machine following  applications:
 - Python 3.6.x
 - PostgreSQL 9.6.x
@@ -36,13 +39,13 @@ The database includes three tables:
 - The __log table__ includes one entry for each time a user has accessed the site
 
 
-# Data used in the project
+# 2. Data used in the project
 The database contains newspaper articles, as well as the web server log for the site. The log has a database row for each time a reader loaded a web page. Using that information, your code will answer questions about the site's user activity.
 
 My task was to write a program that will run from the command line. It won't take any input from the user. Instead, it will connect to that database, use SQL queries to analyze the log data, and print out the answers to some questions.
 
 
-# Data Exploration
+# 3. Data Exploration
 
 To get familiar with the database I run few quick commands:
 
@@ -72,7 +75,7 @@ __Log__ table has following columns:
 
 All tables have one column in common - this is __id column__. I will use this column to extract various information from multiple tables in one query.
 
-### Investigation in Articles table
+### 3.1 Investigation in Articles table
 
 1. View all article titles from articles table:
 
@@ -137,7 +140,7 @@ id |           slug
 
 In this project I will not use column lead (short description of the article), body (longer description of the article), time (same value for all articles ``` 2016-08-15 18:55:10.814316+00```).
 
-### Investigation in Author table
+### 3.2 Investigation in Author table
 
 Authors table has only 3 columns: name, bio and id. I will focus only on columns name and id as bio is just description of the author career which will not be useful for my investigation.
 
@@ -157,7 +160,7 @@ Markoff Chaney         |  4
 
 As we can see there are 4 authors present in the database.
 
-### Investigation in Log table
+### 3.3 Investigation in Log table
 We have 6 columns in log table: path, ip, method, status, time, id.
 
 There are 1677735 unique rows in log table.
@@ -307,7 +310,7 @@ ORDER BY DATE(time)
 ```
 
 
-### Queries performed using multiple tables
+### 3.4Queries performed using multiple tables
 
 As we remember from previous investigations we have 8 articles and 4 authors. Let's see which author has the biggest number of articles in the  news database.
 
@@ -333,7 +336,7 @@ There are a lot of bears           | Ursula La Multa
 ```
 
 
-# Questions for this assignment
+# 4. Questions for this assignment
 1. What are the most popular three articles of all time? Which articles have been accessed the most? Present this information as a sorted list with the most popular article at the top.
 
 ```SQL
@@ -382,7 +385,7 @@ Markoff Chaney         |  84557
 
 path
 
-3. On which days did more than 1% of requests lead to errors? The log table includes a column status that indicates the HTTP status code that the news site sent to the user's browser. (Refer to this lesson for more information about the idea of HTTP status codes.)
+3. On which days did more than 1% of requests lead to errors? The log table includes a column status that indicates the HTTP status code that the news site sent to the user's browser.
 
 ```SQL
 SELECT * FROM (SELECT date(time),round(100.0*sum(CASE log.status
@@ -393,17 +396,28 @@ ORDER BY error DESC) AS subquery
 WHERE error > 1;
 ```
 
+Output:
+```
+date       | error
+------------+-------
+2016-07-17 | 2.263
 
+```
 # Troubleshooting
 
-While I was working on this project i have encountered following error: "ERROR relation "..." already exists ALTER TABLE.
+While I was working on this project I have encountered following error: ``ERROR relation "..." already exists ALTER TABLE.``
+
+
+![troubleshooting](https://discourse-cdn-sjc3.com/udacity/uploads/default/original/4X/9/7/d/97d9b7644c997f558e22fbb001fe96997d6bb039.png)
+
 I took following steps to solve this issue:
-- Restart psql: sudo /etc/init.d/postgresql restart
-- Drop database:
-  ```y
-  psql
-  DROP DATABASE IF EXISTS news;
-  ```
+- display the users connected to the database: ```select * from pg_stat_activity```
+- Restart ```psql: sudo /etc/init.d/postgresql restart```
+- Drop database: ```DROP DATABASE IF EXISTS news;```
+- Create empty database: ```createdb news```
+- Populate with the data from the SQL file: ```psql -d news -f newsdata.sql```
+- Connect to the database with ```psql -d news```.
+
 
 # REFERENCES
 
@@ -415,3 +429,4 @@ I took following steps to solve this issue:
 - https://stackoverflow.com/questions/5243596/python-sql-query-string-formatting
 - http://www.sqlines.com/oracle-to-sql-server/to_char_datetime
 - https://stackoverflow.com/questions/35374148/how-to-query-the-percentage-of-aggregate-in-vertica
+- https://discussions.udacity.com/t/issues-with-newsdata-sql/524112
