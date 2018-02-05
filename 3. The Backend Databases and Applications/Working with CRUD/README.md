@@ -4,7 +4,7 @@
 
 ## Table of contents
 
-1. Working with CRU
+1. Working with CRUD
 
 
 
@@ -45,19 +45,50 @@ Full code is included in database_setup.py file.
 
 ### CRUD create
 ```python
+# Import independencies
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from database_setup import VBase, Restaurant, MenuItem
+from database_setup import Base, Restaurant, MenuItem
+# Create engine function
 engine = create_engine('sqlite:///restaurantmenu.db')
+# Bind engine to the Base Class
 Base.metadata.bind = engine
+# Create communication between code and selected engine
 DBSession = sessionmaker(bind = engine)
+# Create instance of DBSession
 session = DBSession()
 # Create new restaurant
 myFirstRestaurant = Restaurant(name = "Pizza Palace")
-# Add new restaurant to the staging zone to be commited
+# Add new restaurant to the staging zone to be committed
 session.add(myFirstRestaurant)
 # Commit to the database
 session.commit()
 session.query(Restaurant).all()
+# Add MenuItem
+cheesepizza = MenuItem(name = "Cheese Pizza", description = "Made with all natural ingridients", course = "Entree", price = "$8.99", restaurant = myFirstRestaurant)
+session.add(cheesepizza)
+session.commit()
+session.query(MenuItem).all()
+```
 
+Read from the database
+
+```python
+firstResult = session.query(Restaurant).first()
+firstResult.name
+```
+
+run lotsofrestaurants.py
+
+```Python
+# View all restaurants
+session.query(Restaurants).all()
+```
+
+If we want to view data in more structured way:
+
+```Python
+items = session.query(MenuItem).all()
+for item in items:
+  print item.name
 ```
