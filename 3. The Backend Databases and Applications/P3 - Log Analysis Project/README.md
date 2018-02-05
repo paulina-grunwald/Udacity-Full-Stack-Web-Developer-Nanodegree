@@ -336,15 +336,24 @@ There are a lot of bears           | Ursula La Multa
 # Questions for this assignment
 1. What are the most popular three articles of all time? Which articles have been accessed the most? Present this information as a sorted list with the most popular article at the top.
 
-```SQl
+```SQL
 SELECT title, author, count(title) AS views
 FROM articles, log
-WHERE log.path LIKE concat('%',articles.slug)
+WHERE log.path=CONCAT('/article/',articles.slug) AND log.status LIKE '%200%'
 GROUP BY articles.title, articles.author
 ORDER BY views DESC
 LIMIT 3;
 ```
 
+Output:
+```
+title                            | author | views
+----------------------------------+--------+--------
+Candidate is jerk, alleges rival |      2 | 338647
+Bears love berries, alleges bear |      1 | 253801
+Bad things gone, say good people |      3 | 170098
+
+```
 
 
 To answer this question we need to use following columns from following tables
@@ -352,20 +361,37 @@ To answer this question we need to use following columns from following tables
 2. Who are the most popular article authors of all time? That is, when you sum up all of the articles each author has written, which authors get the most page views? Present this as a sorted list with the most popular author at the top.
 
 ```SQl
-SELECT name,
-       sum(article_view.views) AS total
-FROM article_view,
-     authors
-WHERE authors.id=article_view.author
+SELECT authors.name, count(*) as views FROM articles inner
+JOIN authors on articles.author = authors.id inner
+JOIN log on log.path LIKE concat('%', articles.slug, '%')
+WHERE log.status LIKE '%200%'
 GROUP BY authors.name
-ORDER BY total DESC;
+ORDER BY views DESC
 ```
 
+Output:
+```
+name                   | views
+------------------------+--------
+Ursula La Multa        | 507594
+Rudolf von Treppenwitz | 423457
+Anonymous Contributor  | 170098
+Markoff Chaney         |  84557
+```
 
 
 path
 
 3. On which days did more than 1% of requests lead to errors? The log table includes a column status that indicates the HTTP status code that the news site sent to the user's browser. (Refer to this lesson for more information about the idea of HTTP status codes.)
+
+```SQL
+SELECT * FROM (SELECT date(time),round(100.0*sum(CASE log.status
+WHEN '200 OK'  THEN 0 ELSE 1 END)/count(log.status),3)
+AS error FROM log
+GROUP BY date(time)
+ORDER BY error DESC) AS subquery
+WHERE error > 1;
+```
 
 
 # Troubleshooting
