@@ -22,6 +22,22 @@ class WebServerHandler(BaseHTTPRequestHandler):
             self.wfile.write(message)
             print message
             return
+        # Look for URL that ends with 'hola' 
+        # Add hola funtionality
+        if self.path.endswith("/hola"):
+            # Send a response code 200 indicating a successful git request
+            self.send_response(200)
+            # Reply in form of html to client
+            self.send_header('Content-type', 'text/html')
+            # Send blank line
+            self.end_headers()
+            message = ""
+            # Add message
+            message += "<html><body>&#161Hola!</body></html>"
+            # Send message to the client
+            self.wfile.write(message)
+            print message
+            return
         else:
             self.send_error(404, 'File Not Found: %s' % self.path)
 
