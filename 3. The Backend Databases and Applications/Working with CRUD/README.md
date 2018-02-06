@@ -92,3 +92,20 @@ items = session.query(MenuItem).all()
 for item in items:
   print item.name
 ```
+
+
+# Making a Web Server
+
+Protocols help with communication between client and server.
+``TCP`` - Transmission Control Protocol - enables information information to be broken into small pieces between client and server.
+``IP`` - Internet Protocol - allow messages to be properly routed
+``HTTP`` - Hypertext Transfer Protocol
+Ports are use to designate channels of the communication on the same ip address.
+
+Ports numbers can range from 0 to 65536.
+Local host has ip: 127.0.0.1
+
+#### HTTP and Response Codes
+200: Successful GET
+301: Successful POST
+404: File not found
