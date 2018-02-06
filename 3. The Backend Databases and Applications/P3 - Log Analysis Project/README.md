@@ -11,7 +11,7 @@ In this project, I have used  PostgreSQL database. My task was to create a repor
 - [How to run my project](#how-to-run-my-project)
 - [Data used in the project](#data-used-in-the-project)
 - [Data exploration](#data-exploration)
-- [Questions for this assignment](#Questions-for-this-assignment)
+- [Questions for this assignment](#questions-for-this-assignment)
 - [Troubleshooting](#troubleshooting)
 - [References](#references)
 
@@ -45,7 +45,7 @@ The database contains newspaper articles, as well as the web server log for the 
 My task was to write a program that will run from the command line. It won't take any input from the user. Instead, it will connect to that database, use SQL queries to analyze the log data, and print out the answers to some questions.
 
 
-# 3. Data Exploration
+# 3. Data exploration
 
 To get familiar with the database I run few quick commands:
 
