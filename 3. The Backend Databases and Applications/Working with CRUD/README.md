@@ -109,3 +109,16 @@ Local host has ip: 127.0.0.1
 200: Successful GET
 301: Successful POST
 404: File not found
+
+
+#### GET and POST
+GET:
+- good for viewing information that is already on the server
+- happen simply by visiting URL in the browser
+POST:
+- allow user to customize the web experience,
+- require data to be submitted e.g post
+#### Adding POST to web server
+
+# REFERENCES
+- https://www.vagrantup.com/docs/networking/forwarded_ports.html
