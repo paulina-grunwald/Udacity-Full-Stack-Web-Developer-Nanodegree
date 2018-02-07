@@ -8,12 +8,12 @@ In this project, I have used  PostgreSQL database. My task was to create a repor
 
 # Table of contents
 
-- [How to run my project](#how-to-run-my-project)
-- [Data used in the project](#data-used-in-the-project)
-- [Data exploration](#data-exploration)
-- [Questions for this assignment](#questions-for-this-assignment)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
+- [1. How to run my project](#how-to-run-my-project)
+- [2. Data used in the project](#data-used-in-the-project)
+- [3. Data exploration](#data-exploration)
+- [4. Questions for this assignment](#questions-for-this-assignment)
+- [5. Troubleshooting](#troubleshooting)
+- [6. References](#references)
 
 
 # 1. How to run my project
@@ -310,7 +310,7 @@ ORDER BY DATE(time)
 ```
 
 
-### 3.4Queries performed using multiple tables
+### 3.4 Queries performed using multiple tables
 
 As we remember from previous investigations we have 8 articles and 4 authors. Let's see which author has the biggest number of articles in the  news database.
 
@@ -403,7 +403,7 @@ date       | error
 2016-07-17 | 2.263
 
 ```
-# Troubleshooting
+# 5. Troubleshooting
 
 While I was working on this project I have encountered following error: ``ERROR relation "..." already exists ALTER TABLE.``
 
@@ -419,7 +419,7 @@ I took following steps to solve this issue:
 - Connect to the database with ```psql -d news```.
 
 
-# REFERENCES
+# 6. REFERENCES
 
 - https://pypi.python.org/pypi/psycopg2
 - https://app.pluralsight.com/library/courses/introduction-to-sql/table-of-contents
