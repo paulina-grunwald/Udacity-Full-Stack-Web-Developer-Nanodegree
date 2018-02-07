@@ -2,6 +2,8 @@
 
 # Import modules
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+# Import common gate interface library
+import cgi
 
 # Handler Class
 class WebServerHandler(BaseHTTPRequestHandler):
@@ -40,6 +42,16 @@ class WebServerHandler(BaseHTTPRequestHandler):
             return
         else:
             self.send_error(404, 'File Not Found: %s' % self.path)
+
+    def do_POST(self):
+        # Add try except block
+        try:
+            # Send response when post successful
+            self.send_response(301)
+
+            self.end_headers()
+
+        except:
 
 # Main method 
 def main():
