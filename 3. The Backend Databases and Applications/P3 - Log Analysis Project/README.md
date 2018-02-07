@@ -8,15 +8,15 @@ In this project, I have used  PostgreSQL database. My task was to create a repor
 
 # Table of contents
 
-- [1. How to run my project](#how-to-run-my-project)
-- [2. Data used in the project](#data-used-in-the-project)
-- [3. Data exploration](#data-exploration)
-- [4. Questions for this assignment](#questions-for-this-assignment)
-- [5. Troubleshooting](#troubleshooting)
-- [6. References](#references)
+- [How to run my project](#how-to-run-my-project)
+- [Data used in the project](#data-used-in-the-project)
+- [Data exploration](#data-exploration)
+- [Questions for this assignment](#questions-for-this-assignment)
+- [Troubleshooting](#troubleshooting)
+- [References](#references)
 
 
-# 1. How to run my project
+# How to run my project
 In order to be able to run all the files included in this project you need to have installed on your machine following  applications:
 - Python 3.6.x
 - PostgreSQL 9.6.x
@@ -39,13 +39,13 @@ The database includes three tables:
 - The __log table__ includes one entry for each time a user has accessed the site
 
 
-# 2. Data used in the project
+# Data used in the project
 The database contains newspaper articles, as well as the web server log for the site. The log has a database row for each time a reader loaded a web page. Using that information, your code will answer questions about the site's user activity.
 
 My task was to write a program that will run from the command line. It won't take any input from the user. Instead, it will connect to that database, use SQL queries to analyze the log data, and print out the answers to some questions.
 
 
-# 3. Data exploration
+# Data exploration
 
 To get familiar with the database I run few quick commands:
 
@@ -75,7 +75,7 @@ __Log__ table has following columns:
 
 All tables have one column in common - this is __id column__. I will use this column to extract various information from multiple tables in one query.
 
-### 3.1 Investigation in Articles table
+### Investigation in Articles table
 
 1. View all article titles from articles table:
 
@@ -140,7 +140,7 @@ id |           slug
 
 In this project I will not use column lead (short description of the article), body (longer description of the article), time (same value for all articles ``` 2016-08-15 18:55:10.814316+00```).
 
-### 3.2 Investigation in Author table
+### Investigation in Author table
 
 Authors table has only 3 columns: name, bio and id. I will focus only on columns name and id as bio is just description of the author career which will not be useful for my investigation.
 
@@ -160,19 +160,19 @@ Markoff Chaney         |  4
 
 As we can see there are 4 authors present in the database.
 
-### 3.3 Investigation in Log table
+### Investigation in Log table
 We have 6 columns in log table: path, ip, method, status, time, id.
 
 There are 1677735 unique rows in log table.
 ```SQL
-select count(*) from log;
+SELECT count(*) FROM log;
 /*Output: 1677735*/
 ```
 
 Let's have a look first at path column.
 
 ```SQL
-SELECT COUNT (DISTINCT log.path) from log;
+SELECT COUNT (DISTINCT log.path) FROM log;
 
 ```
 
@@ -187,7 +187,7 @@ There are 212 unique rows in path column.
 Now we will view sample of 10 rows:
 
 ```SQL
-SELECT DISTINCT log.path from log LIMIT 10;
+SELECT DISTINCT log.path FROM log LIMIT 10;
 ```
 
 ```
@@ -209,7 +209,7 @@ path
 Ip signifies IP from which the article was accesses. We would use ip if we would like to find e.g how man unique people viewed certain article.  
 
 ```SQL
-SELECT COUNT (DISTINCT log.ip) from log;
+SELECT COUNT (DISTINCT log.ip) FROM log;
 ```
 ```
 count
@@ -245,7 +245,7 @@ SELECT DISTINCT log.method from log;
 Status column indicates the action requested by the client was received, understood and accepted. We will be only filtering status __200 OK__ which is standard response for successful HTTP requests.
 
 ```SQL
-SELECT DISTINCT log.status from log;
+SELECT DISTINCT log.status FROM log;
 ```
 ```
 status
@@ -261,7 +261,7 @@ In further investigation we will use only status ```200 OK```.
 
 Column time shows exact date and time when the search was performed by the users.
 ```SQL
-SELECT log.time from log limit 3;
+SELECT log.time FROM log LIMIT 3;
 ```
 ```
 time
@@ -274,7 +274,7 @@ time
 
 Each performed search (this every column in log database) has unique
 ```SQL
-SELECT COUNT (log.time) from log;
+SELECT COUNT (log.time) FROM log;
 ```
 ```
 count
@@ -284,7 +284,7 @@ count
 ```
 
 ```SQL
-SELECT date(time) as date
+SELECT date(time) AS date
 FROM log
 GROUP BY date
 LIMIT 3;
@@ -310,14 +310,13 @@ ORDER BY DATE(time)
 ```
 
 
-### 3.4 Queries performed using multiple tables
+### Queries performed using multiple tables
 
 As we remember from previous investigations we have 8 articles and 4 authors. Let's see which author has the biggest number of articles in the  news database.
 
 ```SQL
 SELECT title, name
-FROM articles JOIN authors
-on articles.author = authors.id;
+FROM articles JOIN authors ON articles.author = authors.id;
 ```
 
 ```
@@ -336,7 +335,8 @@ There are a lot of bears           | Ursula La Multa
 ```
 
 
-# 4. Questions for this assignment
+# Questions for this assignment
+
 1. What are the most popular three articles of all time? Which articles have been accessed the most? Present this information as a sorted list with the most popular article at the top.
 
 ```SQL
@@ -358,8 +358,6 @@ Bad things gone, say good people |      3 | 170098
 
 ```
 
-
-To answer this question we need to use following columns from following tables
 
 2. Who are the most popular article authors of all time? That is, when you sum up all of the articles each author has written, which authors get the most page views? Present this as a sorted list with the most popular author at the top.
 
@@ -383,8 +381,6 @@ Markoff Chaney         |  84557
 ```
 
 
-path
-
 3. On which days did more than 1% of requests lead to errors? The log table includes a column status that indicates the HTTP status code that the news site sent to the user's browser.
 
 ```SQL
@@ -403,7 +399,8 @@ date       | error
 2016-07-17 | 2.263
 
 ```
-# 5. Troubleshooting
+
+# Troubleshooting
 
 While I was working on this project I have encountered following error: ``ERROR relation "..." already exists ALTER TABLE.``
 
@@ -417,6 +414,7 @@ I took following steps to solve this issue:
 - Create empty database: ```createdb news```
 - Populate with the data from the SQL file: ```psql -d news -f newsdata.sql```
 - Connect to the database with ```psql -d news```.
+
 
 
 # 6. REFERENCES
