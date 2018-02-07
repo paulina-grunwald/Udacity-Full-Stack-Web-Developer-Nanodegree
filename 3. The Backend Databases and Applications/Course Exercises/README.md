@@ -44,6 +44,8 @@ Inside the class declaration we will add table and mapper code. Mapper code will
 Full code is included in database_setup.py file.
 
 ### CRUD create
+
+
 ```python
 # Import independencies
 from sqlalchemy import create_engine
@@ -85,13 +87,44 @@ run lotsofrestaurants.py
 session.query(Restaurants).all()
 ```
 
-If we want to view data in more structured way:
+If we want to run a query in python we need to create:
+variable_name = session.query(Table_Name).all()
+for item in variable_name:
+  print item.table_column
+
 
 ```Python
 items = session.query(MenuItem).all()
 for item in items:
   print item.name
 ```
+```
+Cheese Pizza
+Veggie Burger
+French Fries
+Chicken Burger
+Chocolate Cake
+Sirloin Burger
+Root Beer
+Iced Tea
+etc.
+```
+
+To update data in the database we need to follow following steps:
+1. Find entry that we want to change
+2. Change the value
+3. Add to session
+4. Commit session
+
+```Python
+veggieBurgers = session.query(MenuItem).filter_by(name = 'Veggie Burger')
+for veggieBurger in veggieBurgers:
+    print veggieBurger.id
+    print veggieBurger.price
+    print veggieBurger.name
+    # Add new line 
+    print "\n"
+""```
 
 
 # Making a Web Server
