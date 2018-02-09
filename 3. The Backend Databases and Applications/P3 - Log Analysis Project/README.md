@@ -24,6 +24,7 @@ In order to be able to run all the files included in this project you need to ha
 - VirtualBox
 
 Steps:
+- Unizp newsdata.rar (you can find newsdata.sql database inside of the zipped file)
 - Install Vagrant And VirtualBox
 - Clone this repository
 - Launch Vagrant VM by running ```vagrant up```, you can the log in with ```vagrant ssh```
@@ -402,7 +403,7 @@ date       | error
 
 # Troubleshooting
 
-While I was working on this project I have encountered following error: ``ERROR relation "..." already exists ALTER TABLE.`` The error was caused by the fact that i have tried to import newsdata.sql mutiple times.
+While I was working on this project I have encountered following error: ``ERROR relation "..." already exists ALTER TABLE.`` The error was caused by the fact that I have tried to import newsdata.sql mutiple times.
 
 
 ![troubleshooting](https://discourse-cdn-sjc3.com/udacity/uploads/default/original/4X/9/7/d/97d9b7644c997f558e22fbb001fe96997d6bb039.png)
