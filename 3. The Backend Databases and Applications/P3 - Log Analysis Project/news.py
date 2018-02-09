@@ -33,7 +33,8 @@ def print_query_1(query_result):
     print (query_result[1])
     # Iterate over results
     for index, results in enumerate(query_result[0]):
-        print ("\t", str(index+1)+ ".", results[0])
+        print ("\t", str(index+1)+ ".", results[0],
+               "\t - ", str(results[1]), "views")
 
 def print_query_2(query_result):
     # Print query result
