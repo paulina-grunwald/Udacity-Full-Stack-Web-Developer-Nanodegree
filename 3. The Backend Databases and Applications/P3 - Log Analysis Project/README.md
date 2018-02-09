@@ -402,7 +402,7 @@ date       | error
 
 # Troubleshooting
 
-While I was working on this project I have encountered following error: ``ERROR relation "..." already exists ALTER TABLE.``
+While I was working on this project I have encountered following error: ``ERROR relation "..." already exists ALTER TABLE.`` The error was caused by the fact that i have tried to import newsdata.sql mutiple times.
 
 
 ![troubleshooting](https://discourse-cdn-sjc3.com/udacity/uploads/default/original/4X/9/7/d/97d9b7644c997f558e22fbb001fe96997d6bb039.png)
