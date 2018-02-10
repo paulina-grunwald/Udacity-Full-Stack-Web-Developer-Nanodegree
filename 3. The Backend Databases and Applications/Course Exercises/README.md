@@ -4,12 +4,21 @@
 
 ## Table of contents
 
-1. Working with CRUD
+1. [Working with CRUD](#working-with-crud)
+2. [Making a Web Server](#making-a-web-server)
+3. [Developing with frameworks](#developing-with-frameworks)
+4. [Iterative Development](#iterative-development)
+5. [Authentication vs Authorization](#authentication-vs-authorization)
+6. [Creating Google Sign in](#creating-google-sign-in)
+7. [Local Permission System](#local-permission-system)
+8. [Adding Facebook and other providers](#adding-facebook-and-other-providers)
+9. [What's and Why's of APIs](#whats-and-whys-of-API)
+10. [Accessing Published APIs](#accesing-published-APIs)
+11. [Creating your own API Endpoints](#creating-API)
+12. [Securing your API](#secruting-API)
+13. [Writing Developer-Friendly APIs](writing-APIs)
 
-
-
-
-## 1. Working with CRUD
+# Working with CRUD
 
 __CRUD__ - Create, Read, Update, Delete
 
@@ -17,23 +26,25 @@ __Object-Rational Mapping (ORM)__ - object-relational mappers. ORMs help transfo
 
 ### Creating a Database
 
-Restaurant: name, id
-MenuItem: name, id, description, price, course, restaurant_id
+MenuItems will belong to specific restaurant menu. We will have price and brief description for the menu items. We will have two tables in the restaurantmenu.db:
+- ```Restaurant```: name, id
+- ```MenuItem```: name, id, description, price, course, restaurant_id
 
-restaurant_id is a foreign key that will assign relation to table restaurant (id column)/
+`restaurant_id` is a foreign key that will assign relation to table restaurant (id column)/
 
 
-[__SQLAlchemy__](http://www.sqlalchemy.org/)
-With SQLAlchemy we can write a single python file to set up a database.
+With [__SQLAlchemy__](http://www.sqlalchemy.org/) we can write a single python file to set up a database.
 
 Creating database using ```SQLAlchemy``` has few major components:
-- __Configuration__:
+- ``Configuration``:
   - used for importing necessary modules,
   - creates instances of declarative base,
   - creates (or connects) the database and adds tables to columns.
-- __Class__: used to represent data in python,
-- __Table__: represents specific table in the database,
-- __Mapper__: links the columns of the table to the classes that represent them.
+- ``Class``: used to represent data in Python,
+- ``Table``: represents specific table in the database,
+- ``Mapper``: links the columns of the table to the classes that represent them.
+
+It is necessary to create instance of a class called ```declarative base``` in order for our class to inherit all the features from SQLAlchemy.
 
 ### Create a Database - Class and Table
 
@@ -43,8 +54,9 @@ Inside the class declaration we will add table and mapper code. Mapper code will
 
 Full code is included in database_setup.py file.
 
-### CRUD create
+### Interacting with CRUD
 
+Now I will import  import the necessary libraries, connect to our restaurantMenu.db, and create a session to interface with the database.
 
 ```python
 # Import independencies
@@ -75,12 +87,13 @@ session.query(MenuItem).all()
 
 Read from the database
 
+
 ```python
 firstResult = session.query(Restaurant).first()
 firstResult.name
+# u'Pizza Palace'
 ```
-
-run lotsofrestaurants.py
+Run lotsofrestaurants.py.
 
 ```Python
 # View all restaurants
@@ -88,10 +101,11 @@ session.query(Restaurants).all()
 ```
 
 If we want to run a query in python we need to create:
+```python
 variable_name = session.query(Table_Name).all()
 for item in variable_name:
   print item.table_column
-
+```
 
 ```Python
 items = session.query(MenuItem).all()
@@ -122,12 +136,25 @@ for veggieBurger in veggieBurgers:
     print veggieBurger.id
     print veggieBurger.price
     print veggieBurger.name
-    # Add new line 
     print "\n"
-""```
+```
+
+Update price of the veggie burger to $2.99:
+
+```python
+UrbanVeggieBurger = session.query(MenuItem).filter_by(id=8).one()
+UrbanVeggieBurger.price = '$2.99'
+session.add(UrbanVeggieBurger)
+session.commit()
+```
 
 
-# Making a Web Server
+Delete an item from database:
+
+
+
+
+# 2. Making a Web Server
 
 Protocols help with communication between client and server.
 ``TCP`` - Transmission Control Protocol - enables information information to be broken into small pieces between client and server.
