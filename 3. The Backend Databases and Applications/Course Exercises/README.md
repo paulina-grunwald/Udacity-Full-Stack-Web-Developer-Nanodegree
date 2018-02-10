@@ -66,10 +66,14 @@ class MenuItem(Base):
 	restaurant_id = Column(Integer, ForeignKey('restaurant.id'))
 	restaurant = relationship(Restaurant)
 ```
-Few important notes on attibutes:
-- string(80) - string can be specified with max. number of characters
-- relationship tell SQL what relationship the table has with other tables
-- if nullable is false it means that a column entry must have a value in orderfor the row to be created.
+Few important notes on attributes:
+- String(80) - string can be specified with max. number of characters
+- Relationship tell SQL what relationship the table has with other tables.
+- If nullable is false it means that a column entry must have a value in order for the row to be created.
+- Setting primary key to true indicates a value that we can use to uniquely identify each row of our database table.
+- ForeginKey is used to make a reference to another table.
+
+### CRUD Create and Update
 
 Now I will import  the necessary libraries, connect to our restaurantMenu.db, and create a session to interface with the database.
 
@@ -78,7 +82,8 @@ Now I will import  the necessary libraries, connect to our restaurantMenu.db, an
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Restaurant, MenuItem
-# Create engine function
+# Create engine function to specify
+# To which database we want to connect
 engine = create_engine('sqlite:///restaurantmenu.db')
 # Bind engine to the Base Class
 Base.metadata.bind = engine
@@ -86,61 +91,68 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind = engine)
 # Create instance of DBSession
 session = DBSession()
-# Create new restaurant
+
+# Add new restaurant
 myFirstRestaurant = Restaurant(name = "Pizza Palace")
 # Add new restaurant to the staging zone to be committed
 session.add(myFirstRestaurant)
 # Commit to the database
 session.commit()
+
+# Find all the entries in Restaurant table and return them in list
 session.query(Restaurant).all()
-# Add MenuItem
-cheesepizza = MenuItem(name = "Cheese Pizza", description = "Made with all natural ingridients", course = "Entree", price = "$8.99", restaurant = myFirstRestaurant)
+
+# Add cheesepizza to MenuItem table
+cheesepizza = MenuItem(name = "Cheese Pizza", description = "Made with all natural ingredients", course = "Entree", price = "$8.99", restaurant = myFirstRestaurant)
+
+# Add cheesepizza to the session
 session.add(cheesepizza)
+# Commit the session
 session.commit()
+# View all entries in MenuItem table
 session.query(MenuItem).all()
 ```
 
-Read from the database
+### CRUD Read
 
+Currently we have only one Restaurant in our database. Let's view it:
 
 ```python
 firstResult = session.query(Restaurant).first()
 firstResult.name
 # u'Pizza Palace'
 ```
-Run lotsofrestaurants.py.
+Now I will run ```lotsofrestaurants.py``` to load more restaurants to my database.
 
 ```Python
 # View all restaurants
 session.query(Restaurants).all()
 ```
 
-If we want to run a query in python we need to create:
-```python
-variable_name = session.query(Table_Name).all()
-for item in variable_name:
-  print item.table_column
-```
+To view all MenuItems in more readable form we need to loop through the result of the query:
 
 ```Python
 items = session.query(MenuItem).all()
 for item in items:
   print item.name
-```
-```
-Cheese Pizza
-Veggie Burger
-French Fries
-Chicken Burger
-Chocolate Cake
-Sirloin Burger
-Root Beer
-Iced Tea
-etc.
+
+  # Result:
+  Cheese Pizza
+  Veggie Burger
+  French Fries
+  Chicken Burger
+  Chocolate Cake
+  Sirloin Burger
+  Root Beer
+  Iced Tea
+  etc.
 ```
 
+
+### CRUD update
+
 To update data in the database we need to follow following steps:
-1. Find entry that we want to change
+1. Find entry that we want to change using filter_by function
 2. Change the value
 3. Add to session
 4. Commit session
@@ -154,6 +166,7 @@ for veggieBurger in veggieBurgers:
     print "\n"
 ```
 
+### CRUD Update
 Update price of the veggie burger to $2.99:
 
 ```python
@@ -163,19 +176,46 @@ session.add(UrbanVeggieBurger)
 session.commit()
 ```
 
+Update price of all Veggie Burgers:
 
-Delete an item from database:
+```Python
+for veggieBurger in veggieBurgers:
+  if veggieBurger.price != '$2.99':
+    veggieBurger.price = '$2.99'
+    session.add(veggieBurger)
+    session.commit()
+
+```
+### CRUD Delete
+
+```Python  
+spinach = session.query(MenuItem).filter_by(name = 'Spinach Ice Cream').one()
+print spinach.restaurant.name
+# Auntie Ann's Diner
+
+spinach = session.query(MenuItem).filter_by(name = 'Spinach Ice Cream').all()
+for item in spinach:
+  print item.id
+  print item.name
+  print item.price
+#  44
+#  Spinach Ice Cream
+#  $1.99
+
+session.delete(spinach)
+session.commit()
+
+```
 
 
-
-
-# 2. Making a Web Server
+# Making a Web Server
 
 Protocols help with communication between client and server.
 ``TCP`` - Transmission Control Protocol - enables information information to be broken into small pieces between client and server.
 ``IP`` - Internet Protocol - allow messages to be properly routed
 ``HTTP`` - Hypertext Transfer Protocol
 Ports are use to designate channels of the communication on the same ip address.
+``UDP`` - User Datagram Protocol
 
 Ports numbers can range from 0 to 65536.
 Local host has ip: 127.0.0.1
