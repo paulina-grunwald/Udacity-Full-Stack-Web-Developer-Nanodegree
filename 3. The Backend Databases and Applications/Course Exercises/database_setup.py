@@ -10,16 +10,16 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 class Restaurant(Base):
-	# Add table information
+	# Add table representation
 	__tablename__ = "restaurant"
-	# Add mappers
+	# Add mappers with attributes
 	id = Column(Integer, primary_key = True)
 	name = Column(String(250), nullable = False)
 
 class MenuItem(Base):
-	# Add table information
+	# Add table representation
 	__tablename__ = "menu_item"
-	# Add mappers
+	# Add mappers with attributes
 	name = Column(String(80), nullable = False)
 	id = Column(Integer, primary_key = True)
 	description = Column(String(250))
