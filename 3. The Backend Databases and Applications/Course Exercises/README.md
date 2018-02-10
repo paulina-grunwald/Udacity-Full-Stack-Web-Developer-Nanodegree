@@ -1,7 +1,6 @@
 # Key Learning points for Working with CRUD
 
 
-
 ## Table of contents
 
 1. [Working with CRUD](#working-with-crud)
@@ -48,15 +47,31 @@ It is necessary to create instance of a class called ```declarative base``` in o
 
 ### Create a Database - Class and Table
 
-Class code is an object oriented representation  of table in the database. It Extends from the Base class.
-
-Inside the class declaration we will add table and mapper code. Mapper code will create variables that will use to create columns in our database. Those columns have to include number of attributes.
-
-Full code is included in database_setup.py file.
+``Class code`` is an object oriented representation  of table in the database. It Extends from the Base class. Inside the class declaration we will add table and mapper code. ```Mapper code``` will create variables that will use to create columns in our database. Those columns have to include number of attributes.
 
 ### Interacting with CRUD
 
-Now I will import  import the necessary libraries, connect to our restaurantMenu.db, and create a session to interface with the database.
+Full code is included in ```database_setup.py file```.
+
+```Python
+class MenuItem(Base):
+	# Add table representation
+	__tablename__ = "menu_item"
+	# Add mappers with attributes
+	name = Column(String(80), nullable = False)
+	id = Column(Integer, primary_key = True)
+	description = Column(String(250))
+	price = Column(String(8))
+	course = Column(String(250))
+	restaurant_id = Column(Integer, ForeignKey('restaurant.id'))
+	restaurant = relationship(Restaurant)
+```
+Few important notes on attibutes:
+- string(80) - string can be specified with max. number of characters
+- relationship tell SQL what relationship the table has with other tables
+- if nullable is false it means that a column entry must have a value in orderfor the row to be created.
+
+Now I will import  the necessary libraries, connect to our restaurantMenu.db, and create a session to interface with the database.
 
 ```python
 # Import independencies
