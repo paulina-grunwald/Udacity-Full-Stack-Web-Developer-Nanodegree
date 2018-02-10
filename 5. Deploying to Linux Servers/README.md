@@ -22,30 +22,31 @@ Accessible SSH port: 2200
 
 ## Project steps
 
-1. Update all currently installed packages.
+##### 1. Update all currently installed packages.
 ```
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
-2. Install finger, a utility software to check users' status: ```sudo apt-get install finger```
+##### 2. Install finger, a utility software to check users' status:
+``sudo apt-get install finger``
 
-3. Add new users
-```
-sudo add user grader
-```
+##### 3. Add new users grader and give permission to sudo for this user
+Create grader user:
 
-4. Give premission to sudo for grader users
-```
-sudo nano /etc/sudoers.d/grader
-```
+``sudo add user grader``
 
-Veryfiy if premission was given correctly:
-```
-sudo ls /etc/sudoers.d
-```
+Add sudo premission:
 
-5. Change the SSH port from 22 to 2200. Make sure to configure the Lightsail firewall to allow it.
+``sudo nano /etc/sudoers.d/grader `` type in ``grader ALL=(ALL:ALL) ALL`` save and quit.
+
+Verify if permission was given correctly:
+
+``sudo ls /etc/sudoers.d``
+
+
+
+#### 4. Change the SSH port from 22 to 2200. Make sure to configure the Lightsail firewall to allow it.
 
 6. Configure the Uncomplicated Firewall (UFW) to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123).
 
