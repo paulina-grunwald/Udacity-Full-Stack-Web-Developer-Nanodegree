@@ -5,43 +5,44 @@ from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 # Import common gate interface library
 import cgi
 
+# import CRUD Operations 
+from database_setup import Base, Restaurant, MenuItem
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+
+# Create session and connect to DB
+engine = create_engine('sqlite:///restaurantmenu.db')
+Base.metadata.bind = engine
+DBSession = sessionmaker(bind=engine)
+session = DBSession()
+
+
 # Handler Class
 class WebServerHandler(BaseHTTPRequestHandler):
     # Handle all GET requests
     def do_GET(self):
-        # Look for URL that ends with 'hello'
-        if self.path.endswith("/hello"):
-            # Send a response code 200 indicating a successful git request
-            self.send_response(200)
-            # Reply in form of html to client
-            self.send_header('Content-type', 'text/html')
-            # Send blank line
-            self.end_headers()
-            message = ""
-            # Add message
-            message += "<html><body>Hello!</body></html>"
-            # Send message to the client
-            self.wfile.write(message)
-            print message
-            return
-        # Look for URL that ends with 'hola' 
-        # Add hola funtionality
-        if self.path.endswith("/hola"):
-            # Send a response code 200 indicating a successful git request
-            self.send_response(200)
-            # Reply in form of html to client
-            self.send_header('Content-type', 'text/html')
-            # Send blank line
-            self.end_headers()
-            message = ""
-            # Add message
-            message += "<html><body>&#161Hola! <a href = '/hello'>Back to Hello</a></body></html>"
-            # Send message to the client
-            self.wfile.write(message)
-            print message
-            return
-        else:
+        # Look for URL that ends with restaurant
+        if self.path.endswith("/restaurant"):
+            # Query all restaurants name
+            restaurants = session.query(Restaurant).all()
+            output += "<html><body>"
+                for restaurant in restaurants:
+                    output += restaurant.name
+                    output += "</br>"
+                    # Add Edit and Delete Links
+                    output += "<a href ='#'>Edit</a>"
+                    output += "</br>"
+                    output += "<a href ='#'>Delete</a>"
+                    output += "</br>"
+                output += "</body></html>"
+                self.wfile.write(output)
+                return
+        except IOError:
             self.send_error(404, 'File Not Found: %s' % self.path)
+
+
+
 
     def do_POST(self):
         try:
