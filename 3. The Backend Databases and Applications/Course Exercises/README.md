@@ -250,6 +250,46 @@ Objectives for the project:
 4. Users should be able rename selected restaurant.
 5. Users should be able to delete selected restaurant.
 
+### cgi — Common Gateway Interface support
+A CGI script is invoked by an HTTP server, usually to process user input submitted through an HTML <FORM> or <ISINDEX> element.
+
+# Developing with frameworks
+
+### Running Flask application
+Create menu app using Flask. First I will create flask application:
+
+```python
+# Import Flask class from Flask libary
+from flask import Flask
+# Create instance of the class
+# With the name of the running application as argument
+app = Flask(__name__)
+
+# Add decorators
+@app.route('/')
+@app.route('/hello')
+def HelloWorld():
+    return "Hello World"
+
+# Execute only if file is run by python interpreter
+# Can't be imported
+if __name__ == '__main__':
+    # Enable debug
+    app.debug = True
+    # Run local server with the application
+    app.run(host='0.0.0.0', port=5000)
+```
+The decorator in the above script wraps the function inside the app.route function that was created by Flask. If either of these routes get sent to the browser (``http://localhost:5000/`` or ``http://localhost:5000/hello``) the function HelloWorld will be executed.
+
+To stop the server click ```CTRL+C```.
+
+### Adding Database to Flask Application
+
+
+
+
 
 # REFERENCES
 - https://www.vagrantup.com/docs/networking/forwarded_ports.html
+- http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/
+- https://docs.python.org/2/library/cgi.html
