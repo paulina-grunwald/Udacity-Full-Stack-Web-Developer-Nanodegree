@@ -208,8 +208,8 @@ session.commit()
 ```
 
 
-# Making a Web Server
 
+# Making a Web Server
 
 ### Clients, Servers and Protocols
 
@@ -238,7 +238,18 @@ GET:
 POST:
 - allow user to customize the web experience,
 - require data to be submitted e.g post
-#### Adding POST to web server
+
+### Adding POST to web server
+
+### Adding CRUD to our Website
+Objectives for the project:
+
+1. Modify ```webserver.py``` so when we open localhost:8080/restaurants we will see list of the restaurant
+2. After name of each restaurant there should be a link to edit or delete restaurant.
+3. Add link to the page that will be able to create new restaurants.
+4. Users should be able rename selected restaurant.
+5. Users should be able to delete selected restaurant.
+
 
 # REFERENCES
 - https://www.vagrantup.com/docs/networking/forwarded_ports.html
