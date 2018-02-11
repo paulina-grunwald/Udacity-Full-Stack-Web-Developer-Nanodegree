@@ -1,4 +1,4 @@
-# Build web server 
+# Build web server
 
 # Import modules
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
@@ -24,7 +24,7 @@ class WebServerHandler(BaseHTTPRequestHandler):
             self.wfile.write(message)
             print message
             return
-        # Look for URL that ends with 'hola' 
+        # Look for URL that ends with 'hola'
         # Add hola funtionality
         if self.path.endswith("/hola"):
             # Send a response code 200 indicating a successful git request
@@ -45,33 +45,43 @@ class WebServerHandler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         try:
+            # When receive POST request send off response code
+            # that indicates a successful post
             self.send_response(301)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
-            ctype, pdict = cgi.parse_header(
-                self.headers.getheader('content-type'))
+
+            # cgi.parse_header function oarses an HTML form header, such as content type
+            # into a main valye and dictionary of parameters
+            ctype, pdict = cgi.parse_header(self.headers.getheader('content-type'))
+            # Check if this is form data being received
             if ctype == 'multipart/form-data':
                 fields = cgi.parse_multipart(self.rfile, pdict)
                 messagecontent = fields.get('message')
+            # Create empty string
             output = ""
+            # Create open html and body tags
             output += "<html><body>"
             output += " <h2> Okay, how about this: </h2>"
             output += "<h1> %s </h1>" % messagecontent[0]
             output += '''<form method='POST' enctype='multipart/form-data' action='/hello'><h2>What would you like me to say?</h2><input name="message" type="text" ><input type="submit" value="Submit"> </form>'''
+            # Close html and body tags
             output += "</body></html>"
+            # Send output to the server
             self.wfile.write(output)
+            # Print output for debugning
             print output
         except:
             pass
 
-# Main method 
+# Main method
 def main():
     # Add try/except block
     try:
         # Define port
         port = 8080
         # Set host address to empty and specify port
-        # Create webserver 
+        # Create webserver
         server = HTTPServer(('', port), WebServerHandler)
         # Add print statement to see if the server is running
         print "Web Server running on port %s" % port
