@@ -210,6 +210,9 @@ session.commit()
 
 # Making a Web Server
 
+
+### Clients, Servers and Protocols
+
 Protocols help with communication between client and server.
 ``TCP`` - Transmission Control Protocol - enables information information to be broken into small pieces between client and server.
 ``IP`` - Internet Protocol - allow messages to be properly routed
@@ -218,13 +221,15 @@ Ports are use to designate channels of the communication on the same ip address.
 ``UDP`` - User Datagram Protocol
 
 Ports numbers can range from 0 to 65536.
+
 Local host has ip: 127.0.0.1
 
 #### HTTP and Response Codes
+```
 200: Successful GET
 301: Successful POST
 404: File not found
-
+```
 
 #### GET and POST
 GET:
