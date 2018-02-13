@@ -15,6 +15,7 @@ from sqlalchemy.orm import sessionmaker
 engine = create_engine('sqlite:///restaurantmenu.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
+# Create a session
 session = DBSession()
 
 
@@ -24,37 +25,43 @@ class WebServerHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         try:
             if self.path.endswith("/restaurants/new"):
+                # Send a response code 200 indicating a successful git request
                 self.send_response(200)
                 self.send_header('Content-type', 'text/html')
                 self.end_headers()
                 output = ""
                 output += "<html><body>"
                 output += "<h1>Make a New Restaurant</h1>"
+                # Add link to page with form to add new restaurant
                 output += '''<form method='POST' enctype='multipart/form-data' action='/restaurants/new'><h2>What would you like me to say?</h2><input name="newRestaurantName" type="text" ><input type="submit" value="Submit"> </form>'''
                 output += "</body></html>"
+                # Save to wfile
                 self.wfile.write(output)
                 print output
                 return
 
             # Look for URL that ends with restaurant
             if self.path.endswith("/restaurants"):
-                # Query all restaurants name
+                # Execute query to get all restaurants name
                 restaurants = session.query(Restaurant).all()
                 output = ""
+                # Send a response code 200 indicating a successful git request
                 self.send_response(200)
                 self.send_header('Content-type', 'text/html')
                 self.end_headers()
                 output += "<html><body>"
+                # Loop over names of all restaurants
                 for restaurant in restaurants:
                     output += restaurant.name
                     output += "</br>"
-                    output += restaurant.p
-                    # Add Edit and Delete Links
+                    # Add Edit Link
                     output += "<a href ='#'>Edit</a>"
                     output += "</br>"
+                    # Add Delete link
                     output += "<a href ='#'>Delete</a>"
                     output += "</br>"
                     output += "</body></html>"
+                    # Write to wfile
                     self.wfile.write(output)
                     return
       
