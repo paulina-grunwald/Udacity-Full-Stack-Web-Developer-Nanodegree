@@ -287,9 +287,24 @@ To stop the server click ```CTRL+C```.
 
 
 
+# Iterative Development
+
+ <em>Checklist:</em>
+ 1. Create mock-ups for every page in the restaurant menu app and design URLs for each page.
+ 2. Set all routing in your application to be able to navigate to all URLs.
+ 3. Create all templates and forms.
+ 4. Add all backend funcionality
+ 5. Add API Endpoints.
+ 6. Add styling with CSS
+
+
+# Authentication vs Authorization
+
+
 
 
 # REFERENCES
 - https://www.vagrantup.com/docs/networking/forwarded_ports.html
 - http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/
 - https://docs.python.org/2/library/cgi.html
+- http://lepture.com/en/2013/create-oauth-server
