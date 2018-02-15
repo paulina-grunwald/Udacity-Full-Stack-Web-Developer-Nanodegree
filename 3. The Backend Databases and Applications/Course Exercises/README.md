@@ -300,7 +300,7 @@ To stop the server click ```CTRL+C```.
 
 # Authentication vs Authorization
 
-
+### Authentication
 
 
 # REFERENCES
@@ -308,3 +308,6 @@ To stop the server click ```CTRL+C```.
 - http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/
 - https://docs.python.org/2/library/cgi.html
 - http://lepture.com/en/2013/create-oauth-server
+- https://pymotw.com/2/BaseHTTPServer/
+- https://wiki.python.org/moin/BaseHttpServer
+- https://www.safaribooksonline.com/library/view/web-programming-with/9781926873992/
