@@ -15,7 +15,6 @@ from sqlalchemy.orm import sessionmaker
 engine = create_engine('sqlite:///restaurantmenu.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
-# Create a session
 session = DBSession()
 
 
@@ -24,22 +23,23 @@ class WebServerHandler(BaseHTTPRequestHandler):
     # Handle all GET requests
     def do_GET(self):
         try:
-            # Create /restarants/new page
+            # Create page that adds new restaurant to the database
             if self.path.endswith("/restaurants/new"):
-                # Send a response code 200 indicating a successful git request
                 self.send_response(200)
                 self.send_header('Content-type', 'text/html')
                 self.end_headers()
                 output = ""
                 output += "<html><body>"
+                # Add header
                 output += "<h1>Make a New Restaurant</h1>"
-                # Add link to page with form to add new restaurant
-                output += '''<form method='POST' enctype='multipart/form-data' action='/restaurants/new'><h2>What would you like me to say?</h2><input name="newRestaurantName" type="text" ><input type="submit" value="Submit"> </form>'''
-                output += "</body></html>"
-                # Save to wfile
+                # Add input boxes for the user
+                output += "<form method = 'POST' enctype='multipart/form-data' action = '/restaurants/new'>"
+                output += "<input name = 'newRestaurantName' type = 'text' placeholder = 'New Restaurant Name' > "
+                output += "<input type='submit' value='Create'>"
+                output += "</form></html></body>"
                 self.wfile.write(output)
-                print output
                 return
+            
             if self.path.endswith("/edit"):
                 restaurantIDPath = self.path.split("/")[2]
                 myRestaurantQuery = session.query(Restaurant).filter_by(
@@ -57,43 +57,66 @@ class WebServerHandler(BaseHTTPRequestHandler):
                     output += "<input type = 'submit' value = 'Rename'>"
                     output += "</form>"
                     output += "</body></html>"
-
                     self.wfile.write(output)
 
+                    
+            if self.path.endswith("/delete"):
+                restaurantIDPath = self.path.split("/")[2]
+
+                myRestaurantQuery = session.query(Restaurant).filter_by(
+                    id=restaurantIDPath).one()
+                if myRestaurantQuery:
+                    self.send_response(200)
+                    self.send_header('Content-type', 'text/html')
+                    self.end_headers()
+                    output = ""
+                    output += "<html><body>"
+                    output += "<h1>Are you sure you want to delete %s?" % myRestaurantQuery.name
+                    output += "<form method='POST' enctype = 'multipart/form-data' action = '/restaurants/%s/delete'>" % restaurantIDPath
+                    output += "<input type = 'submit' value = 'Delete'>"
+                    output += "</form>"
+                    output += "</body></html>"
+                    self.wfile.write(output)
 
             # Look for URL that ends with restaurant
             if self.path.endswith("/restaurants"):
-                # Execute query to get all restaurants name
+                # Query all restaurants name
                 restaurants = session.query(Restaurant).all()
                 output = ""
-                # Send a response code 200 indicating a successful git request
+                output += "<a href = '/restaurants/new' > Make a New Restaurant Here </a></br></br>"
                 self.send_response(200)
                 self.send_header('Content-type', 'text/html')
                 self.end_headers()
                 output += "<html><body>"
-                # Loop over names of all restaurants
                 for restaurant in restaurants:
                     output += restaurant.name
                     output += "</br>"
-                    # Add Edit Link
+                    # Add Edit and Delete Links
                     output += "<a href ='#'>Edit</a>"
                     output += "</br>"
-                    # Add Delete link
                     output += "<a href ='#'>Delete</a>"
                     output += "</br>"
                     output += "</body></html>"
-                    # Write to wfile
                     self.wfile.write(output)
-                    return
-      
+                return
+
         except IOError:
             self.send_error(404, 'File Not Found: %s' % self.path)
 
-
-
-
     def do_POST(self):
         try:
+
+            if self.path.endswith("/delete"):
+                restaurantIDPath = self.path.split("/")[2]
+                myRestaurantQuery = session.query(Restaurant).filter_by(
+                    id=restaurantIDPath).one()
+                if myRestaurantQuery:
+                    session.delete(myRestaurantQuery)
+                    session.commit()
+                    self.send_response(301)
+                    self.send_header('Content-type', 'text/html')
+                    self.send_header('Location', '/restaurants')
+                    self.end_headers()
 
             if self.path.endswith("/edit"):
                 ctype, pdict = cgi.parse_header(
@@ -113,9 +136,10 @@ class WebServerHandler(BaseHTTPRequestHandler):
                         self.send_header('Content-type', 'text/html')
                         self.send_header('Location', '/restaurants')
                         self.end_headers()
-            
+
             if self.path.endswith("/restaurants/new"):
-                ctype, pdict = cgi.parse_header(self.headers.getheader('content-type'))
+                ctype, pdict = cgi.parse_header(
+                    self.headers.getheader('content-type'))
                 if ctype == 'multipart/form-data':
                     fields = cgi.parse_multipart(self.rfile, pdict)
                     messagecontent = fields.get('newRestaurantName')
@@ -127,11 +151,15 @@ class WebServerHandler(BaseHTTPRequestHandler):
 
                     self.send_response(301)
                     self.send_header('Content-type', 'text/html')
-                    # Create redirect to
                     self.send_header('Location', '/restaurants')
                     self.end_headers()
+            
+      
         except:
-            pass
+            pass   
+
+
+
 
 # Main method
 def main():
