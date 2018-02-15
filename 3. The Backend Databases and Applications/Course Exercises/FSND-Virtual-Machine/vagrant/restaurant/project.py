@@ -5,7 +5,7 @@ from flask import Flask
 app = Flask(__name__)
 
 
-# import CRUD Operations 
+# Import CRUD Operations 
 from database_setup import Base, Restaurant, MenuItem
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -19,14 +19,18 @@ session = DBSession()
 
 
 
-# add decorators
+# Add decorators
 @app.route('/')
 @app.route('/hello')
+# Envoce HelloWold() function when accessing
+# Local host 5000 or localhost 5000/hello
 def HelloWorld():
     return "Hello World"
 
 # Execute only if file is run by python interpreter
 if __name__ == '__main__':
+	# If code change reload
     app.debug = True
     # Run local server with the applicaion
+    # Listen on all public addresses
     app.run(host='0.0.0.0', port=5000)
