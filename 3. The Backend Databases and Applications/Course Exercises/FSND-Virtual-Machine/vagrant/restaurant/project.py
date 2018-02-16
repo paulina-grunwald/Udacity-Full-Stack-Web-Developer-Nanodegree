@@ -1,5 +1,5 @@
 # Improt Flask class from Flask libary
-from flask import Flask
+from flask import Flask, render_template
 # Create instance of the class
 # With the name of the running application as argument
 app = Flask(__name__)
@@ -25,14 +25,15 @@ session = DBSession()
 def restaurantMenu(restaurant_id):
 	restaurant = session.query(Restaurant).first()
 	items = session.query(MenuItem).filter_by(restaurant_id = restaurant.id)
-	output = ''
-	for i in items:
-		output += i.name
-		output += '</br>'
-		output += i.price
-		output += '</br>'
-		output += i.description
-	return output
+	#output = ''
+	#for i in items:
+	#	output += i.name
+	#	output += '</br>'
+	#	output += i.price
+	#	output += '</br>'
+	#	output += i.description
+	#return output
+	return render_template('menu.html', restaurant = restaurant, items = items)
 
 #Create route for newMenuItem function here
 @app.route('/restaurants/<int:restaurant_id>/new/')
