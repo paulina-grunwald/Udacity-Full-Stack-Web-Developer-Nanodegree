@@ -256,7 +256,8 @@ A CGI script is invoked by an HTTP server, usually to process user input submitt
 # Developing with frameworks
 
 ### Running Flask application
-Create menu app using Flask. First I will create flask application:
+
+Create menu app using Flask. First I will create basic Flask application:
 
 ```python
 # Import Flask class from Flask libary
@@ -279,43 +280,25 @@ if __name__ == '__main__':
     # Run local server with the application
     app.run(host='0.0.0.0', port=5000)
 ```
-The decorator in the above script wraps the function inside the app.route function that was created by Flask. If either of these routes get sent to the browser (``http://localhost:5000/`` or ``http://localhost:5000/hello``) the function HelloWorld will be executed.
+We then use the ``route() decorator`` to tell Flask what URL should trigger our function. The decorator in the above script wraps the function inside the app.route function that was created by Flask. If either of these routes get sent to the browser (``http://localhost:5000/`` or ``http://localhost:5000/hello``) the function HelloWorld will be executed.
 
+The ``run() function`` to run the local server with our application. The if __name__ == '__main__': makes sure the server only runs if the script is executed directly from the Python interpreter and not used as an imported module
+
+If you enable ``debug support`` the server will reload itself on code changes, and it will also provide you with a helpful debugger if things go wrong.
+To enable debug support you can use this code:
+
+```python
+app.debug = True
+app.run()
+# or
+app.run(debug=True)
+```
 To stop the server click ```CTRL+C```.
 
 ### Adding Database to Flask Application
 
 
-
-# Iterative Development
-
- <em>Checklist:</em>
- 1. Create mock-ups for every page in the restaurant menu app and design URLs for each page.
- 2. Set all routing in your application to be able to navigate to all URLs.
- 3. Create all templates and forms.
- 4. Add all backend funcionality
- 5. Add API Endpoints.
- 6. Add styling with CSS
-
-# Developing with frameworks
-
-Create flask application using python - project.py
-
-```python   
-from flask import Flask
-app = Flask(__name__)
-
-@app.route('/')
-@app.route('/hello')
-def HelloWorld():
-    return "Hello World"
-
-if __name__ == '__main__':
-    # If code change reload
-    app.debug = True
-    # Run local server
-    app.run(host='0.0.0.0', port=5000)
-```
+### Routing
 
 The  route decorator is used to bind the function to the URL. To add variable to the URL we can specify the rule:
 ```
@@ -336,7 +319,84 @@ def editMenuItem(restaurant_id, menu_id):
     return "page to edit a menu item. Task 2 complete!"
 ```
 
+### Render template
 
+Flask can configure an engine code to store html code. To render template you can use code
+
+```python
+render_template(templateName.html, variable = keyword)
+```
+
+This is example of the template:
+```HTML
+<html>
+
+<body>
+
+<h1>{{restaurant.name}}</h1>
+
+
+{% for i in items %}
+
+<div>
+
+<p>{{i.name}}</p>
+
+<p>{{i.description}}</p>
+
+<p> {{i.price}} </p>
+
+</div>
+
+
+{% endfor %}
+</body>
+
+</html>
+
+```
+
+``{%logical code%}`` - logical code that we want to execute from inside of HTML e.g for loop.
+
+``{{printed code}}`` - result printed from html file
+``{%endfor%}``, ``{%endif%}`` - indicate end of the statement
+
+
+Now we can use this template but we need to edit our main piece of code:
+
+```python
+@app.route('/restaurants/<int:restaurant_id>/')
+
+def restaurantMenu(restaurant_id):
+	restaurant = session.query(Restaurant).first()
+	items = session.query(MenuItem).filter_by(restaurant_id = restaurant.id)
+  # REMOVE BELOW CODE and replace with render_template
+	#output = ''
+	#for i in items:
+	#	output += i.name
+	#	output += '</br>'
+	#	output += i.price
+	#	output += '</br>'
+	#	output += i.description
+	#return output
+	return render_template('menu.html', restaurant = restaurant, items = items)
+
+```
+### URL Building
+
+
+
+
+
+# Iterative Development
+
+ <em>Checklist:</em>
+ 1. Create mock-ups for every page in the restaurant menu app and design URLs for each page.
+ 2. Set all routing in your application to be able to navigate to all URLs.
+ 3. Create all templates and forms.
+ 4. Add all backend functionality
+ 5. Add API Endpoints.
+ 6. Add styling with CSS
 
 
 # Authentication vs Authorization
@@ -353,3 +413,4 @@ def editMenuItem(restaurant_id, menu_id):
 - https://wiki.python.org/moin/BaseHttpServer
 - https://www.safaribooksonline.com/library/view/web-programming-with/9781926873992/
 - https://en.wikipedia.org/wiki/HTML#Character_and_entity_references
+- http://flask.pocoo.org/docs/0.10/quickstart/#url-building
