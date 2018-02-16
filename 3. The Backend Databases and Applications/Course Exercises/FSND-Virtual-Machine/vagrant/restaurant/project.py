@@ -21,6 +21,7 @@ session = DBSession()
 # add decorators
 @app.route('/')
 @app.route('/restaurants/<int:restaurant_id>/')
+
 def restaurantMenu(restaurant_id):
 	restaurant = session.query(Restaurant).first()
 	items = session.query(MenuItem).filter_by(restaurant_id = restaurant.id)
@@ -32,6 +33,29 @@ def restaurantMenu(restaurant_id):
 		output += '</br>'
 		output += i.description
 	return output
+
+#Create route for newMenuItem function here
+@app.route('/restaurants/<int:restaurant_id>/new/')
+
+def newMenuItem(restaurant_id):
+    return "page to create a new menu item. Task 1 complete!"
+
+
+#Create route for editMenuItem function here
+@app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/edit/')
+
+
+def editMenuItem(restaurant_id, menu_id):
+    return "page to edit a menu item. Task 2 complete!"
+
+#Create a route for deleteMenuItem function here
+
+@app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/delete/')
+
+def deleteMenuItem(restaurant_id, menu_id):
+    return "page to delete a menu item. Task 3 complete!"
+
+
 
 
 # Execute only if file is run by python interpreter
