@@ -299,6 +299,46 @@ To stop the server click ```CTRL+C```.
 
 # Developing with frameworks
 
+Create flask application using python - project.py
+
+```python   
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+@app.route('/hello')
+def HelloWorld():
+    return "Hello World"
+
+if __name__ == '__main__':
+    # If code change reload
+    app.debug = True
+    # Run local server
+    app.run(host='0.0.0.0', port=5000)
+```
+
+The  route decorator is used to bind the function to the URL. To add variable to the URL we can specify the rule:
+```
+"path/<type: variable_name/path"
+```
+Type can be integer, string or other path. In our case we can change URL to view certain id of the restaurant:
+```python
+@app.route('/restaurants/<int:restaurant_id>/')
+```
+
+When we create a route for a function it should contain the same number of inputs as the function e.g
+
+```Python
+#Create route for editMenuItem function here
+@app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/edit/')
+
+def editMenuItem(restaurant_id, menu_id):
+    return "page to edit a menu item. Task 2 complete!"
+```
+
+
+
+
 # Authentication vs Authorization
 
 ### Authentication
@@ -312,3 +352,4 @@ To stop the server click ```CTRL+C```.
 - https://pymotw.com/2/BaseHTTPServer/
 - https://wiki.python.org/moin/BaseHttpServer
 - https://www.safaribooksonline.com/library/view/web-programming-with/9781926873992/
+- https://en.wikipedia.org/wiki/HTML#Character_and_entity_references
