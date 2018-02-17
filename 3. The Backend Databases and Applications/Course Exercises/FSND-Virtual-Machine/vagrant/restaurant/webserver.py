@@ -2,14 +2,12 @@
 
 # Import modules
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
-# Import common gate interface library
 import cgi
 
-# Import CRUD Operations
+# Import common gate interface library
 from database_setup import Base, Restaurant, MenuItem
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
 
 # Create session and connect to DB
 engine = create_engine('sqlite:///restaurantmenu.db')
@@ -17,9 +15,8 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-
 # Handler Class
-class WebServerHandler(BaseHTTPRequestHandler):
+class webServerHandler(BaseHTTPRequestHandler):
     # Handle all GET requests
     def do_GET(self):
         try:
@@ -39,7 +36,6 @@ class WebServerHandler(BaseHTTPRequestHandler):
                 output += "</form></html></body>"
                 self.wfile.write(output)
                 return
-            
             if self.path.endswith("/edit"):
                 restaurantIDPath = self.path.split("/")[2]
                 myRestaurantQuery = session.query(Restaurant).filter_by(
@@ -57,9 +53,8 @@ class WebServerHandler(BaseHTTPRequestHandler):
                     output += "<input type = 'submit' value = 'Rename'>"
                     output += "</form>"
                     output += "</body></html>"
-                    self.wfile.write(output)
 
-                    
+                    self.wfile.write(output)
             if self.path.endswith("/delete"):
                 restaurantIDPath = self.path.split("/")[2]
 
@@ -78,12 +73,12 @@ class WebServerHandler(BaseHTTPRequestHandler):
                     output += "</body></html>"
                     self.wfile.write(output)
 
-            # Look for URL that ends with restaurant
             if self.path.endswith("/restaurants"):
-                # Query all restaurants name
                 restaurants = session.query(Restaurant).all()
                 output = ""
+                # Objective 3 Step 1 - Create a Link to create a new menu item
                 output += "<a href = '/restaurants/new' > Make a New Restaurant Here </a></br></br>"
+
                 self.send_response(200)
                 self.send_header('Content-type', 'text/html')
                 self.end_headers()
@@ -91,21 +86,24 @@ class WebServerHandler(BaseHTTPRequestHandler):
                 for restaurant in restaurants:
                     output += restaurant.name
                     output += "</br>"
-                    # Add Edit and Delete Links
-                    output += "<a href ='#'>Edit</a>"
-                    output += "</br>"
-                    output += "<a href ='#'>Delete</a>"
-                    output += "</br>"
-                    output += "</body></html>"
-                    self.wfile.write(output)
-                return
+                    # Objective 2 -- Add Edit and Delete Links
+                    # Objective 4 -- Replace Edit href
 
+                    output += "<a href ='/restaurants/%s/edit' >Edit </a> " % restaurant.id
+                    output += "</br>"
+                    # Objective 5 -- Replace Delete href
+                    output += "<a href ='/restaurants/%s/delete'> Delete </a>" % restaurant.id
+                    output += "</br></br></br>"
+
+                output += "</body></html>"
+                self.wfile.write(output)
+                return
         except IOError:
             self.send_error(404, 'File Not Found: %s' % self.path)
 
+    # Objective 3 Step 3- Make POST method
     def do_POST(self):
         try:
-
             if self.path.endswith("/delete"):
                 restaurantIDPath = self.path.split("/")[2]
                 myRestaurantQuery = session.query(Restaurant).filter_by(
@@ -153,33 +151,20 @@ class WebServerHandler(BaseHTTPRequestHandler):
                     self.send_header('Content-type', 'text/html')
                     self.send_header('Location', '/restaurants')
                     self.end_headers()
-            
-      
+
         except:
-            pass   
+            pass
 
 
-
-
-# Main method
 def main():
-    # Add try/except block
     try:
-        # Define port
-        port = 8080
-        # Set host address to empty and specify port
-        # Create webserver
-        server = HTTPServer(('', port), WebServerHandler)
-        # Add print statement to see if the server is running
-        print "Web Server running on port %s" % port
-        # Keep listening until CTRL+C or exiting application
+        server = HTTPServer(('', 8080), webServerHandler)
+        print 'Web server running...open localhost:8080/restaurants in your browser'
         server.serve_forever()
-    # Add except
     except KeyboardInterrupt:
-        print " ^C entered, stopping web server...."
-        # Shut down server
+        print '^C received, shutting down server'
         server.socket.close()
 
-# Run main method when python executes the script
+
 if __name__ == '__main__':
     main()
