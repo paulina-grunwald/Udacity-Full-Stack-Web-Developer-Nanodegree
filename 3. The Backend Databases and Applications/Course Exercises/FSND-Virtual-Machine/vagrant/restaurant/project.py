@@ -54,8 +54,17 @@ def newMenuItem(restaurant_id):
 
 
 def editMenuItem(restaurant_id, menu_id):
-	# Find menu item with appropiate id
-    editItem = session.query(MenuItem).filter_by(id = menu_id).one
+    editedItem = session.query(MenuItem).filter_by(id=menu_id).one()
+    if request.method == 'POST':
+        if request.form['name']:
+            editedItem.name = request.form['name']
+        session.add(editedItem)
+        session.commit()
+        return redirect(url_for('restaurantMenu', restaurant_id=restaurant_id))
+    else:
+        return render_template(
+            'editmenuitem.html', restaurant_id=restaurant_id, menu_id=menu_id, item=editedItem)
+
 
 # Delete Menu Item
 
