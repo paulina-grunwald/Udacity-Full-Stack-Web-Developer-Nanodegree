@@ -222,7 +222,7 @@ Ports are use to designate channels of the communication on the same ip address.
 
 Ports numbers can range from 0 to 65536.
 
-Local host has ip: 127.0.0.1
+Local host has ip: ``127.0.0.1``
 
 #### HTTP and Response Codes
 ```
@@ -232,16 +232,17 @@ Local host has ip: 127.0.0.1
 ```
 
 #### GET and POST
-GET:
+``GET``:
 - good for viewing information that is already on the server
 - happen simply by visiting URL in the browser
-POST:
+
+``POST``:
 - allow user to customize the web experience,
 - require data to be submitted e.g post
 
-### Adding POST to web server
 
 ### Adding CRUD to our Website
+
 Objectives for the project:
 
 1. Modify ```webserver.py``` so when we open localhost:8080/restaurants we will see list of the restaurant
@@ -252,6 +253,8 @@ Objectives for the project:
 
 ### cgi — Common Gateway Interface support
 A CGI script is invoked by an HTTP server, usually to process user input submitted through an HTML <FORM> or <ISINDEX> element.
+
+
 
 # Developing with frameworks
 
@@ -280,12 +283,12 @@ if __name__ == '__main__':
     # Run local server with the application
     app.run(host='0.0.0.0', port=5000)
 ```
-We then use the ``route() decorator`` to tell Flask what URL should trigger our function. The decorator in the above script wraps the function inside the app.route function that was created by Flask. If either of these routes get sent to the browser (``http://localhost:5000/`` or ``http://localhost:5000/hello``) the function HelloWorld will be executed.
 
-The ``run() function`` to run the local server with our application. The if __name__ == '__main__': makes sure the server only runs if the script is executed directly from the Python interpreter and not used as an imported module
+We then use the ``route() decorator`` we tell Flask what URL should trigger our function. The decorator in the above script wraps the function inside the app.route function that was created by Flask. If either of these routes get sent to the browser (``http://localhost:5000/`` or ``http://localhost:5000/hello``) the function HelloWorld will be executed.
 
-If you enable ``debug support`` the server will reload itself on code changes, and it will also provide you with a helpful debugger if things go wrong.
-To enable debug support you can use this code:
+The ``run() function`` to run the local server with our application. The if __name__ == '__main__': makes sure the server only runs if the script is executed directly from the Python interpreter and not used as an imported module.
+
+If you enable ``debug support`` the server will reload itself on code changes, and it will also provide you with a helpful debugger if things go wrong. To enable debug support you can use this code:
 
 ```python
 app.debug = True
@@ -295,7 +298,10 @@ app.run(debug=True)
 ```
 To stop the server click ```CTRL+C```.
 
+
 ### Adding Database to Flask Application
+
+In order to connect to the database we need to import in out application sqlalchemy modules, create engine and database session. HelloWorld function needs to be updated to be able to query through the restaurant database.
 
 
 ### Routing
@@ -321,13 +327,15 @@ def editMenuItem(restaurant_id, menu_id):
 
 ### Render template
 
-Flask can configure an engine code to store html code. To render template you can use code
+Flask can configure an engine to store html code. To render template you can use code render_template method. All we need to do it is to provide template name and pass variable that HTML template.
+
+This retrieval of data is called ``HTML escaping``.
 
 ```python
 render_template(templateName.html, variable = keyword)
 ```
 
-This is example of the template:
+This is example of the HTML template:
 ```HTML
 <html>
 
@@ -359,8 +367,8 @@ This is example of the template:
 ``{%logical code%}`` - logical code that we want to execute from inside of HTML e.g for loop.
 
 ``{{printed code}}`` - result printed from html file
-``{%endfor%}``, ``{%endif%}`` - indicate end of the statement
 
+``{%endfor%}``, ``{%endif%}`` - indicate end of the statement
 
 Now we can use this template but we need to edit our main piece of code:
 
@@ -371,7 +379,8 @@ def restaurantMenu(restaurant_id):
 	restaurant = session.query(Restaurant).first()
 	items = session.query(MenuItem).filter_by(restaurant_id = restaurant.id)
   # REMOVE BELOW CODE and replace with render_template
-	#output = ''
+
+  #output = ''
 	#for i in items:
 	#	output += i.name
 	#	output += '</br>'
@@ -379,14 +388,22 @@ def restaurantMenu(restaurant_id):
 	#	output += '</br>'
 	#	output += i.description
 	#return output
+
+  # Return render_template using menu.html
+  # Give escape code access to restaurant and items variables
+
 	return render_template('menu.html', restaurant = restaurant, items = items)
 
 ```
 ### URL Building
 
+It is possible to generate URL using Flask. To build a URL to a specific function you can use the ``url_for() function``.  It accepts the name of the function as first argument and a number of keyword arguments, each corresponding to the variable part of the URL rule. Unknown variable parts are appended to the URL as query parameters.
 
+```python
+<a href='{{url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = i.item)}}'>Edit</a>
 
-
+```
+### Form Requests and Redirects
 
 # Iterative Development
 
