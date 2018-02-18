@@ -1,0 +1,20 @@
+<html>
+
+<body>
+<h1> Are you sure you want to edit {{item.name}}? </h1>
+
+<form action="{{ url_for('editMenuItem', restaurant_id=item.restaurant_id, menu_id=item.id)}}" method = 'post'>
+
+<!--Edit name of the menu item-->
+<p>Name:</p>
+		<input type='text' size='30' name='name'>
+<input type='submit', value = 'Edit'>
+
+<!--Edit X of the menu item-->
+
+</form>
+
+<a href = "{{ url_for('restaurantMenu', restaurant_id = item.restaurant_id)}}"> Cancel </a>
+</body>
+
+</html>
