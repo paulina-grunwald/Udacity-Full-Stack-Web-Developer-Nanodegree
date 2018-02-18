@@ -1,5 +1,5 @@
 # Improt Flask class from Flask libary
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 # Create instance of the class
 # With the name of the running application as argument
 app = Flask(__name__)
@@ -43,6 +43,7 @@ def newMenuItem(restaurant_id):
 		newItem = MenuItem(name = request.form['name'], restaurant_id = restaurant_id)
 		session.add(newItem)
 		session.commit()
+		flash("New menu item created!")
 		# Redirect user to the main page
 		return redirect(url_for('restaurantMenu', restaurant_id=restaurant_id))
 	else:
@@ -50,9 +51,8 @@ def newMenuItem(restaurant_id):
 
 
 #Create route for editMenuItem function here
-@app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/edit/', methods=['GET', 'POST'])
-
-
+@app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/edit',
+           methods=['GET', 'POST'])
 def editMenuItem(restaurant_id, menu_id):
     editedItem = session.query(MenuItem).filter_by(id=menu_id).one()
     if request.method == 'POST':
@@ -60,6 +60,8 @@ def editMenuItem(restaurant_id, menu_id):
             editedItem.name = request.form['name']
         session.add(editedItem)
         session.commit()
+        #flash("Menu item " + editedItem + ' has been edited!' )
+        flash("Menu item has been edited!")
         return redirect(url_for('restaurantMenu', restaurant_id=restaurant_id))
     else:
         return render_template(
@@ -76,6 +78,7 @@ def deleteMenuItem(restaurant_id, menu_id):
     if request.method == 'POST':
         session.delete(deleteItem)
         session.commit()
+        flash("Item has been deleted!")
         return redirect(url_for('restaurantMenu', restaurant_id=restaurant_id))
     else:
         return render_template('deletemenuitem.html', item=deleteItem)
@@ -83,8 +86,9 @@ def deleteMenuItem(restaurant_id, menu_id):
 
 # Execute only if file is run by python interpreter
 if __name__ == '__main__':
+	app.secret_key = 'super_secret_key'
 	# Reload server when code changes
-    app.debug = True
-    # Run local server with the application
-    # Listen on all public addresses
-    app.run(host='0.0.0.0', port=5000)
+	app.debug = True
+	# Run local server with the application
+	# Listen on all public addresses
+	app.run(host='0.0.0.0', port=5000)
