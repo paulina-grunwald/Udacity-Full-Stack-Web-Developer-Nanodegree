@@ -37,7 +37,18 @@ The database includes three tables:
 
 The Item Catalog project consists of developing an application that provides a list of items within a variety of categories, as well as provide a user registration and authentication system.
 
+Steps I took to create Catalog App:
 
+1. Create mock-ups for every page in the restaurant menu app and design URLs for each page.
+2. Set all routing in your application to be able to navigate to all URLs.
+3. Create all templates and forms.
+4. Add all backend functionality
+5. Add API Endpoints.
+6. Add styling with CSS
 
 
 # 6. REFERENCES
+
+
+# 7. Image REFERENCES
+- http://www.notreble.com/buzz/wp-content/uploads/2017/09/Elrick-Guitars-Platinum-Series-e-volution-DBS-Daric-Bennnett-Signature-Bass.jpg
