@@ -1,5 +1,5 @@
 # Improt Flask class from Flask libary
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 # Create instance of the class
 # With the name of the running application as argument
 app = Flask(__name__)
@@ -35,28 +35,41 @@ def restaurantMenu(restaurant_id):
 	#return output
 	return render_template('menu.html', restaurant = restaurant, items = items)
 
-#Create route for newMenuItem function here
-@app.route('/restaurants/<int:restaurant_id>/new/')
+#Create route for newMenuItem function here and add GET and POST method
+@app.route('/restaurants/<int:restaurant_id>/new/', methods=['GET', 'POST'])
 
 def newMenuItem(restaurant_id):
-    return "page to create a new menu item. Task 1 complete!"
+	if request.method == 'POST':
+		newItem = MenuItem(name = request.form['name'], restaurant_id = restaurant_id)
+		session.add(newItem)
+		session.commit()
+		# Redirect user to the main page
+		return redirect(url_for('restaurantMenu', restaurant_id=restaurant_id))
+	else:
+		return render_template('newmenuItem.html', restaurant_id=restaurant_id)
 
 
 #Create route for editMenuItem function here
-@app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/edit/')
+@app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/edit/', methods=['GET', 'POST'])
 
 
 def editMenuItem(restaurant_id, menu_id):
-    return "page to edit a menu item. Task 2 complete!"
+	# Find menu item with appropiate id
+    editItem = session.query(MenuItem).filter_by(id = menu_id).one
 
-#Create a route for deleteMenuItem function here
+# Delete Menu Item
 
-@app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/delete/')
+#Create route for deleteMenuItem function here and add GET and POST method
+@app.route('/restaurants/<int:restaurant_id>/<int:menu_id>/delete/', methods=['GET', 'POST'])
 
 def deleteMenuItem(restaurant_id, menu_id):
-    return "page to delete a menu item. Task 3 complete!"
-
-
+    deleteItem = session.query(MenuItem).filter_by(id=menu_id).one()
+    if request.method == 'POST':
+        session.delete(deleteItem)
+        session.commit()
+        return redirect(url_for('restaurantMenu', restaurant_id=restaurant_id))
+    else:
+        return render_template('deletemenuitem.html', item=deleteItem)
 
 
 # Execute only if file is run by python interpreter
