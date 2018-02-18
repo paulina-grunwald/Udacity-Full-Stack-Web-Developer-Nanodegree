@@ -405,6 +405,20 @@ It is possible to generate URL using Flask. To build a URL to a specific functio
 ```
 ### Form Requests and Redirects
 
+### Message flashing
+``Message flashing`` is a feature that will prompt a message to user immediately after certain action has taken place and disappear when the page is requested.
+
+To flash a message within the application we use:
+```python
+flash("insert message here")
+```
+To get hold of one of the message we use:
+```python
+get_flashed_messages()
+```
+
+### Responding with JSON
+
 # Iterative Development
 
  <em>Checklist:</em>
