@@ -433,7 +433,14 @@ get_flashed_messages()
 # Authentication vs Authorization
 
 ### Authentication
-
+Securing your web application:
+- strong passwords,
+- strong encryption,
+- secure communication,
+- password storage,
+- 2-factor authentication,
+- password recovery,
+- man-in-the middle attacks
 
 # REFERENCES
 - https://www.vagrantup.com/docs/networking/forwarded_ports.html
