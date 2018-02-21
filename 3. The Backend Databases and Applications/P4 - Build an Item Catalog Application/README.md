@@ -18,20 +18,32 @@ In order to be able to run all the files included in this project you need to ha
 - Vagrant
 - VirtualBox
 
-Steps:
+Steps on how to access database:
 - Unizp newsdata.rar (you can find newsdata.sql database inside of the zipped file)
 - Install Vagrant And VirtualBox
 - Clone this repository
 - Launch Vagrant VM by running ```vagrant up```, you can the log in with ```vagrant ssh```
 - When having problems with starting up your vagrant you can try following command instead vagrant ssh: ```VAGRANT_PREFER_SYSTEM_BIN=1 vagrant ssh```
-- To load the data go to the folder where the database is stored, use the command ```psql -d news -f catalog.sql``` to connect a database and run the necessary SQL statements.
+- To load the data go to the folder where the database is stored, use the command ```psql -d news -f japanesefood.sql``` to connect a database and run the necessary SQL statements.
 
 The database includes three tables:
 
-- The __authors table__ includes information about the authors of articles.
-- The __articles table__ includes the articles themselves.
-- The __log table__ includes one entry for each time a user has accessed the site
+- The __Category__
+- __Dish__
 
+
+Steps on how to run the application:
+
+1. Install Vagrant and Virtual Box
+2. Clone this repository
+3. Launch the Vagrant VM
+4. From directory /XXX/catalog, initialize the application database by typing python database_setup.py follows by python feedcatalog.py.
+5. From directory /XXXX/catalog, run the application within the VM by typing python main.py into the Terminal.
+6. Access the application by visiting http://localhost:8000 locally on the browser.
+
+# Tools and Frameworks used
+
+This web application was built using HTML5, CSS, Bootstrap, Vagrant, Flask, SQLAlchemy, Google and Facebook Oauth2 & APIs.
 
 # Steps taken in developing Item Catalog App
 
@@ -46,9 +58,17 @@ Steps I took to create Catalog App:
 5. Add API Endpoints.
 6. Add styling with CSS
 
+## 1. Create mock-ups for every
+This is the list of requires html templates for various parts of the catalog app:
+- index (main page)
+- about
+- contact
+
+- delete item,
+- edit item,
+-
 
 # 6. REFERENCES
-
+- https://tutorial.djangogirls.org/en/template_extending/
 
 # 7. Image REFERENCES
-- http://www.notreble.com/buzz/wp-content/uploads/2017/09/Elrick-Guitars-Platinum-Series-e-volution-DBS-Daric-Bennnett-Signature-Bass.jpg
