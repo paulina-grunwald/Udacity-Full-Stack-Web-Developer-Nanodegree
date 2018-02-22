@@ -63,10 +63,24 @@ This is the list of requires html templates for various parts of the catalog app
 - index (main page)
 - about
 - contact
-
 - delete item,
 - edit item,
--
+- add image
+- edit Image
+
+## 2. Set up routing
+
+Category routing:
+- View all categories: /categories/
+- Create new category: /category/new
+- Edit category: category/<int:category_id>/edit
+- Delete category: category/<int:category_id>/edit
+
+Dish routing:
+Show all dishes in the category: /category/<int:category_id>/items
+Add item to the category: /category/<int:category_id>/items/new
+
+
 
 # 6. REFERENCES
 - https://tutorial.djangogirls.org/en/template_extending/
