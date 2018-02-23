@@ -1,10 +1,11 @@
 # Import modules
 import os
 import sys
-from sqlalchemy import Column, ForeignKey, Integer, String
+from sqlalchemy import Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
+import datetime
 
 # Create instance of the declarative base
 Base = declarative_base()
@@ -15,6 +16,7 @@ class Category(Base):
 	# Add mappers with attributes
 	id = Column(Integer, primary_key = True)
 	name = Column(String(250), nullable = False)
+	dishes = relationship("Dish", cascade="all, delete-orphan")
 
 class Dish(Base):
 	# Add table representation
