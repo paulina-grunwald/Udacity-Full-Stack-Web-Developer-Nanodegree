@@ -128,17 +128,17 @@ session.add(item6)
 session.commit()
 
 item7 = Dish(name="Tako Sunomono", description="Tako Sunomono (Octopus Salad) is yet another variation of Sunomono, sliced vegetables soaked in sweet vinegar sauce.  While the Sunomono can be as simple as a small dish of cucumber with some sesame seeds, we often mix in seafood such as Tako (octopus) or crab..",
-                     image="/static/img/.jpg", category=category2)
+                     image="/static/img/tako.jpg", category=category2)
 session.add(item7)
 session.commit()
 
-item8 = Dish(name="", description=".",
-                     image="/static/img/.jpg", category=category2)
+item8 = Dish(name="Kazunoko", description="Kazunoko is salted herring roe that has been marinated in seasoned Dashi. It is a part of Osechi Ryori, the traditional Japanese New Year feast.  There are many kinds of dishes for Osechi Ryori, but Kazunoko is one of the big three celebration dishes, along with Kuromame (sweet black beans) and Tazukuri.",
+                     image="/static/img/kazunoko.jpg", category=category2)
 session.add(item8)
 session.commit()
 
-item9 = Dish(name="", description=".",
-                     image="/static/img/.jpg", category=category2)
+item9 = Dish(name="Kaki Fry", description="Kaki Fry is breaded and deep-fried oysters, often eaten with Tonkatsu Sauce, lemon juice, and tartar sauce (or other toppings).  It is a taste of winter when oysters are in season in Japan.",
+                     image="/static/img/kaki.jpg", category=category2)
 session.add(item9)
 session.commit()
 
