@@ -94,40 +94,40 @@ session.add(category2)
 session.commit()
 
 
-item1 = Dish(name="", description=".",
-                     image="/static/img/.jpg", category=category2)
+item1 = Dish(name="Shrimp Tempura", description="Cooked bits of tempura are either eaten with dipping sauce, salted without sauce, or used to assemble other dishes. Tempura is commonly served with grated daikon and eaten hot immediately after frying.",
+                     image="/static/img/shrimp_tempura.jpg", category=category2)
 session.add(item1)
 session.commit()
 
-item2 = Dish(name="", description=".",
-                     image="/static/img/.jpg", category=category2)
+item2 = Dish(name="Takoyaki", description="Takoyaki is a ball-shaped Japanese snack made of a wheat flour-based batter and cooked in a special molded pan. It is typically filled with minced or diced octopus (tako), tempura scraps (tenkasu), pickled ginger, and green onion.",
+                     image="/static/img/takoyaki.jpg", category=category2)
 session.add(item2)
 session.commit()
 
 
-item3 = Dish(name="", description=".",
-                     image="/static/img/.jpg", category=category2)
+item3 = Dish(name="Seafood Okonomiyaki", description="Okonomiyaki is a Japanese savory pancake containing a variety of ingredients. The name is derived from the word okonomi.",
+                     image="/static/img/okonomiyaki.jpg", category=category2)
 session.add(item3)
 session.commit()
 
 
-item4 = Dish(name="", description=".",
-                     image="/static/img/.jpg", category=category2)
+item4 = Dish(name="Ebichiri", description="Ebichiri is grilled shrimp with doubanjiang, which may or may not contain chili peppers (based on which level of spiciness you choose). Originally a Szechuan dish from China, Ebichiri has been modified to fit the Japanese palate.",
+                     image="/static/img/ebichiri.jpg", category=category2)
 session.add(item4)
 session.commit()
 
 
-item5 = Dish(name="", description=".",
-                     image="/static/img/.jpg", category=category2)
+item5 = Dish(name="Shiozake ", description="Shiozake (shio=salt, sake/zake=salmon) is grilled, salted salmon that is a very common dish for anytime of the day in Japan.  It is often eaten for breakfast, but also a great item for Bento box for lunch and even a main dish for dinner.",
+                     image="/static/img/shiozake.jpg", category=category2)
 session.add(item5)
 session.commit()
 
-item6 = Dish(name="", description=".",
-                     image="/static/img/.jpg", category=category2)
+item6 = Dish(name="Buri Daikon", description="Buri Daikon is cooked yellowtail and Daikon radish in a seasoned broth.  This dish is a winter taste in Japan since both main ingredients, yellowtail and Daikon, are in season in winter.",
+                     image="/static/img/buridaikon.jpg", category=category2)
 session.add(item6)
 session.commit()
 
-item7 = Dish(name="", description=".",
+item7 = Dish(name="Tako Sunomono", description="Tako Sunomono (Octopus Salad) is yet another variation of Sunomono, sliced vegetables soaked in sweet vinegar sauce.  While the Sunomono can be as simple as a small dish of cucumber with some sesame seeds, we often mix in seafood such as Tako (octopus) or crab..",
                      image="/static/img/.jpg", category=category2)
 session.add(item7)
 session.commit()

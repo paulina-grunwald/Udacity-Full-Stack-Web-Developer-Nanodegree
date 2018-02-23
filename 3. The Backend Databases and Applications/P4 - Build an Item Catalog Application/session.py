@@ -29,3 +29,4 @@ item = session.query(Dish).all()
 for item in items:
 	print item.name
 	print item.description
+
