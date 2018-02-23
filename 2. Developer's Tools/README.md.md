@@ -1,11 +1,21 @@
 # Key Learning points for Developer's Tools
 
-
-
 ## Table of contents
 
 1. Shell Workshop
 2. What is version control?
+3. Create A Git Repo
+4. Review A Repo's History
+5. Add Commits To A Repo
+6. Tagging, Branching and Merging
+7. Undoing Changes
+8. Working with Remotes
+9. Working on Another Developer's Repository
+10. Staying in Sync With A Remote Repository
+11. Requests & Responses
+12. The Web from Python
+13. HTTP in the Real World
+
 
 ## 1.  Shell Workshop
 - __echo__ command is used to print messages in the shell.
@@ -42,5 +52,22 @@
 - __LOGNAME__ is an environment variable that contains the username of the account you're logged in as.
 - Files contain shell comands are called shell scripts.
 
-## 3. What is version control?
-Version control helps you to create save points that will help you save a current state of your work.
+# 2. What is version control?
+``Version control System (VCS)`` helps you to create save points that will help you save a current state of your work.
+
+``Commit`` - snapshot of your work.
+
+``Repository/repo`` - directory which contains all your work.
+
+A ``checkout`` is when content in the repository has been copied to the Working Directory.
+
+``Staging Area/Staging Index/Index`` - A file in the Git directory that stores information about what will go into your next commit.
+
+``SHA`` - ID number of the commit.
+
+``Branch`` -  new line of development is created that diverges from the
+main line of development.
+
+# 3. Create A Git Repo
+
+To create a new repository with Git, we'll use the ``git init`` command.
