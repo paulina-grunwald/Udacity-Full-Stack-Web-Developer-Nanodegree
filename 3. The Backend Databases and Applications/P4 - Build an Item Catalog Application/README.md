@@ -81,8 +81,23 @@ Show all dishes in the category: /category/<int:category_id>/items
 Add item to the category: /category/<int:category_id>/items/new
 
 
+## 4. Add all backend functionality
+In  this part of the project i have created two scripts:
+- database_setup - this script was used for creating my japanese food database,
+- japfood.py - this script was used to insert information about japanese dishes to my previously created japansefood.db
+
+In order to make sure if my database was created correctly
+
+
 
 # 6. REFERENCES
 - https://tutorial.djangogirls.org/en/template_extending/
+- https://en.wikipedia.org/wiki/Tempura
+- http://www.japanesecooking101.com/category/by-ingredients/seafood/
 
 # 7. Image REFERENCES
+- https://en.wikipedia.org/wiki/Gy%C5%ABdon#/media/File:Gyuu-don_001.jpg
+- https://www.chopstickchronicles.com/yakimeshi-japanese-fried-rice/
+- https://www.restaurants-in-hanoi.com/top-restaurants/the-sushi-tokyo.html
+- https://images-na.ssl-images-amazon.com/images/I/91YVVQkl4%2BL._SL1500_.jpg
+- http://4.bp.blogspot.com/_UIXOn06Pz70/SgTFecsU3hI/AAAAAAAAGzU/NaxCppCjfrY/s800/Okonomiyaki+1+500.jpg
