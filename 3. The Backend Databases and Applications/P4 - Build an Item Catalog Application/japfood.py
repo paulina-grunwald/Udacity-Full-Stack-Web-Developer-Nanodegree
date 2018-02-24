@@ -88,7 +88,7 @@ session.commit()
 
 ############### Seafood dishes ###################
 
-category2 = Category2(name="Seafood Dishes")
+category2 = Category(name="Seafood Dishes")
 
 session.add(category2)
 session.commit()
@@ -144,17 +144,199 @@ session.commit()
 
 
 ############### Noodle dishes ###################
+category3 = Category(name="Noodle Dishes")
+
+session.add(category3)
+session.commit()
+
+
+item1 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category3)
+session.add(item1)
+session.commit()
+
+item2 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category3)
+session.add(item2)
+session.commit()
+
+item3 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category3)
+session.add(item3)
+session.commit()
+
 
 ############### Nabe dishes ###################
+category4 = Category(name="Nabe Dishes")
+
+session.add(category4)
+session.commit()
+
+
+item1 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category4)
+session.add(item1)
+session.commit()
+
+item2 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category4)
+session.add(item2)
+session.commit()
+
+item3 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category4)
+session.add(item3)
+session.commit()
+
 
 ############### Meat fishes ###################
 
+category5 = Category(name="Meat Dishes")
+
+session.add(category5)
+session.commit()
+
+
+item1 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category5)
+session.add(item1)
+session.commit()
+
+item2 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category5)
+session.add(item2)
+session.commit()
+
+item3 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category5)
+session.add(item3)
+session.commit()
+
+item4 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category5)
+session.add(item4)
+session.commit()
+
+item5 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category5)
+session.add(item5)
+session.commit()
+
+item6 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category5)
+session.add(item6)
+session.commit()
+
+item7 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category5)
+session.add(item7)
+session.commit()
+
+item8 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category5)
+session.add(item8)
+session.commit()
+
+
+item9 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category5)
+session.add(item9)
+session.commit()
+
 ############### Soybean dishes ###################
+category6 = Category(name="Soybean Dishes")
+
+session.add(category6)
+session.commit()
+
+
+item1 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category6)
+session.add(item1)
+session.commit()
+
+item2 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category6)
+session.add(item2)
+session.commit()
+
+item3 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category6)
+session.add(item3)
+session.commit()
+
+
+############### Sushi ###################
+
+category7 = Category(name="Soybean Dishes")
+
+session.add(category5)
+session.commit()
+
+
+item1 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category7)
+session.add(item1)
+session.commit()
+
+item2 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category7)
+session.add(item2)
+session.commit()
+
+item3 = Dish(name=" ", description="",
+                     image="/static/img/.jpg", category=category7)
+session.add(item3)
+session.commit()
+
+
+
+############### Ramen ###################
+
+category8 = Category(name="Ramen")
+
+session.add(category8)
+session.commit()
+
+item1 = Dish(name="Shoyu  Ramen", description="Shoyu ramen soup is a clear, brown broth flavored with soy sauce (shoyu). The soup is usually made of chicken broth but often contains other meats such as pork, beef or fish depending on the region.",
+                     image="/static/img/shoyuramen.jpg", category=category8)
+session.add(item1)
+session.commit()
+
+
+item2 = Dish(name="Tonkotsu Ramen", description="Particularly popular around Kyushu, tonkotsu ramen is made of pork bones which have been boiled down until they dissolve into a cloudy white broth. The thick, creamy soup is also often flavored with chicken broth and pork fat.",
+                     image="/static/img/tonkatsu.jpg", category=category8)
+session.add(item1)
+session.commit()
+
+
+item3 = Dish(name="Miso Ramen", description="Miso Ramen is Ramen noodles in a Miso based soup that was created in Japan in the 1960s. Ramen noodles are originally Chinese style noodles, but it's been changed and improved over the years, and evolved to be our own food.",
+                     image="/static/img/mistoramen.jpg", category=category8)
+session.add(item3)
+session.commit()
+
 
 ############### Sweets ###################
+category9 = Category(name="Sweets Dishes")
+
+session.add(category9)
+session.commit()
+
+item1 = Dish(name="Mochi", description="Mochi are a fundamental ingredient of Japanese desserts. They are also a dessert on their own. For example, mochi can be toasted and sweetened with a topping such as kinako.",
+                     image="/static/img/mochi1.jpg", category=category9)
+session.add(item1)
+session.commit()
 
 
+item2 = Dish(name="Dorayaki", description="Dorayaki arepancakes sandwiched together with anko. In many cases, other ingredients such as chestnuts, whipped cream and ice cream are also added to the middle.",
+                     image="/static/img/dorayaki.jpg", category=category9)
+session.add(item2)
+session.commit()
 
 
+item3 = Dish(name="Dango", description="Dango are chewy Japanese rice dumplings that are often served on a stick. They taste best grilled with a sweet topping. Dango can also be toasted over an open fire like marshmallows.",
+                     image="/static/img/dango.jpg", category=category9)
+session.add(item3)
+session.commit()
 
 print("added japanese food items!")
