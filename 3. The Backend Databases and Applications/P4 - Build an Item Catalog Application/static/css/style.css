@@ -1,0 +1,27 @@
+body,
+html {
+    font-family: "Titillium Web", sans-serif;
+
+    background: white;
+    color: black;
+    height: 100%;
+    width: 100%;
+
+}
+
+/*font styling for h1*/
+h1 {
+  font-size: 35px;
+}
+
+
+
+
+/*footer styling*/
+.footer {
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 10px; 
+}
+
