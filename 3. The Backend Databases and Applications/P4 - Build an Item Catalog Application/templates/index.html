@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <div class="row text-center welcome-msg">
+        <h1>Welcome to Japanese Food Catalog App</h1>
+    </div>
+    <div class="row">
+        <img src={{url_for('static', filename="img/main.jpg") }} width="100%" height="100% class="img-responsive">
+    </div>
+    <hr>
+    <div class="row text-center">
+        <div class="col-md-4 col-md-offset-4">
+            <p class="lead">Now you can explore Japanese food world! Feel free to add new categories.</p>
+            <a href="/catalog">
+                <button class="btn btn-default" role="button">
+                    Start Exploring &raquo;
+                </button>
+            </a>
+        </div>
+    </div>
+
+{% endblock %}
