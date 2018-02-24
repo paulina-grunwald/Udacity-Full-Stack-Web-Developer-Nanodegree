@@ -20,12 +20,14 @@ session = DBSession()
 
 
 # Show home page
+@app.route('/')
 @app.route('/catalog')
-def showHome():
-    categories = session.query(Category).order_by(asc(Category.name))
-    items = session.query(Dish).order_by(desc(Dish.createdDate))
+def home():
+    #categories = session.query(Category).order_by(asc(Category.name))
+    #items = session.query(Dish).order_by(desc(Dish.name))
     #if 'username' not in login_session:
-        return render_template('home.html', categories=categories, items=items)
+    #return render_template('index.html', categories=categories, items=items)
+    return render_template('index.html')
     #else:
         #return render_template('home.html', categories=categories, items=items)
 
@@ -38,6 +40,21 @@ def showHome():
 # Add an item 
 
 # Edit an item
+
+# Show about page
+
+@app.route('/about')
+def about():
+  
+    return render_template('about.html')
+
+
+# Show contact page
+
+@app.route('/contact')
+def contact():
+ 
+    return render_template('contact.html')
 
 # Execute only if file is run by python interpreter
 if __name__ == '__main__':
