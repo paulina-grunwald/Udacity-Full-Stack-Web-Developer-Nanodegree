@@ -64,7 +64,17 @@ def categories():
     return render_template('categories.html')
 
 
-# Add routes for all catheg
+# Add routing to error 404 and 505 pages
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def server_error(e):
+    return render_template('500.html'), 500
+
+
 
 # Execute only if file is run by python interpreter
 if __name__ == '__main__':
