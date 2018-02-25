@@ -58,7 +58,16 @@ Steps I took to create Catalog App:
 5. Add API Endpoints.
 6. Add styling with CSS
 
+
+
+
 ## 1. Create mock-ups for every
+
+Project structure:
+- template folder:
+- static folder:
+
+
 This is the list of requires html templates for various parts of the catalog app:
 - index (main page)
 - about
@@ -67,6 +76,14 @@ This is the list of requires html templates for various parts of the catalog app
 - edit item,
 - add image
 - edit Image
+
+The HTML is generated using ``Jinja2`` template engine. Base template is a parent to the other pages. I have used template inheritance to create  base template that contains one or more blocks that can be overwriten by it's children by  ``{%extends "base.html"%}``. The blocks are defined by ``{%block content %}..{%endblock%}``.
+
+I also made sure that links are easy to maintain by using jinja2 function ``{{url_for('pagename.htm')}}``.
+
+Maintanable links
+Custom Error pages
+
 
 ## 2. Set up routing
 
@@ -94,10 +111,12 @@ In order to make sure if my database was created correctly
 - https://tutorial.djangogirls.org/en/template_extending/
 - https://en.wikipedia.org/wiki/Tempura
 - http://www.japanesecooking101.com/category/by-ingredients/seafood/
-
+- https://app.pluralsight.com/library/courses/flask-micro-framework-introduction/table-of-contents
+- https://code.tutsplus.com/tutorials/intro-to-flask-adding-a-contact-page--net-28982
 # 7. Image REFERENCES
 - https://en.wikipedia.org/wiki/Gy%C5%ABdon#/media/File:Gyuu-don_001.jpg
 - https://www.chopstickchronicles.com/yakimeshi-japanese-fried-rice/
 - https://www.restaurants-in-hanoi.com/top-restaurants/the-sushi-tokyo.html
 - https://images-na.ssl-images-amazon.com/images/I/91YVVQkl4%2BL._SL1500_.jpg
 - http://4.bp.blogspot.com/_UIXOn06Pz70/SgTFecsU3hI/AAAAAAAAGzU/NaxCppCjfrY/s800/Okonomiyaki+1+500.jpg
+- https://www.japan-talk.com/jt/new/japanese-desserts
