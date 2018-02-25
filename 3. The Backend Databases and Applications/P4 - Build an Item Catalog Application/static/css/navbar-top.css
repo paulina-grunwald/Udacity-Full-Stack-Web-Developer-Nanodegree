@@ -1,6 +1,17 @@
-/* Show it's not fixed to the top */
+
 body {
   min-height: 75rem;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  padding-top: 4.5rem;
+}
+
+.navbar-brand {
+    font-size: 15px;
+}
+
+
+.navbar {
+    width: 100%;
+    float: left;
+    margin: 0 0 1em 0;
+    padding: 0;
 }
