@@ -56,6 +56,16 @@ def contact():
  
     return render_template('contact.html')
 
+# Show catalog page
+
+@app.route('/categories')
+def categories():
+ 
+    return render_template('categories.html')
+
+
+# Add routes for all catheg
+
 # Execute only if file is run by python interpreter
 if __name__ == '__main__':
 	app.secret_key = 'super_secret_key'
