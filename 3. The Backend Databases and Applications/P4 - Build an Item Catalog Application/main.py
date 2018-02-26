@@ -21,7 +21,6 @@ session = DBSession()
 
 # Show home page
 @app.route('/')
-@app.route('/catalog')
 def home():
     #categories = session.query(Category).order_by(asc(Category.name))
     #items = session.query(Dish).order_by(desc(Dish.name))
@@ -58,10 +57,24 @@ def contact():
 
 # Show catalog page
 
-@app.route('/categories')
+@app.route('/catalog')
 def categories():
  
-    return render_template('categories.html')
+    return render_template('catalog.html')
+
+
+# Add new category
+
+@app.route('/catalog/addcategory', methods=['GET','POST'])
+def addCategory():
+    if request.method == 'POST':
+        addCategory = Category(name=request.form['name'])
+        session.add(addCategory)
+        session.commit()
+        return redirect(url_for('home'))
+    else:
+        return render_template('addCategory.html')
+
 
 
 # Add routing to error 404 and 505 pages
