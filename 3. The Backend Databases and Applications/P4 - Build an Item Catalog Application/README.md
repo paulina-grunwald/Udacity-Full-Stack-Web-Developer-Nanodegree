@@ -23,7 +23,8 @@ Steps for running Japanese Food Catalog App:
 1. Install Vagrant and Virtual Box
 2. Clone this repository
 3. Launch the Vagrant VM (by typing vagrant up in the directory /P4 - Build an Item Catalog Application from the terminal).
-Steps on how to access database:
+4. If you would like to recreated already provided japfood.db you can need to run two python in terminal by typing ``python database_setup.py`` and then ``python japfood.py``.
+
 - Unizp newsdata.rar (you can find newsdata.sql database inside of the zipped file)
 - Install Vagrant And VirtualBox
 - Clone this repository
@@ -106,11 +107,30 @@ Add item to the category: /category/<int:category_id>/items/new
 
 
 ## 4. Add all backend functionality
-In  this part of the project i have created two scripts:
-- database_setup - this script was used for creating my japanese food database,
-- japfood.py - this script was used to insert information about japanese dishes to my previously created japansefood.db
+In  this part of the project I have created two scripts:
+1. ``database_setup.py`` - this script was used for creating my Japanese food database. It created the database that contains two tables:
+- Category (contains id, name and relationship to Dish table)
+- Dish (contains id, description, created date, image, category_id and relationship to Category table)
 
-In order to make sure if my database was created correctly
+2. ``japfood.py`` - this script was used to insert information about Japanese dishes to my previously created japansefood.db. Below you can find code example for adding one dish to first catefory:
+
+```python
+category1 = Category(name="Rice Dishes")
+
+session.add(category1)
+session.commit()
+
+item1 = Dish(name="Donburi", description="Donburi refers to a bowl of plain cooked rice with some other food on top of it. Donburi are served at specialty restaurants, but they are also a common dish that can be found on all kinds of restaurants' menus. Some of the most popular varieties are gyudon (stewed beef), katsudon (tonkatsu), tendon (tempura), oyakodon (chicken and egg), tekkadon (maguro), and kaisendon (raw seafood).",
+                     image="/static/img/donburi.jpg", category=category1)
+```
+
+3. ``session.py`` - this script was used only in order to make sure that  my database japanesefood.db was created successfuly and items from japfood.py  loaded to the japanesefood.db. I have copied this script in the terminal after launching vagrant in my project directory.
+
+4. ``main.py`` - this is main file for the project. In essence provides web in Python that uses database to implement CRUD. In consists of following sections:
+- Import all of the modules
+- Create session and connect to DB
+- routing to all the pages
+
 
 
 
@@ -120,6 +140,9 @@ In order to make sure if my database was created correctly
 - http://www.japanesecooking101.com/category/by-ingredients/seafood/
 - https://app.pluralsight.com/library/courses/flask-micro-framework-introduction/table-of-contents
 - https://code.tutsplus.com/tutorials/intro-to-flask-adding-a-contact-page--net-28982
+- https://stackoverflow.com/questions/6654958/make-body-have-100-of-the-browser-height
+
+
 # 7. Image REFERENCES
 - https://en.wikipedia.org/wiki/Gy%C5%ABdon#/media/File:Gyuu-don_001.jpg
 - https://www.chopstickchronicles.com/yakimeshi-japanese-fried-rice/
