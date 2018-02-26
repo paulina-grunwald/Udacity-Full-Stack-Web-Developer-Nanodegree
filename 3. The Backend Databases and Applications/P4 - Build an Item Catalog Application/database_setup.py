@@ -5,7 +5,7 @@ from sqlalchemy import Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
-import datetime
+from datetime import datetime
 
 # Create instance of the declarative base
 Base = declarative_base()
