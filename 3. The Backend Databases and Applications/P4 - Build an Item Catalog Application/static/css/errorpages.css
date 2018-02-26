@@ -1,0 +1,34 @@
+body,
+html {
+    overflow-x: hidden; 
+    padding-top: 0px;
+    padding-top: 0px;
+    padding-bottom:0px
+    font-family: "Domine", bold;
+}
+
+body {
+    background-color: #69B0AC;
+}
+
+/*font styling for h1, h3, h2, h3 and h4*/
+h1 {
+  font-size: 40px;
+}
+
+
+.error {
+    font-size: 100px;
+    font-family: "Mplus 1c";
+    text-align: center;
+}
+
+.cover {
+    text-align: center;
+
+}
+
+
+
+
+
