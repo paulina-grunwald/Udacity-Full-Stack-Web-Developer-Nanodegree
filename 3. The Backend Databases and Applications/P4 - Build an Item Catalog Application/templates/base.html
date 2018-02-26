@@ -7,21 +7,28 @@
     <meta name="author" content="Paulina Grunwald">
     <title>Japanese Food Catalog app</title>
     <link href="../static/css/style.css" rel="stylesheet">
+    <link href="../static/css/navbar-top.css" rel="stylesheet">
+    <link href="../static/css/album.css" rel="stylesheet">
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/modern-business.css" rel="stylesheet">
   </head>
   <body>
     <div class="container">
         {% block content %}
         {% endblock %}
-        <footer>
+        <footer class="footer">
             <p>&copy; Catalog App, Inc.</p>
         </footer>
     </div>
     <script src="https://use.fontawesome.com/ccc891835b.js"></script>
     <script src="../static/js/jquery-1.12.4.min.js"></script>
     <script src="../static/js/bootstrap.bundle.min.js"></script>
-
-
+    <script src="../static/js/holder.min.js"></script>
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
 </body>
 </html>
