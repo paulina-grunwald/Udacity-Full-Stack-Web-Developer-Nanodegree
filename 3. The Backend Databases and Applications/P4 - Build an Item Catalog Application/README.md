@@ -1,7 +1,7 @@
 # Build a Item Catalog Application Project
 > by Paulina Grunwald
 
-This project is a part of [Udacity's Full Stack Nanodegree Program](https://www.udacity.com/nanodegree). In this project I had to develop an application that provides a list of items within a variety of categories as well as provide a user registration and authentication system. The goal was also to allow registered users to post, edit and delete their own items. This project combines the knowledge of building dynamic websites with persistent data storage to create a web application that provides a compelling service to the users.
+This project is a part of [Udacity's Full Stack Nanodegree Program](https://www.udacity.com/nanodegree). In this project I had to develop an application that provides a list of items within a variety of categories as well as provide a user registration and authentication system using OAuth. The goal was also to allow registered users to post, edit and delete their own items. This project combines the knowledge of building dynamic websites with persistent data storage to create a web application that provides a compelling service to the users.
 
 
 # Table of contents
@@ -18,6 +18,11 @@ In order to be able to run all the files included in this project you need to ha
 - Vagrant
 - VirtualBox
 
+Steps for running Japanese Food Catalog App:
+
+1. Install Vagrant and Virtual Box
+2. Clone this repository
+3. Launch the Vagrant VM (by typing vagrant up in the directory /P4 - Build an Item Catalog Application from the terminal).
 Steps on how to access database:
 - Unizp newsdata.rar (you can find newsdata.sql database inside of the zipped file)
 - Install Vagrant And VirtualBox
@@ -40,6 +45,8 @@ Steps on how to run the application:
 4. From directory /XXX/catalog, initialize the application database by typing python database_setup.py follows by python feedcatalog.py.
 5. From directory /XXXX/catalog, run the application within the VM by typing python main.py into the Terminal.
 6. Access the application by visiting http://localhost:8000 locally on the browser.
+
+####Live version of this project is available at:
 
 # Tools and Frameworks used
 
