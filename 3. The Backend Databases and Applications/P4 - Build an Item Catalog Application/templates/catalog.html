@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+  
+  <div class = 'flash'>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+              <li> <strong> {{ message }} </strong> </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <div class="jumbotron">
+    <h1 class="display-3">Categories</h1>
+      <div class="row flexbox">
+        {% for category in categories %}
+        <div class="col-sm-4 col-lg-4 col-md-4">
+          <div class="card">
+            <img data-src="holder.js/100px280?theme=thumb" alt="Card image cap">
+              <p class="card-text">{{category.name}}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+  </div>
+{% endblock %}
+
+
