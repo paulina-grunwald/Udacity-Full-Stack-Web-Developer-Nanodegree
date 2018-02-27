@@ -7,7 +7,9 @@ This project is a part of [Udacity's Full Stack Nanodegree Program](https://www.
 # Table of contents
 
 - [How to run my project](#how-to-run-my-project)
+- [Tools and Frameworks used](#tools-and-frameworks-used)
 - [Steps taken in developing Item Catalog App](#steps-taken-in-developing-Item-Catalog-App)
+- [Reflections and learning after finishing the project](#reflections-and-learnings)
 - [References](#references)
 
 
@@ -18,40 +20,32 @@ In order to be able to run all the files included in this project you need to ha
 - Vagrant
 - VirtualBox
 
-Steps for running Japanese Food Catalog App:
+###### Steps for running Japanese Food Catalog App:
 
-1. Install Vagrant and Virtual Box
-2. Clone this repository
+1. Install Vagrant and Virtual Box.
+2. Clone this repository.
 3. Launch the Vagrant VM (by typing vagrant up in the directory /P4 - Build an Item Catalog Application from the terminal).
 4. If you would like to recreated already provided japfood.db you can need to run two python in terminal by typing ``python database_setup.py`` and then ``python japfood.py``.
+5. Launch Vagrant VM by running ```vagrant up```, you can the log in with ```vagrant ssh``` (When having problems with starting up your vagrant you can try following command instead vagrant ssh: ```VAGRANT_PREFER_SYSTEM_BIN=1 vagrant ssh```).
+6. From directory inside of the project directory, run the Japanese Catalog app within the VM by typing `python main.py` into the terminal.  
+7. You can access locally the app by going to typing http://localhost:8000 in the browser.
 
-- Unizp newsdata.rar (you can find newsdata.sql database inside of the zipped file)
-- Install Vagrant And VirtualBox
-- Clone this repository
-- Launch Vagrant VM by running ```vagrant up```, you can the log in with ```vagrant ssh```
-- When having problems with starting up your vagrant you can try following command instead vagrant ssh: ```VAGRANT_PREFER_SYSTEM_BIN=1 vagrant ssh```
-- To load the data go to the folder where the database is stored, use the command ```psql -d news -f japanesefood.sql``` to connect a database and run the necessary SQL statements.
+<em>Note</em>: Use following code in terminal (when connected to vagrant) ```psql -d news -f japanesefood.sql``` to connect a database and run the SQL statements if required.
 
-The database includes three tables:
-
-- The __Category__
-- __Dish__
+__Project structure__:
+- template folder: contains all html pages that build Japanese Food Catalog App.
+- static folder:
+  - css: contains all stylesheets
+  - img: contains all images used on the website
+  - js: contaisn all js scripts.
 
 
-Steps on how to run the application:
 
-1. Install Vagrant and Virtual Box
-2. Clone this repository
-3. Launch the Vagrant VM
-4. From directory /XXX/catalog, initialize the application database by typing python database_setup.py follows by python feedcatalog.py.
-5. From directory /XXXX/catalog, run the application within the VM by typing python main.py into the Terminal.
-6. Access the application by visiting http://localhost:8000 locally on the browser.
-
-####Live version of this project is available at:
+###### Live version of this project is available at: !!!!to be filled!!!!
 
 # Tools and Frameworks used
 
-This web application was built using HTML5, CSS, Bootstrap, Vagrant, Flask, SQLAlchemy, Google and Facebook Oauth2 & APIs.
+This web application was built using HTML5, CSS, Bootstrap4, Vagrant, Flask, SQLAlchemy, Google and Facebook Oauth2 & APIs.
 
 # Steps taken in developing Item Catalog App
 
@@ -66,14 +60,9 @@ Steps I took to create Catalog App:
 5. Add API Endpoints.
 6. Add styling with CSS
 
-
-
-
 ## 1. Create mock-ups for every
+The first step i took was to create mock-ups for each page in my application.
 
-Project structure:
-- template folder:
-- static folder:
 
 
 This is the list of requires html templates for various parts of the catalog app:
@@ -129,12 +118,12 @@ item1 = Dish(name="Donburi", description="Donburi refers to a bowl of plain cook
 4. ``main.py`` - this is main file for the project. In essence provides web in Python that uses database to implement CRUD. In consists of following sections:
 - Import all of the modules
 - Create session and connect to DB
-- routing to all the pages
+- routing to all the pages.
 
 
+# Reflections and learning after finishing the project
 
-
-# 6. REFERENCES
+# REFERENCES
 - https://tutorial.djangogirls.org/en/template_extending/
 - https://en.wikipedia.org/wiki/Tempura
 - http://www.japanesecooking101.com/category/by-ingredients/seafood/
