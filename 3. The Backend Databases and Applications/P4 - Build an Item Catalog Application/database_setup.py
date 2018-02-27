@@ -5,7 +5,7 @@ from sqlalchemy import Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
-from datetime import datetime
+import datetime
 
 # Create instance of the declarative base
 Base = declarative_base()
@@ -27,7 +27,6 @@ class Dish(Base):
 	description = Column(String(250))
 	createdDate = Column(DateTime, default=datetime.datetime.utcnow, nullable=False)
 	image = Column(String)
-	course = Column(String(250))
 	category_id = Column(Integer, ForeignKey('category.id'))
 	category = relationship(Category)
 
