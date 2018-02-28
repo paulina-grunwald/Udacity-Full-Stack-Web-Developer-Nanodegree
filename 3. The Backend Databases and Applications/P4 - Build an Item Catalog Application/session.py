@@ -1,16 +1,5 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from database_setup import Base, Restaurant, MenuItem
-
-engine = create_engine('sqlite:///japanesefood.db')
-Base.metadata.bind=engine
-DBSession = sessionmaker(bind = engine)
-session = DBSession()
-
-
-
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Category, Dish
 
 engine = create_engine('sqlite:///japanesefood.db')
