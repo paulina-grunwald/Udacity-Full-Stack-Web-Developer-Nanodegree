@@ -445,12 +445,43 @@ Securing your web application:
 # Creating Google Sign in
 
 In this part of the course I will investigate and build  sin-in into restaurant website using Google's authentication service.
-First we need to create client ID and client secret Google.
+First we need to create client ID and client secret Google to be able to communicate with its API.
 
 1. Go to your app's page in the Google APIs Console — https://console.developers.google.com/apis
-2. Choose Credentials from the menu on the left.
-3. Create an OAuth Client ID.
+2. Create and name the new project
+3. Go to Project Dashboard and click on ``APIs&Auth``.
+4. Choose Credentials from the menu on the left.
+5. Create an OAuth Client ID. Select Web application.
+6. Click on ``Configure consent screen``.
+7. Click on create client ID and then Edit Settings. Add http://localhost:5000 to ``Authorized Javascript Origins``.
 
+### Create anti forgery state token
+Anti-forgery state tokens protect the security of users by preventing anti-forgery attacks. The first step is to create unique session token that your client side code returns.
+
+Now I will add following code to project.py:
+
+```python
+# Add new imports
+from flask import session as login_session
+# Will be used to create random strings
+import random, string
+
+
+# Create anti-forgery state token
+@app.route('/login')
+def showLogin():
+    # create 32 char (digits+letters) random string
+    state = ''.join(random.choice(string.ascii_uppercase + string.digits)
+                    for x in xrange(32))
+    # store state in loggin_session object under name state
+    login_session['state'] = state
+    # return login_session state variable
+    return "The current session state is %s" % login_session['state']
+
+
+```
+
+``login_session`` will have a role of dictionary and will store values for the longevity of a user's session with the server.
 
 # REFERENCES
 - https://www.vagrantup.com/docs/networking/forwarded_ports.html
