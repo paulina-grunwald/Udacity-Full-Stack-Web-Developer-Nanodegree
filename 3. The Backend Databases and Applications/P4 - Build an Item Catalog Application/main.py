@@ -1,4 +1,5 @@
 # Improt Flask class from Flask libary
+from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, flash
 # Create instance of the class
 # With the name of the running application as argument
@@ -6,9 +7,9 @@ app = Flask(__name__)
 
 import os
 
-# import CRUD Operations 
+# import CRUD Operations
 from database_setup import Base, Category, Dish
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, asc, desc
 from sqlalchemy.orm import sessionmaker
 
 
@@ -19,63 +20,82 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
-# Show home page
+
+# Show home page (this is the front page for the application)
 @app.route('/')
 def home():
-    #categories = session.query(Category).order_by(asc(Category.name))
-    #items = session.query(Dish).order_by(desc(Dish.name))
-    #if 'username' not in login_session:
-    #return render_template('index.html', categories=categories, items=items)
-    return render_template('index.html')
-    #else:
-        #return render_template('home.html', categories=categories, items=items)
-
-# Show all items in a category
-
-# Add a new category
-
-# Edit a category
-
-# Add an item 
-
-# Edit an item
-
+    return render_template('home.html')
 # Show about page
-
 @app.route('/about')
 def about():
-  
     return render_template('about.html')
 
 
 # Show contact page
-
 @app.route('/contact')
 def contact():
- 
     return render_template('contact.html')
 
-# Show catalog page
 
+# Show catalog page
 @app.route('/catalog')
 def categories():
- 
-    return render_template('catalog.html')
+    categories = session.query(Category).order_by(asc(Category.name))
+    return render_template('catalog.html', categories=categories)
 
+# Show all items in the category
 
 # Add new category
+#@app.route('catalog/addcategory', methods=['GET','POST'])
+#def addCategory():
+#    if request.method == 'POST':
+       # addCategory = Category(name=request.form['name'])
+       # session.add(addCategory)
+        #session.commit()
+#        return redirect(url_for('home'))
+#    else:
+#        return render_template('addCategory.html')
 
-@app.route('/catalog/addcategory', methods=['GET','POST'])
-def addCategory():
+
+# Delete category
+
+#@app.route('/catalog/deletecategory', methods=['GET','POST'])
+#def deleteCategory():
+
+#    if request.method == 'POST':
+#        session.delete(categoryToDelete)
+#        session.commit()
+#        return redirect(url_for('home'))
+#    else:
+#       return render_template('deleteCategory.html')
+
+# Edit category
+#@app.route('/catalog/<category_name>/edit', methods=['GET','POST'])
+#def editCategory(category_name):
+ #   findCategory = session.quert(Category).filter_by(name=category_name).one() 
+ #   if request.method == 'POST':
+  #      findCategory.name = request.form['name']
+   #     session.delete(categoryToDelete)
+    #    session.commit()
+     #   return redirect(url_for('home'))
+    #else:
+     #   return render_template('editCategory.html')
+
+
+# Add new item to a category
+
+@app.route('/catalog/additem', methods=['GET','POST'])
+def addItem():
     if request.method == 'POST':
-        addCategory = Category(name=request.form['name'])
-        session.add(addCategory)
-        session.commit()
+
         return redirect(url_for('home'))
     else:
-        return render_template('addCategory.html')
+        return render_template('addItem.html')
 
 
+# Delete  item to a category
+
+# Edit  item to a category
 
 # Add routing to error 404 and 505 pages
 
