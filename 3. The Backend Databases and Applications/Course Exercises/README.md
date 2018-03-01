@@ -442,6 +442,16 @@ Securing your web application:
 - password recovery,
 - man-in-the middle attacks
 
+# Creating Google Sign in
+
+In this part of the course I will investigate and build  sin-in into restaurant website using Google's authentication service.
+First we need to create client ID and client secret Google.
+
+1. Go to your app's page in the Google APIs Console — https://console.developers.google.com/apis
+2. Choose Credentials from the menu on the left.
+3. Create an OAuth Client ID.
+
+
 # REFERENCES
 - https://www.vagrantup.com/docs/networking/forwarded_ports.html
 - http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/
