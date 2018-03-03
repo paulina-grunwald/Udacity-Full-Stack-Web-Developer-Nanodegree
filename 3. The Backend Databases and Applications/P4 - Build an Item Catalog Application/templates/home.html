@@ -2,21 +2,31 @@
 {% block content %}
 {% include "header.html" %}
 
-    <div class="row text-center welcome-msg">
-        <h1>Welcome to Japanese Food Catalog App</h1>
+    <div row="container-fluid">
+        <div class="jumbotron">
+            <h1 class="title">こんにちは 皆さん!</h1>
+            <p class="lead">Welcome to Japanese Food Catalog!</p>
+            <img src="https://c1.staticflickr.com/8/7130/13973099102_26ac5db5d3_b.jpg" class="img-fluid" alt="Responsive image">
+            <hr class="my-4">
+            <p>Japanese cuisine encompasses the regional and traditional foods of Japan, which have developed through centuries of social and economic changes. The traditional cuisine of Japan (和食 washoku) is based on rice with miso soup and other dishes; there is an emphasis on seasonal ingredients..</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{{url_for('home')}}" role="button">Discover more!&raquo;</a>
+            </p>
     </div>
-    <div class="row">
-        <img src={{url_for('static', filename="img/main.jpg") }} width="100%" height="100% class="img-responsive">
+        
+    </div>
     </div>
     <hr>
-    <div class="row text-center">
-        <div class="col-md-4 col-md-offset-4">
-            <p class="lead">Now you can explore Japanese food world! Feel free to add new categories.</p>
-            <a href="/catalog">
-                <button class="btn btn-default" role="button">
-                    Start Exploring &raquo;
-                </button>
-            </a>
+    <div class="container-fluid">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <p class="lead">Now you can explore Japanese food world! Feel free to add new categories.</p>
+                <a href="/catalog">
+                    <button class="btn btn-default" role="button">
+                        Start Exploring &raquo;
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
 
