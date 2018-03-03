@@ -41,7 +41,8 @@ def contact():
 @app.route('/catalog')
 def categories():
     categories = session.query(Category).order_by(asc(Category.name))
-    return render_template('catalog.html', categories=categories)
+    items = session.query(Dish).order_by(asc(Dish.name))
+    return render_template('catalog.html', categories=categories, items=items)
 
 # Show all items in the category
 
