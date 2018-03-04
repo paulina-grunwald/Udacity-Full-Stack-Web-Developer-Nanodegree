@@ -12,6 +12,10 @@ from database_setup import Base, Category, Dish
 from sqlalchemy import create_engine, asc, desc
 from sqlalchemy.orm import sessionmaker
 
+# Imports necessary for login
+from flask import session as login_session
+import random, string
+
 
 # Create session and connect to DB
 engine = create_engine('sqlite:///japanesefood.db')
