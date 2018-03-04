@@ -46,6 +46,13 @@ def categories():
 
 # Show all items in the category
 
+@app.route('/catalog/<category_name>/items')
+def allCategoryItems(category_name):
+    categories = session.query(Category).order_by(asc(Category.name))
+    selectedCategory = session.query(Category).filter_by(name=category_name).one()
+    items = session.query(Dish).filter_by(category_id=selectedCategory.id).order_by(asc(Dish.name))
+    return render_template('catalog.html', categories=categories, selectedCategory=selectedCategory, items=items)
+
 # Add new category
 #@app.route('catalog/addcategory', methods=['GET','POST'])
 #def addCategory():
@@ -59,7 +66,7 @@ def categories():
 
 
 # Delete category
-
+#showCategoryItems
 #@app.route('/catalog/deletecategory', methods=['GET','POST'])
 #def deleteCategory():
 
@@ -83,7 +90,7 @@ def categories():
      #   return render_template('editCategory.html')
 
 
-# Add new item to a category
+# Add new item to a categoryshowCategoryItems
 
 @app.route('/catalog/additem', methods=['GET','POST'])
 def addItem():
