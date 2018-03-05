@@ -5,6 +5,9 @@ from sqlalchemy import create_engine, asc
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Restaurant, MenuItem
 
+# Imports necessary for login
+from flaks import session as login_session
+import random, string
 
 #Connect to Database and create database session
 engine = create_engine('sqlite:///restaurantmenu.db')
@@ -12,6 +15,21 @@ Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
+
+
+
+
+# Create anti-forgery state token
+@app.route('/login')
+def showLogin():
+    # create 32 char (digits+letters) random string
+    state = ''.join(random.choice(string.ascii_uppercase + string.digits)
+                    for x in xrange(32))
+    # store state in loggin_session object under name state
+    login_session['state'] = state
+    # return login_session state variable
+    return "The current session state is %s" % login_session['state']
+
 
 
 #JSON APIs to view Restaurant Information
