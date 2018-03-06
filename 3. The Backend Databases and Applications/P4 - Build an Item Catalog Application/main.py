@@ -66,20 +66,21 @@ def addCategory():
     session.commit()
     return redirect(url_for('home'))
   else:
-    return render_template('addCategory.html')
+    return render_template('addCategory.html', )
 
 
 # Delete category
 
-#@app.route('/catalog/deletecategory', methods=['GET','POST'])
-#def deleteCategory():
-
-#    if request.method == 'POST':
-#        session.delete(categoryToDelete)
-#        session.commit()
-#        return redirect(url_for('home'))
-#    else:
-#       return render_template('deleteCategory.html')
+@app.route('/catalog/<category_name>/deletecategory', methods=['GET','POST'])
+def deleteCategory():
+  categories = session.query(Category).order_by(asc(Category.name))
+  selectedCategory = session.query(Category).filter_by(name=category_name).one()
+  if request.method == 'POST':
+    session.delete(categoryToDelete)
+    session.commit()
+    return redirect(url_for('home'))
+  else:
+    return render_template('deleteCategory.html', name=category_name, selectedCategory=selectedCategory)
 
 # Edit category
 #@app.route('/catalog/<category_name>/edit', methods=['GET','POST'])
