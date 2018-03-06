@@ -58,19 +58,19 @@ def allCategoryItems(category_name):
     return render_template('catalog.html', categories=categories, selectedCategory=selectedCategory, items=items)
 
 # Add new category
-#@app.route('catalog/addcategory', methods=['GET','POST'])
-#def addCategory():
-#    if request.method == 'POST':
-       # addCategory = Category(name=request.form['name'])
-       # session.add(addCategory)
-        #session.commit()
-#        return redirect(url_for('home'))
-#    else:
-#        return render_template('addCategory.html')
+@app.route('/catalog/addcategory', methods=['GET','POST'])
+def addCategory():
+  if request.method == 'POST':
+    addCategory = Category(name=request.form['name'])
+    session.add(addCategory)
+    session.commit()
+    return redirect(url_for('home'))
+  else:
+    return render_template('addCategory.html')
 
 
 # Delete category
-#showCategoryItems
+
 #@app.route('/catalog/deletecategory', methods=['GET','POST'])
 #def deleteCategory():
 
