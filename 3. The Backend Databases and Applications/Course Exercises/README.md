@@ -458,7 +458,7 @@ First we need to create client ID and client secret Google to be able to communi
 ### Create anti forgery state token
 Anti-forgery state tokens protect the security of users by preventing anti-forgery attacks. The first step is to create unique session token that your client side code returns.
 
-Now I will add following code to project.py:
+Now I will add following code to project.py to create unique anti-forgery state token:
 
 ```python
 # Add new imports
@@ -482,6 +482,48 @@ def showLogin():
 ```
 
 ``login_session`` will have a role of dictionary and will store values for the longevity of a user's session with the server.
+
+Now i will create login.html:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!--LOAD PRE-REQUISITES FOR GOOGLE SIGN IN -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script src="//apis.google.com/js/platform.js?onload=start"> </script>
+
+<!-- END PRE-REQUISITES FOR GOOGLE SIGN IN -->
+</head>
+<body>
+<!-- GOOGLE PLUS SIGN IN BUTTON-->
+	<div id="signinButton">
+      <span class="g-signin"
+        data-scope="openid email"
+        data-clientid="568147125453-4c7363gfo7lcvce7ps2o0e3hf3o8bk7m.apps.googleusercontent.com"
+        data-redirecturi="postmessage"
+        data-accesstype="offline"
+        data-cookiepolicy="single_host_origin"
+        data-callback="signInCallback"
+        data-approvalprompt="force">
+      </span>
+     </div>
+<!--END GOOGLE PLUS SIGN IN BUTTON -->
+ </body>
+ </html>
+
+```
+
+``data-scope="openid email`` - specifies which google resources we want to access
+``data-redirecturi="postmessage"`` - enables one time use code flow
+``data-accesstype="offline"``- our server can make requests to Google API even if the user is not logged in.
+``data-cookiepolicy="single_host_origin"`` - data-cookiepolicy determines the scope of URIs that can access the cookie. If the website has only one host name we will use single_host_origin.
+``data-callback="signInCallback"`` - specified call back function,
+``data-approvalprompt="force"`` - user has to log in each time he visits the login age.
+
+
+Creating GConnect
 
 # REFERENCES
 - https://www.vagrantup.com/docs/networking/forwarded_ports.html
