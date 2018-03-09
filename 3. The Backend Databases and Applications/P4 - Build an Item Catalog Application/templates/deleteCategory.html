@@ -1,19 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 {% include "header.html" %}
-	<div class=jumbotron>
-  		<div class="row">
-  			<div class="col-md-6">
-  				<h2>Delete Category</h2>
-          <p>Are you sure thay you want to delete {{category.name}}</p>
-  				<form action="" method="post">
-  					<button class="btn btn-primary" type="submit">Delete</button>
-  					<a href="{{url_for('home')}}">
-              <button type="button" class="btn btn-default">Cancel</button>
-            </a>	
-           </form>
-       		</div>
-    	</div
+  <div class="jumbotron">
+    {% include 'includes/include_del_cat.html' %}
   </div>
 
 {% endblock %}
