@@ -483,7 +483,7 @@ def showLogin():
 
 ``login_session`` will have a role of dictionary and will store values for the longevity of a user's session with the server.
 
-Now i will create login.html:
+Now i will create login.html. The file will include the code that goes out to Google to authenticate.
 
 ```html
 <!DOCTYPE html>
@@ -522,8 +522,9 @@ Now i will create login.html:
 ``data-callback="signInCallback"`` - specified call back function,
 ``data-approvalprompt="force"`` - user has to log in each time he visits the login age.
 
+Now I will add callback method to handle response that google sends. The google API server provides one-time code to authorize our server and an access token that the clinet can use to make API calls from within the browser.
 
-Creating GConnect
+__Creating GConnect__
 
 # REFERENCES
 - https://www.vagrantup.com/docs/networking/forwarded_ports.html
