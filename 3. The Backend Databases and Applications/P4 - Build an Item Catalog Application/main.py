@@ -16,6 +16,15 @@ from sqlalchemy.orm import sessionmaker
 from flask import session as login_session
 import random, string
 
+from oauth2client.client import flow_from_clientsecrets
+from oauth2client.client import FlowExchangeError
+import httplib2
+import json
+from flask import make_response
+import requests
+
+
+
 
 # Create session and connect to DB
 engine = create_engine('sqlite:///japanesefood.db')
@@ -71,21 +80,23 @@ def addCategory():
 
 # Delete category
 
-@app.route('/catalog/<category_name>/deletecategory', methods=['GET','POST'])
+@app.route('/catalog/deletecategory', methods=['GET','POST'])
 def deleteCategory():
   categories = session.query(Category).order_by(asc(Category.name))
-  selectedCategory = session.query(Category).filter_by(name=category_name).one()
-  if request.method == 'POST':
-    session.delete(categoryToDelete)
-    session.commit()
-    return redirect(url_for('home'))
-  else:
-    return render_template('deleteCategory.html', name=category_name, selectedCategory=selectedCategory)
+  return render_template('deleteCategory.html', categories=categories)
+
+
+# Create routing to the include_del_cat.html code snippet
+@app.route('/include', methods=['GET','POST'])
+def include_del_cat():
+  return render_template('include_del_cat.html')
+
+
 
 # Edit category
 #@app.route('/catalog/<category_name>/edit', methods=['GET','POST'])
 #def editCategory(category_name):
- #   findCategory = session.quert(Category).filter_by(name=category_name).one() 
+ #   findCategory = session.quert(Category).filter_by(name=category_name).one()
  #   if request.method == 'POST':
   #      findCategory.name = request.form['name']
    #     session.delete(categoryToDelete)
