@@ -17,12 +17,36 @@
   <div class="container-fluid catalog-menu">
     <div class="row">
       <div class="col-sm-3 col-lg-3 col-md-3">
-        <ul class=" category-list list">
-          {% for category in categories %}
-            <a href="{{url_for('allCategoryItems', category_name=category.name)}}" class="list-group-item">{{category
-                          .name}}</a>
-          {% endfor %}
-        </ul>
+        <div class="row">
+          <div class="row">
+            <div class="col-sm-12 col-lg-12 col-md-12">
+              <div class="col-sm-4 col-lg-4 col-md-4">
+                <h2>Categories</h2>
+              </div>
+              <div class="col-sm-4 col-lg-4 col-md-4">
+                <a href="{{url_for('addCategory')}}">
+                  <button type="button" class="tn btn-outline-success btn-sm">Add Category</button>
+                </a>
+                 
+              </div>
+              <div class="col-sm-4 col-lg-4 col-md-4">
+                <a href="{{url_for('deleteCategory')}}">
+                  <button type="button" class="tn btn-outline-success btn-sm">Delete Category</button>
+                </a>
+                 
+              </div>
+           
+            </div>
+            <div class="col-sm-12 col-lg-12 col-md-12">
+              <ul class=" category-list list">
+                {% for category in categories %}
+                  <a href="{{url_for('allCategoryItems', category_name=category.name)}}" class="list-group-item">{{category
+                                .name}}</a>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
 
 
