@@ -1,0 +1,13 @@
+{% block body%}
+
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</button>
+                <div class="dropdown-menu" aria-labelledby="dropdownmenu">
+                	{% for category in categories %}
+                    		<option value="dropdown-item" type="button">{{category.name}}</option>
+                	{% endfor %}
+              </div>
+        </div>
+{% endblock %}
+
