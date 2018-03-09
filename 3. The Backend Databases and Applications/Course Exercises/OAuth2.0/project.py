@@ -16,7 +16,8 @@ import json
 from flask import make_response
 import requests
 
-
+# Declare CLIEND_ID
+CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())['web'['client']]
 
 #Connect to Database and create database session
 engine = create_engine('sqlite:///restaurantmenu.db')
@@ -26,7 +27,26 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
-
+# Create gconnect sever side function
+@app.route('/gconnect', methods=['POST'])
+def gconnect():
+    # Validate state token
+    if request.args.get('state') != login_session['state']:
+        response = make_response(json.dumps('Invalid state parameter.'), 401)
+        response.headers['Content-Type'] = 'application/json'
+        return response
+    # Obtain authorization code
+    code = request.data
+    try:
+        # Upgrade the authorization code into a credentials object
+        oauth_flow = flow_from_clientsecrets('client_secrets.json', scope='')
+        oauth_flow.redirect_uri = 'postmessage'
+        credentials = oauth_flow.step2_exchange(code)
+    except FlowExchangeError:
+        response = make_response(
+            json.dumps('Failed to upgrade the authorization code.'), 401)
+        response.headers['Content-Type'] = 'application/json'
+        return response
 
 # Create anti-forgery state token
 @app.route('/login')
@@ -37,6 +57,7 @@ def showLogin():
     # store state in loggin_session object under name state
     login_session['state'] = state
     return render_template('login.html')
+
 
 
 
