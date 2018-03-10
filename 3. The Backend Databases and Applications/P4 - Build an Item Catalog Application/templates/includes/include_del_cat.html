@@ -1,13 +1,23 @@
 {% block body%}
-
-
+	<div class='h1'>Choose category to delete</div>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</button>
                 <div class="dropdown-menu" aria-labelledby="dropdownmenu">
                 	{% for category in categories %}
                     		<option value="dropdown-item" type="button">{{category.name}}</option>
                 	{% endfor %}
-              </div>
+              	</div>
+              	<form method="post">
+	        		<button type="submit">
+	            		<span class="glyphicon glyphicon-trash">Delete</span>
+	        		</button>
+	        		<a href="{{url_for('home')}}">
+	            		<button type="button">
+	                		<span class="glyphicon glyphicon-remove">Cancel</span>
+	            		</button>
+	        		</a>
+    			</form>
+        	</div>
         </div>
 {% endblock %}
 
