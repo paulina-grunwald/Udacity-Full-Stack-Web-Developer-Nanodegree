@@ -529,8 +529,61 @@ __Creating GConnect__
 
 # Local Permission System
 
-The Local Permission System will leverage the information stored in the login session object and uses sever side logic in the database based on provided credentials. We will make database to store information in a more user specific manner. We need to create table of users and match the data to the specific users. User id column should be added to the Restaurant and Menu Items tables. 
+The Local Permission System will leverage the information stored in the login session object and uses sever side logic in the database based on provided credentials. We will make database to store information in a more user specific manner. We need to create table of users and match the data to the specific users. User id column should be added to the Restaurant and Menu Items tables.
 
+
+| User table           
+| ------------- | ------------- |
+| email         | string        |
+| picture       | string        |
+| id            | integer       |
+| name          | string        |
+
+
+Number of modifications have to be done in the database_setup.py and lotsofmenus.py:
+- add User table and linked it with user.id Foregin key with Restaurant and MenuItem tables.
+
+```python
+class User(Base):
+    __tablename__ = 'user'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(250), nullable=False)
+    email = Column(String(250), nullable=False)
+    picture = Column(String(250))
+```
+
+
+- add user to each restaurant and menu item example:
+
+```python
+restaurant1 = Restaurant(user_id=1, name="Cocina Y Amor ")
+
+menuItem1 = MenuItem(user_id=1, name="Super Burrito Al Pastor",
+                     description="Marinated Pork, Rice, Beans, Avocado, Cilantro, Salsa, Tortilla", price="$5.95", course="Entree", restaurant=restaurant1)
+```
+
+Now we need to connect our new User table with back end The back end code will look up the user based on his or her e-mail address.
+
+First let's import ``User Module`` to project.py
+
+
+
+# Adding Facebook and other providers
+
+In order to use Facebook OAuth we need to register our app on [Facebook Developers Page](https://developers.facebook.com/).
+
+Register your app and Add http://localhost:5000/ to the Valid OAuth. redirect URIs section.
+
+In project folder create fb_client_secrets.json
+```json
+{
+  "web": {
+    "app_id": "PASTE_YOUR_APP_ID_HERE",
+    "app_secret": "PASTE_YOUR_CLIENT_SECRET_HERE"
+  }
+}
+```
 # REFERENCES
 - https://www.vagrantup.com/docs/networking/forwarded_ports.html
 - http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/
