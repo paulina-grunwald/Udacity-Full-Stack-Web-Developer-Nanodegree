@@ -526,6 +526,11 @@ Now I will add callback method to handle response that google sends. The google 
 
 __Creating GConnect__
 
+
+# Local Permission System
+
+The Local Permission System will leverage the information stored in the login session object and uses sever side logic in the database based on provided credentials. We will make database to store information in a more user specific manner. We need to create table of users and match the data to the specific users. User id column should be added to the Restaurant and Menu Items tables. 
+
 # REFERENCES
 - https://www.vagrantup.com/docs/networking/forwarded_ports.html
 - http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/
