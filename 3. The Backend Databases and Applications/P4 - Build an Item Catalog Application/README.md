@@ -120,6 +120,11 @@ item1 = Dish(name="Donburi", description="Donburi refers to a bowl of plain cook
 - Create session and connect to DB
 - routing to all the pages.
 
+5. Page login
+
+Public pages:
+
+The users will be able to delete, edit, add category and dish items only when logged in.
 
 # Reflections and learning after finishing the project
 
