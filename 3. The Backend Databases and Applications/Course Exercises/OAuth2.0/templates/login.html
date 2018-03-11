@@ -8,11 +8,10 @@
 
 <!-- END PRE-REQUISITES FOR GOOGLE SIGN IN -->
 </head>
-<body>
+<body>  
 <!-- GOOGLE PLUS SIGN IN BUTTON-->
 	<div id="signinButton">
       <span class="g-signin"
-      <!-- specifies which google resources we want to access ->
         data-scope="openid email"
         data-clientid="568147125453-4c7363gfo7lcvce7ps2o0e3hf3o8bk7m.apps.googleusercontent.com"
         data-redirecturi="postmessage"
@@ -22,12 +21,11 @@
         data-approvalprompt="force">
       </span>
      </div>
-<!--END GOOGLE PLUS SIGN IN BUTTON -->
 
+<!-- this div will be populated with the response method-->
 <div id="result"></div>
 
 <script>
-// define signInCallback function with authResult parameter
 function signInCallback(authResult) {
   if (authResult['code']) {
     // Hide the sign-in button now that the user is authorized
@@ -46,17 +44,17 @@ function signInCallback(authResult) {
          setTimeout(function() {
           window.location.href = "/restaurant";
          }, 4000);
-
+          
       } else if (authResult['error']) {
     console.log('There was an error: ' + authResult['error']);
   } else {
         $('#result').html('Failed to make a server-side call. Check your configuration and console.');
          }
       }
-
+      
   }); } }
 </script>
-
+<!--END GOOGLE PLUS SIGN IN BUTTON -->
 
  </body>
  </html>
