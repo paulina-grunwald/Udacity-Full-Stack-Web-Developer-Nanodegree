@@ -67,7 +67,7 @@
                   {% if item.image == '' %}
                     <img src={{url_for('static', filename="no-image.png")}}>
                   {% else %}
-                    <img src="{{item.image}}" alt="{{item.name}}" class="img-thumbnail img-fluid rounded">
+                    <img src="{{resized_img_src('item.image', width=200, height=200, quality=95)}}" alt="{{item.name}}" class="img-thumbnail img-fluid rounded" Image>
                   {% endif %}
                   <h4 class="text-center">{{item.name}}</h4>
 

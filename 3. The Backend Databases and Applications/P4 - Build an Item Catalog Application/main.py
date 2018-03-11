@@ -1,10 +1,7 @@
 # Improt Flask class from Flask libary
 from datetime import datetime
-from flask import Flask, render_template, request, redirect, url_for, flash
-# Create instance of the class
-# With the name of the running application as argument
-app = Flask(__name__)
-
+from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory
+from flask_images import Images
 import os
 
 # import CRUD Operations
@@ -20,9 +17,17 @@ from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
 import httplib2
 import json
-from flask import   make_response
+from flask import make_response
+
 import requests
 
+# Create instance of the class
+# With the name of the running application as argument
+app = Flask(__name__,static_folder='static')
+
+app.config['UPLOAD_FOLDER'] = 'uploads'
+app.secret_key = 'super_secret_key'
+images = Images(app)
 
 
 
@@ -32,6 +37,10 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
+
+@app.route('/uploads/<filename>', methods=["GET"])
+def download_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 
 # Show home page (this is the front page for the application)
@@ -143,9 +152,9 @@ def server_error(e):
 
 # Execute only if file is run by python interpreter
 if __name__ == '__main__':
-	app.secret_key = 'super_secret_key'
+  app.secret_key = 'super_secret_key'
 	# Reload server when code changes
-	app.debug = True
+  app.debug = True
 	# Run local server with the application
 	# Listen on all public addresses
-	app.run(host='0.0.0.0', port=5000)
+  app.run(host='0.0.0.0', port=5000)
