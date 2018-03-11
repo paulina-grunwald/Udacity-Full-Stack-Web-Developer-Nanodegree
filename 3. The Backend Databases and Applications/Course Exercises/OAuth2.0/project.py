@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 from sqlalchemy import create_engine, asc
 from sqlalchemy.orm import sessionmaker
-from database_setup import Base, Restaurant, MenuItem
+from database_setup import Base, Restaurant, MenuItem, User
 
 # Imports necessary for login
 from flaks import session as login_session
@@ -87,7 +87,6 @@ def gconnect():
     userinfo_url = "https://www.googleapis.com/oauth2/v1/userinfo"
     params = {'access_token': credentials.access_token, 'alt': 'json'}
     answer = requests.get(userinfo_url, params=params)
-
     data = answer.json()
 
     login_session['username'] = data['name']
@@ -106,7 +105,39 @@ def gconnect():
     return output
 
 
+# DISCONNECT - Revoke a current user's token and reset their login_session
 
+# Disconnect Google user
+@app.route('/gdisconnect')
+def gdisconnect():
+    access_token = login_session['access_token']
+
+    """Ensure to only disconnect a connected user"""
+    if access_token is None:
+        response = make_response(json.dumps('Current user not connected'), 401)
+        response.headers['Content-Type'] = 'application/json'
+        return response
+
+    """Execute HTTP GET request to revoke current token"""
+    url = 'https://accounts.google.com/o/oauth2/revoke?token=%s' % login_session['access_token']
+    h = httplib2.Http()
+    result = h.request(url, 'GET')[0]
+
+    if result['status'] == '200':
+        """Reset the user's session"""
+        del login_session['access_token']
+        del login_session['gplus_id']
+        del login_session['username']
+        del login_session['email']
+        del login_session['picture']
+
+        flash("You've successfully logged out")
+        return redirect(url_for('showHome'))
+    else:
+        """If the given token was invalid, do the following"""
+        response = make_response(json.dumps("Failed to revoke token for given user"), 400)
+        response.headers['Content-Type'] = 'application/json'
+        return response
 
 # Create anti-forgery state token
 @app.route('/login')
