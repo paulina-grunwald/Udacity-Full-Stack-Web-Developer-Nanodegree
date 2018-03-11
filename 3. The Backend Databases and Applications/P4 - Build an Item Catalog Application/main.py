@@ -8,7 +8,7 @@ app = Flask(__name__)
 import os
 
 # import CRUD Operations
-from database_setup import Base, Category, Dish
+from database_setup import Base, Category, Dish, User
 from sqlalchemy import create_engine, asc, desc
 from sqlalchemy.orm import sessionmaker
 
@@ -20,7 +20,7 @@ from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
 import httplib2
 import json
-from flask import make_response
+from flask import   make_response
 import requests
 
 
@@ -83,10 +83,18 @@ def addCategory():
 @app.route('/catalog/deletecategory', methods=['GET','POST'])
 def deleteCategory():
   categories = session.query(Category).order_by(asc(Category.name))
+  
+  if request.method == 'POST':
+        session.delete(categoryToDelete)
+        session.commit()
+        return redirect(url_for('showHome'))
+  else:
+        return render_template('deleteCategory.html', category=categoryToDelete)
   return render_template('deleteCategory.html', categories=categories)
 
 
 # Create routing to the include_del_cat.html code snippet
+
 @app.route('/include', methods=['GET','POST'])
 def include_del_cat():
   return render_template('include_del_cat.html')
