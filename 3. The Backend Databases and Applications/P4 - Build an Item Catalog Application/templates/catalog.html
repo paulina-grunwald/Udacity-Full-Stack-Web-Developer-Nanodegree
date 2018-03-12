@@ -65,9 +65,9 @@
               <div class="col-sm-4 col-lg-4 col-md-4">
                 <div class="card">
                   {% if item.image == '' %}
-                    <img src={{url_for('static', filename="no-image.png")}}>
+                    <img src={{url_for('static', filename="no-image.png")}}/>
                   {% else %}
-                    <img src="{{resized_img_src('item.image', width=200, height=200, quality=95)}}" alt="{{item.name}}" class="img-thumbnail img-fluid rounded" Image>
+                    <img src="{{url_for('images.fir', filename=item.image, width=200, height=200, quality=95)}}" alt="{{item.name}}" class="img-thumbnail img-fluid rounded"/>
                   {% endif %}
                   <h4 class="text-center">{{item.name}}</h4>
 
