@@ -23,9 +23,9 @@ import requests
 
 # Create instance of the class
 # With the name of the running application as argument
-app = Flask(__name__,static_folder='static')
+app = Flask(__name__)
 
-app.config['UPLOAD_FOLDER'] = 'uploads'
+app.config['UPLOAD_FOLDER'] = 'i'
 app.secret_key = 'super_secret_key'
 images = Images(app)
 
@@ -64,7 +64,11 @@ def contact():
 def categories():
     categories = session.query(Category).order_by(asc(Category.name))
     items = session.query(Dish).order_by(asc(Dish.name))
-    return render_template('catalog.html', categories=categories, items=items)
+    for i in items:
+      i.image = i.image.replace("/static/", '')
+      print(i.image)
+    return render_template('catalog.html', categories=categories, items=items) 
+   
 
 # Show all items in the category
 
