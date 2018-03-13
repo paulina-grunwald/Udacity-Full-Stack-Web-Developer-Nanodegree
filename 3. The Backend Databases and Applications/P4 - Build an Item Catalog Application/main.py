@@ -22,7 +22,7 @@ from flask import make_response
 import requests
 
 # Create instance of the class
-# With the name of the running application as argument
+# With the name of the running application as argument (application object)
 app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = 'i'
