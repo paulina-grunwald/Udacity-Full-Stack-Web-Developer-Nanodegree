@@ -74,10 +74,17 @@ def categories():
 
 @app.route('/catalog/<category_name>/items')
 def allCategoryItems(category_name):
-    categories = session.query(Category).order_by(asc(Category.name))
-    selectedCategory = session.query(Category).filter_by(name=category_name).one()
-    items = session.query(Dish).filter_by(category_id=selectedCategory.id).order_by(asc(Dish.name))
-    return render_template('catalog.html', categories=categories, selectedCategory=selectedCategory, items=items)
+  categories = session.query(Category).order_by(asc(Category.name))
+  selectedCategory = session.query(Category).filter_by(name=category_name).one()
+  items = session.query(Dish).filter_by(category_id=selectedCategory.id).order_by(asc(Dish.name))
+   return render_template('catalog.html', categories=categories, selectedCategory=selectedCategory, items=items)
+
+# Show info of a specific dish
+def showItem(category_name, item_name):
+  category = session.query(Category).filter_by(name=category_name).one()
+  item = session.query(Dish).filter_by(name=item_name, category=category).one()
+  return render_template('showItem.html', item=item, creator=creator)
+
 
 # Add new category
 @app.route('/catalog/addcategory', methods=['GET','POST'])
