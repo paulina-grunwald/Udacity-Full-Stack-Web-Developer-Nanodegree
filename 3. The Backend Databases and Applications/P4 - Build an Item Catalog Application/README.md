@@ -58,7 +58,8 @@ Steps I took to create Catalog App:
 3. Create all templates and forms.
 4. Add all backend functionality
 5. Add API Endpoints.
-6. Add styling with CSS
+6. Create authentication&Authorization
+7. Add styling with CSS
 
 ## 1. Create mock-ups for every
 The first step I took was to create mock-ups for each page in my application. This is the list of requires html templates for various parts of the catalog app:
@@ -81,6 +82,8 @@ I also made sure that links are easy to maintain by using jinja2 function ``{{ur
 Custom Error pages for 404 and 500 error were created.
 
 ## 2. Set up routing
+
+
 Routing to a home page: ``'/'``
 Routing to about page: ``'/about'``
 Routing to contact page: ``'/contact'``
@@ -108,6 +111,29 @@ def server_error(e):
 
 ```
 
+Now I will add API Endpoints to my applications. The API request should return a JSON object for a list of categories, category items, all users, info of specific item. e.g
+```python
+# add API endpoints for all categories
+@app.route('/categories/json')
+def categoriesJSON():
+  categories = session.query(Category).all()
+  return jsonify(Categories = [c.serialize for c in categories])
+```
+Result of accessing ``http://localhost:5000/categories/json``:
+```
+{
+  "Categories": [
+    {
+      "id": 1,
+      "name": "Rice Dishes",
+      "user_id": 1
+    },
+    {
+      "id": 2,
+      "name": "Seafood Dishes",
+      "user_id": 1
+[...]
+```
 ## 4. Add all backend functionality
 In  this part of the project I have created two scripts:
 1. ``database_setup.py`` - this script was used for creating my Japanese food database. It created the database that contains two tables:
@@ -136,8 +162,17 @@ item1 = Dish(name="Donburi", description="Donburi refers to a bowl of plain cook
 
 To make sure that all links are Maintanable ``url_for(view)`` function was used. It generatres URL to the given view and it is available in the template contex.
 
+
+
+
 In this project I have used Flask framework.
-5. Page login
+
+6. Create authentication&Authorization
+
+Crete Google Sign in:
+
+
+ Page login
 
 Public pages:
 
