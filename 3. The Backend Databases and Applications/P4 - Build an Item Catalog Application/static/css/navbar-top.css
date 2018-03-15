@@ -1,11 +1,11 @@
 
 body {
   min-height: 75rem;
-  padding-top: 4.5rem;
+  padding-top: 5rem;
 }
 
 .navbar-brand {
-    font-size: 15px;
+    font-size: 10em;
 }
 
 
