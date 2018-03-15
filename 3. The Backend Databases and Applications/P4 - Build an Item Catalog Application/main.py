@@ -30,7 +30,6 @@ app.secret_key = 'super_secret_key'
 images = Images(app)
 
 
-
 # Create session and connect to DB
 engine = create_engine('sqlite:///japanesefood.db')
 Base.metadata.bind = engine
@@ -59,7 +58,7 @@ def contact():
     return render_template('contact.html')
 
 
-# Show catalog page
+# Show catalog page with all the category items
 @app.route('/catalog')
 def categories():
     categories = session.query(Category).order_by(asc(Category.name))
@@ -77,13 +76,11 @@ def allCategoryItems(category_name):
   categories = session.query(Category).order_by(asc(Category.name))
   selectedCategory = session.query(Category).filter_by(name=category_name).one()
   items = session.query(Dish).filter_by(category_id=selectedCategory.id).order_by(asc(Dish.name))
-   return render_template('catalog.html', categories=categories, selectedCategory=selectedCategory, items=items)
+  return render_template('catalog.html', categories=categories, selectedCategory=selectedCategory, items=items)
 
-# Show info of a specific dish
-def showItem(category_name, item_name):
-  category = session.query(Category).filter_by(name=category_name).one()
-  item = session.query(Dish).filter_by(name=item_name, category=category).one()
-  return render_template('showItem.html', item=item, creator=creator)
+
+
+# Show detailed info on selected dish
 
 
 # Add new category
@@ -93,30 +90,34 @@ def addCategory():
     addCategory = Category(name=request.form['name'])
     session.add(addCategory)
     session.commit()
-    return redirect(url_for('home'))
+    return redirect(url_for('categories'))
   else:
     return render_template('addCategory.html', )
 
 
-# Delete category
 
+# Add a new item
+
+
+
+# Delete category
 @app.route('/catalog/deletecategory', methods=['GET','POST'])
 def deleteCategory():
-  categories = session.query(Category).order_by(asc(Category.name))
-  
+  categoryToDelete = session.query(Category).order_by(asc(Category.name))
   if request.method == 'POST':
-        session.delete(categoryToDelete)
-        session.commit()
-        return redirect(url_for('showHome'))
+    session.delete(categoryToDelete)
+    session.commit()
+    return redirect(url_for('home'))
   else:
-        return render_template('deleteCategory.html', category=categoryToDelete)
-  return render_template('deleteCategory.html', categories=categories)
+    return render_template('deleteCategory.html', category=categoryToDelete)
+
 
 
 # Create routing to the include_del_cat.html code snippet
 
 @app.route('/include', methods=['GET','POST'])
 def include_del_cat():
+
   return render_template('include_del_cat.html')
 
 
@@ -137,12 +138,12 @@ def include_del_cat():
 # Add new item to a categoryshowCategoryItems
 
 @app.route('/catalog/additem', methods=['GET','POST'])
-def addItem():
-    if request.method == 'POST':
+#def addItem():
+#    if request.method == 'POST':
 
-        return redirect(url_for('home'))
-    else:
-        return render_template('addItem.html')
+#        return redirect(url_for('home'))
+ #   else:
+#        return render_template('addItem.html')
 
 
 # Delete  item to a category
