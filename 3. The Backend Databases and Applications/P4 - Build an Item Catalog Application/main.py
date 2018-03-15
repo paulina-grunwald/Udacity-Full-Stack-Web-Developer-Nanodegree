@@ -90,6 +90,7 @@ def addCategory():
     addCategory = Category(name=request.form['name'])
     session.add(addCategory)
     session.commit()
+    flash("You've successfully added new category!")
     return redirect(url_for('categories'))
   else:
     return render_template('addCategory.html', )
@@ -103,13 +104,13 @@ def addCategory():
 # Delete category
 @app.route('/catalog/deletecategory', methods=['GET','POST'])
 def deleteCategory():
-  categoryToDelete = session.query(Category).order_by(asc(Category.name))
+  categories = session.query(Category).order_by(asc(Category.name))
+  # Delete category from the database 
   if request.method == 'POST':
     session.delete(categoryToDelete)
     session.commit()
-    return redirect(url_for('home'))
-  else:
-    return render_template('deleteCategory.html', category=categoryToDelete)
+    return redirect(url_for('categories'))
+  return render_template('deleteCategory.html', category=categoryToDelete)
 
 
 
@@ -135,15 +136,27 @@ def include_del_cat():
      #   return render_template('editCategory.html')
 
 
-# Add new item to a categoryshowCategoryItems
+# Add new item to a category
 
 @app.route('/catalog/additem', methods=['GET','POST'])
-#def addItem():
-#    if request.method == 'POST':
-
-#        return redirect(url_for('home'))
- #   else:
-#        return render_template('addItem.html')
+def addItem():
+  categories = session.query(Category).order_by(asc(Category.name))
+  if request.method == 'POST':
+    itemName = request.form['name']
+    itemDescription = request.form['description']
+    itemCategory = session.query(Category).filter_by(name=request.form['category']).one()
+    itemImage = request.form['image']
+    if itemName != '':
+      print("item name %s" % itemName)
+      addingItem = Dish(name=itemName, description=itemDescription, image=itemImage, category=itemCategory,
+                        user_id=itemCategory.user_id)
+      session.add(addingItem)
+      session.commit()
+      return redirect(url_for('categories'))
+    else:
+      return render_template('addItem.html', categories=categories)
+  else:
+    return render_template('addItem.html', categories=categories)
 
 
 # Delete  item to a category
@@ -164,6 +177,7 @@ def server_error(e):
 
 # Execute only if file is run by python interpreter
 if __name__ == '__main__':
+  port = int(os.environ.get('PORT', 5000))
   app.secret_key = 'super_secret_key'
 	# Reload server when code changes
   app.debug = True
