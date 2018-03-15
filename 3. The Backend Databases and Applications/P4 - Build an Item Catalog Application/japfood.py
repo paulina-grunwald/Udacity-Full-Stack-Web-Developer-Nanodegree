@@ -47,7 +47,7 @@ session.add(item2)
 session.commit()
 
 
-item3 = Dish(user_id=1, name="Onigiri", description="Onigiri, also called omusubi, are known as Japanese rice balls in the West, and are ubiquitous throughout Japan as both a snack and meal accompaniment. Essentially, they’re rice balls with either some kind of filling or ingredients mixed into the rice, and then shaped by hand.",
+item3 = Dish(user_id=1, name="Onigiri", description="Onigiri, also called omusubi, are known as Japanese rice balls in the West, and are ubiquitous throughout Japan as both a snack and meal accompaniment. Essentially, they are rice balls with either some kind of filling or ingredients mixed into the rice, and then shaped by hand.",
                      image="/static/img/onigiri.jpg", category=category1)
 session.add(item3)
 session.commit()
@@ -65,7 +65,7 @@ session.add(item5)
 session.commit()
 
 
-item6 = Dish(user_id=1, name="Yakimeshi", description="Japanese fried rice, known as “Yakimeshi” in Japan, is such a flavourful and delicious recipe that is super easy to make! It doesn’t require any special ingredients, and you can create it with things you probably already have in your kitchen.",
+item6 = Dish(user_id=1, name="Yakimeshi", description="Japanese fried rice, known as Yakimeshi in Japan, is such a flavourful and delicious recipe that is super easy to make! It doesn not require any special ingredients, and you can create it with things you probably already have in your kitchen.",
                      image="/static/img/yakimeshi.jpg", category=category1)
 session.add(item6)
 session.commit()
@@ -80,7 +80,7 @@ item8 = Dish(user_id=1, name="Hitsumabushi", description="This dish consits of g
 session.add(item8)
 session.commit()
 
-item9 = Dish(user_id=1, name="Zosui", description="Zōsuiis a mild and thin Japanese rice soup akin to a rice-based vegetable soup. It is made from pre-cooked rice and water seasoned with either soy sauce or miso and cooked with other ingredients such as meat, seafood, mushrooms, and vegetables.",
+item9 = Dish(user_id=1, name="Zosui", description="Zosuiis a mild and thin Japanese rice soup akin to a rice-based vegetable soup. It is made from pre-cooked rice and water seasoned with either soy sauce or miso and cooked with other ingredients such as meat, seafood, mushrooms, and vegetables.",
                      image="/static/img/zosui.jpg", category=category1)
 session.add(item9)
 session.commit()
@@ -160,7 +160,7 @@ item2 = Dish(user_id=1, name="Ramen", description="is a Japanese dish. It consis
 session.add(item2)
 session.commit()
 
-item3 = Dish(user_id=1, name="Yakisoba", description="Yakisoba is a classic Japanese stir fry noodles dish with pork and vegetables, and it’s seasoned with a sweet & savory sauce similar to Worcestershire sauce.",
+item3 = Dish(user_id=1, name="Yakisoba", description="Yakisoba is a classic Japanese stir fry noodles dish with pork and vegetables, and it is seasoned with a sweet & savory sauce similar to Worcestershire sauce.",
                      image="/static/img/yakisoba.jpg", category=category3)
 session.add(item3)
 session.commit()
@@ -225,7 +225,7 @@ item1 = Dish(user_id=1, name="Tamagoyaki", description="Sweet yet savory, Tamago
 session.add(item1)
 session.commit()
 
-item2 = Dish(user_id=1, name="Omurice", description="Omurice is an example of yōshoku consisting of an omelette made with fried rice and usually topped with ketchup.",
+item2 = Dish(user_id=1, name="Omurice", description="Omurice is an example of yoshoku consisting of an omelette made with fried rice and usually topped with ketchup.",
                      image="/static/img/omurice.jpg", category=category6)
 session.add(item2)
 session.commit()
