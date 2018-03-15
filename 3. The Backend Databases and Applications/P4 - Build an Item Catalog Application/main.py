@@ -1,8 +1,12 @@
 # Improt Flask class from Flask libary
 from datetime import datetime
-from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory, jsonify
+from flask import make_response
+
 from flask_images import Images
 import os
+from werkzeug.utils import secure_filename
+from werkzeug import url_decode
 
 # import CRUD Operations
 from database_setup import Base, Category, Dish, User
@@ -16,10 +20,7 @@ import random, string
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
 import httplib2
-import json
-from flask import make_response
 
-import requests
 
 # Create instance of the class
 # With the name of the running application as argument (application object)
@@ -39,8 +40,41 @@ session = DBSession()
 
 @app.route('/uploads/<filename>', methods=["GET"])
 def download_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+  return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
+
+# API endpoints for all users
+@app.route('/users.json')
+def userJSON():
+  users = session.query(User).all()
+  return jsonify(User = [u.serialize for u in users])
+
+
+# add API endpoints for all categories and items
+@app.route('/catalog/json')
+def catalogJSON():
+  categories = session.query(Category).all()
+  items = session.query(Dish).all()
+  return jsonify(Categories = [c.serialize for c in categories], Items = [i.serialize for i in items])
+
+# add API endpoints for all categories
+@app.route('/categories/json')
+def categoriesJSON():
+  categories = session.query(Category).all()
+  return jsonify(Categories = [c.serialize for c in categories])
+
+# API endpoints for all items from a specific category
+@app.route('/<category_name>/items/json')
+def itemsJSON(category_name):
+  category = session.query(Category).filter_by(name=category_name).one()
+  items = session.query(Dish).filter_by(category=category).all()
+  return jsonify(Items = [i.serialize for i in items])
+
+@app.route('/<category_name>/<item_name>/json')
+def itemJSON(category_name, item_name):
+  category = session.query(Category).filter_by(name=category_name).one()
+  item = session.query(Dish).filter_by(category=category).one()
+  return jsonify(Item = [i.serialize for i in item])
 
 # Show home page (this is the front page for the application)
 @app.route('/')
@@ -81,7 +115,14 @@ def allCategoryItems(category_name):
 
 
 # Show detailed info on selected dish
-
+@app.route('/catalog/<category_name>/<item_name>')
+def showItem(category_name, item_name):
+  category = session.query(Category).filter_by(name=category_name).one()
+  item = session.query(Dish).filter_by(name=item_name, category=category).one()
+  #for i in items:
+   # i.image = i.image.replace("/static/", '')
+   # print(i.image)
+  return render_template('showItem.html', item=item)
 
 # Add new category
 @app.route('/catalog/addcategory', methods=['GET','POST'])
@@ -181,6 +222,7 @@ if __name__ == '__main__':
   app.secret_key = 'super_secret_key'
 	# Reload server when code changes
   app.debug = True
+  threaded=True
 	# Run local server with the application
 	# Listen on all public addresses
   app.run(host='0.0.0.0', port=5000)
