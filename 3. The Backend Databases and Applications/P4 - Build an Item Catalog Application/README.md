@@ -1,7 +1,7 @@
 # Build a Item Catalog Application Project
 > by Paulina Grunwald
 
-This project is a part of [Udacity's Full Stack Nanodegree Program](https://www.udacity.com/nanodegree). In this project I had to develop an application that provides a list of items within a variety of categories as well as provide a user registration and authentication system using OAuth. The goal was also to allow registered users to post, edit and delete their own items. This project combines the knowledge of building dynamic websites with persistent data storage to create a web application that provides a compelling service to the users.
+This project is a part of [Udacity's Full Stack Nanodegree Program](https://www.udacity.com/nanodegree). In this project I had to develop an application that provides a list of items within a variety of categories as well as a user registration and authentication system using OAuth. The goal was also to allow registered users to post, edit and delete their own items. This project combines the knowledge of building dynamic websites with persistent data storage to create a web application that provides a compelling service to the users.
 
 
 # Table of contents
@@ -49,7 +49,7 @@ This web application was built using HTML5, CSS, Bootstrap4, Vagrant, Flask, SQL
 
 # Steps taken in developing Item Catalog App
 
-The Item Catalog project consists of developing an application that provides a list of items within a variety of categories, as well as provide a user registration and authentication system.
+The Item Catalog project consists of developing an application that provides a list of items within a variety of categories, as well as provide a user registration and authentication system. In this project I have used Flask framework.
 
 Steps I took to create Catalog App:
 
@@ -61,39 +61,52 @@ Steps I took to create Catalog App:
 6. Add styling with CSS
 
 ## 1. Create mock-ups for every
-The first step i took was to create mock-ups for each page in my application.
-
-
-
-This is the list of requires html templates for various parts of the catalog app:
-- index (main page)
-- about
-- contact
+The first step I took was to create mock-ups for each page in my application. This is the list of requires html templates for various parts of the catalog app:
+- home (main page)
+- about,
+- contact,
+- add category,
+- delete category ,
+- edit category,
+- add item,
 - delete item,
 - edit item,
-- add image
 - edit Image
+- delete Image
 
-The HTML is generated using ``Jinja2`` template engine. Base template is a parent to the other pages. I have used template inheritance to create  base template that contains one or more blocks that can be overwriten by it's children by  ``{%extends "base.html"%}``. The blocks are defined by ``{%block content %}..{%endblock%}``.
+The HTML is generated using ``Jinja2`` template engine. Base template is a parent to the other pages. I have used template inheritance to create  base template that contains one or more blocks that can be overwritten by it's children by  ``{%extends "base.html"%}``. The blocks are defined by ``{%block content %}..{%endblock%}``.
 
 I also made sure that links are easy to maintain by using jinja2 function ``{{url_for('pagename.htm')}}``.
 
-Maintanable links
-Custom Error pages
-
+Custom Error pages for 404 and 500 error were created.
 
 ## 2. Set up routing
+Routing to a home page: ``'/'``
+Routing to about page: ``'/about'``
+Routing to contact page: ``'/contact'``
 
 Category routing:
-- View all categories: /categories/
-- Create new category: /category/new
-- Edit category: category/<int:category_id>/edit
-- Delete category: category/<int:category_id>/edit
+- View all categories: ``'/catalog'``
+- View all items from selected category: ``/catalog/<category_name>/items``
+- Create new category: ``/catalog/addcategory``
+- Edit category: category: ``/<int:category_id>/edit``
+- Delete category: ``category/<int:category_id>/delete``
 
 Dish routing:
 Show all dishes in the category: /category/<int:category_id>/items
-Add item to the category: /category/<int:category_id>/items/new
+Add item to the category: ``'/catalog/additem'``
 
+Error handlers:
+```python
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def server_error(e):
+    return render_template('500.html'), 500
+
+```
 
 ## 4. Add all backend functionality
 In  this part of the project I have created two scripts:
@@ -117,9 +130,13 @@ item1 = Dish(name="Donburi", description="Donburi refers to a bowl of plain cook
 
 4. ``main.py`` - this is main file for the project. In essence provides web in Python that uses database to implement CRUD. In consists of following sections:
 - Import all of the modules
+
 - Create session and connect to DB
 - routing to all the pages.
 
+To make sure that all links are Maintanable ``url_for(view)`` function was used. It generatres URL to the given view and it is available in the template contex.
+
+In this project I have used Flask framework.
 5. Page login
 
 Public pages:
