@@ -37,10 +37,39 @@
   - HTML <div></div>
 
 # 2. Building the Move Planner App
-In order to use jQuery we need to use jQuery object. To select an object with jQuery we can use $ sign and in () we will pass string of the element we want.  e.g
+In order to use jQuery we need to use jQuery object. To select an object with jQuery we can use $ sign and in () we will pass string of the element we want (# sign is an ID)  e.g
 ```
 var $wikiElem = $('#wikipedia-links');
 ```
+We will be using two methods for AJAX requests:
+- ``.ajax()``
+- ``.getJSON()``
+
+Both methods take url and also additional parameters.
+
+Now our task is to create Google Streetview request
+
+we have following html code in our index.html:
+
+```HTML
+<form id="form-container" class="form-container">
+    <label for="street">Street: </label><input type="text" id="street" value="">
+    <label for="city">City: </label><input type="text" id="city" value="">
+    <button id="submit-btn">Submit</button>
+</form>
+```
+We can observe that Street has id of ```id="street"``` and city has ``id="city"``. Now i will create new variables for street, city, address (city+street).
+I will also create greeting for the user. Next, I will add url for the Google Streeview image.
+
+```JavaScript
+var streetStr = $('#street').val();
+var cityStr  = $('#city').val();
+var address = streetStr + ', ' + cityStr;
+
+$greeting.text('Do you want to live in ' + address + '?');
+
+```
+
 
 # References
 
