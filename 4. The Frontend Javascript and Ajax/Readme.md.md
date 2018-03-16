@@ -80,6 +80,17 @@ Now using NY Times API key I will try to find articles regarding selected by use
 For this I will use NY Times ``API Key``.
 
 
+# 3. Changing Expectations
+
+# 4. Refactoring with Separation of Concepts
+# 5. Using an Organization Library
+# 6. Learning a New Codebase
+# 7. Getting Started with the APIs
+# 8. Understanding API Services
+# 9. Using the APIs in Practice
+
+
+
 # References
 
 - [jQuery's AJAX Documentation](http://api.jquery.com/jquery.ajax/)
