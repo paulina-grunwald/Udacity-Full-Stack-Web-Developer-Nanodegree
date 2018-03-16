@@ -37,6 +37,7 @@
   - HTML <div></div>
 
 # 2. Building the Move Planner App
+
 In order to use jQuery we need to use jQuery object. To select an object with jQuery we can use $ sign and in () we will pass string of the element we want (# sign is an ID)  e.g
 ```
 var $wikiElem = $('#wikipedia-links');
@@ -45,11 +46,10 @@ We will be using two methods for AJAX requests:
 - ``.ajax( url [, settings ] )`` - performs an asynchronous HTTP (Ajax) request. Accepts two parameters url and settings. Settings are a set of key/value pairs that configure the Ajax request. All settings are optional.
 - ``.getJSON( url [, data ] [, success ] )`` - loads JSON-encoded data from the server using a GET HTTP request. Accepts three parameters url, data and success. Data are a plain object or string that is sent to the server with the request. Success is callback function that is executed if the request succeeds.
 
-Both methods take url and also additional parameters.
+Now my task is to create Google Streetview request. Google Streetview image requests must include the size and location parameters.
+I will be working with file set provided for the course. All files are located in minicourse-ajax-project folder. The folder includes index.html, folder containing css and js files.
 
-Now our task is to create Google Streetview request
-
-we have following html code in our index.html:
+Index.html include a form in which user inputs street name and city and submit the query. My task will be collect user input and to find Google Street image of the location inputted by the user. The ``form`` is constructed with following html code:
 
 ```HTML
 <form id="form-container" class="form-container">
@@ -58,6 +58,8 @@ we have following html code in our index.html:
     <button id="submit-btn">Submit</button>
 </form>
 ```
+The documentation for Google Street API can be found [here](https://developers.google.com/maps/documentation/streetview/).
+
 We can observe that Street has id of ```id="street"``` and city has ``id="city"``. Now i will create new variables for street, city, address (city+street).
 I will also create greeting for the user. Next, I will add url for the Google Streeview image.
 
@@ -68,9 +70,14 @@ var address = streetStr + ', ' + cityStr;
 
 $greeting.text('Do you want to live in ' + address + '?');
 
-var streetviewUrl = http://maps.googleapis.com/maps/api/streetview?size=600x300&location=
+//create URL
+var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x300&location=' + address + '';
+$body.append('<img class="bgimg" src="' + streetviewUrl + '"/>');
 
 ```
+
+Now using NY Times API key I will try to find articles regarding selected by user location and view them on the page together with the photo of the location.
+For this I will use NY Times ``API Key``.
 
 
 # References
