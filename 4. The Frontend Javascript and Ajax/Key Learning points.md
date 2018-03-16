@@ -42,8 +42,8 @@ In order to use jQuery we need to use jQuery object. To select an object with jQ
 var $wikiElem = $('#wikipedia-links');
 ```
 We will be using two methods for AJAX requests:
-- ``.ajax()``
-- ``.getJSON()``
+- ``.ajax( url [, settings ] )`` - performs an asynchronous HTTP (Ajax) request. Accepts two parameters url and settings. Settings are a set of key/value pairs that configure the Ajax request. All settings are optional.
+- ``.getJSON( url [, data ] [, success ] )`` - loads JSON-encoded data from the server using a GET HTTP request. Accepts three parameters url, data and success. Data are a plain object or string that is sent to the server with the request. Success is callback function that is executed if the request succeeds.
 
 Both methods take url and also additional parameters.
 
@@ -68,9 +68,12 @@ var address = streetStr + ', ' + cityStr;
 
 $greeting.text('Do you want to live in ' + address + '?');
 
+var streetviewUrl = http://maps.googleapis.com/maps/api/streetview?size=600x300&location=
+
 ```
 
 
 # References
 
 - [jQuery's AJAX Documentation](http://api.jquery.com/jquery.ajax/)
+- http://api.jquery.com/jquery.ajax/
