@@ -419,6 +419,10 @@ get_flashed_messages()
 
 ### Responding with JSON
 
+``API`` - Application Programming interface
+APIs allow external applications to access public information that our app wants to share.
+When an API is communicated over the Internet and following rules of HTTP  it is called ``RESTful API (Representational State Transfer)``. JSON is the mot popular format of sending data using API.
+
 # Iterative Development
 
  <em>Checklist:</em>
@@ -526,6 +530,11 @@ Now I will add callback method to handle response that google sends. The google 
 
 __Creating GConnect__
 
+
+this client_secret.json includes:
+- client_id,
+- client secret
+- javascript_origins
 
 # Local Permission System
 
