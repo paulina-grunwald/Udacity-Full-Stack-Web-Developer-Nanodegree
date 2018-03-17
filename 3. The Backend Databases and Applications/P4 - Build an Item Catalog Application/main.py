@@ -258,9 +258,6 @@ def allCategoryItems(category_name):
 def showItem(category_name, item_name):
   category = session.query(Category).filter_by(name=category_name).one()
   item = session.query(Dish).filter_by(name=item_name, category=category).one()
-  #for i in items:
-   # i.image = i.image.replace("/static/", '')
-   # print(i.image)
   return render_template('showItem.html', item=item)
 
 # Add new category
