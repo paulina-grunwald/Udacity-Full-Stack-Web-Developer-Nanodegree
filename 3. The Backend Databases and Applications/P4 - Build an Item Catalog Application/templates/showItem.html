@@ -1,13 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 {% include "header.html" %}
-  <div class="jumbotron">
-        <div class="row">
-            <div class="col-md-3">
-                <p>test</p>
+    <div class="jumbotron container-fluid">
+        <div class="row justify-content-between">
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                {% if item.image == '' %}
+                    <img src={{url_for('static', filename="no-image.png")}}>
+                {% else %}
+                    <img src="{{url_for('images.fit', filename=item.image, width=1000, height=800, quality=95)}}" alt="{{item.name}}" class="img-thumbnail img-fluid rounded">
+                {% endif %}
             </div>
-            <div class="col-md-9">
+            <div class="col-sm-8 col-lg-8 col-md-8">
                 <h2>{{item.name}}</h2>
+                <p>{{item.description}}</p>
             </div>
         </div>
     </div>
