@@ -580,9 +580,7 @@ First let's import ``User Module`` to project.py
 
 # Adding Facebook and other providers
 
-In order to use Facebook OAuth we need to register our app on [Facebook Developers Page](https://developers.facebook.com/).
-
-Register your app and Add http://localhost:5000/ to the Valid OAuth. redirect URIs section.
+In order to use Facebook OAuth we need to register our app on [Facebook Developers Page](https://developers.facebook.com/). Register your app and Add http://localhost:5000/ to the Valid OAuth. redirect URIs section.
 
 In project folder create fb_client_secrets.json
 ```json
@@ -593,6 +591,40 @@ In project folder create fb_client_secrets.json
   }
 }
 ```
+Add client site functionality to login.html. Facebook has two options to perform OAuth login:
+- import the Facebook JavaScript (https://developers.facebook.com/docs/facebook-login/web) SDK and use Facebook functions.
+- construct your OAuth manually.
+
+In this example I will import the Facebook JS SDK. I will add facebook connect and disconnect methods to project.py.
+
+
+# What's and Why's of APIs
+
+# Accessing Published APIs
+
+HTTP is a ``pull protocol`` where the communication is always initiated by the client and the server will respond with the response message.
+
+__HTTP request__ consists of:
+1. Header:
+  - request line (HTTP Verb, URI, HTTP Version Number) e.g ``GET/home.html/HTTP/1.1``,
+  - optional request header (describe specific properties about request): consist of the key value pairs,
+2. space (blank line)
+3. body (optional): includes additional info
+
+__HTTP response__ may consists of:
+1. Header:
+  - status line (HTTP version, Status Code, Reason Phase)
+2. space (blank line)
+3. body (optional): includes additional info
+
+# Creating your own API Endpoints
+
+# Securing your API
+
+# Writing Developer-Friendly APIs
+
+
+
 # REFERENCES
 - https://www.vagrantup.com/docs/networking/forwarded_ports.html
 - http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/
