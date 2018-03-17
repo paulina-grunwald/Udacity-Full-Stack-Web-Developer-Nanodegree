@@ -2,7 +2,8 @@
 {% block content %}
 {% include "header.html" %}
   
-  <div class = 'flash'>
+
+  <div class="container-fluid catalog-menu">
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         <ul>
@@ -12,39 +13,29 @@
         </ul>
       {% endif %}
     {% endwith %}
-  </div>
-
-  <div class="container-fluid catalog-menu">
     <div class="row">
       <div class="col-sm-3 col-lg-3 col-md-3">
         <div class="row">
-          <div class="row">
-            <div class="col-sm-12 col-lg-12 col-md-12">
-              <div class="col-sm-4 col-lg-4 col-md-4">
-                <h2>Categories</h2>
-              </div>
-              <div class="col-sm-4 col-lg-4 col-md-4">
-                <a href="{{url_for('addCategory')}}">
-                  <button type="button" class="tn btn-outline-success btn-sm">Add Category</button>
-                </a>
-                 
-              </div>
-              <div class="col-sm-4 col-lg-4 col-md-4">
-                <a href="{{url_for('deleteCategory')}}">
-                  <button type="button" class="tn btn-outline-success btn-sm">Delete Category</button>
-                </a>
-                 
-              </div>
-           
+          <div class="col-sm-12 col-lg-12 col-md-12">
+            <h2>Categories</h2>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <a href="{{url_for('addCategory')}}">
+                <button type="button" class="btn btn-secondary">Add Category</button>
+              </a>
             </div>
-            <div class="col-sm-12 col-lg-12 col-md-12">
-              <ul class=" category-list list">
-                {% for category in categories %}
-                  <a href="{{url_for('allCategoryItems', category_name=category.name)}}" class="list-group-item">{{category
-                                .name}}</a>
-                {% endfor %}
-              </ul>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-secondary">Delete Category</button>
             </div>
+          </div>
+          
+         
+          <div class="col-sm-12 col-lg-12 col-md-12">
+            <ul class="category-list list">
+              {% for category in categories %}
+                <a href="{{url_for('allCategoryItems', category_name=category.name)}}" class="list-group-item">{{category
+                              .name}}</a>
+              {% endfor %}
+            </ul>
           </div>
         </div>
       </div>
@@ -57,7 +48,9 @@
               <h2>Category Items</h2>
             </div>
             <div class="col-md-2">
-              <h2 class="btn-outline-success btn-sm">Add item</h2>
+              <a href="{{url_for('addItem')}}">
+                <button type="button" class="tn btn-outline-success btn-sm">Add Item</button>
+              </a>
             </div>
           </div>
           <div class="row">
@@ -67,14 +60,21 @@
                   {% if item.image == '' %}
                     <img src={{url_for('static', filename="no-image.png")}}/>
                   {% else %}
-                    <img src="{{url_for('images.fit', filename=item.image, width=400, height=400, quality=95)}}" alt="{{item.name}}" class="img-thumbnail img-fluid rounded"/>
+                    <img src="{{url_for('images.crop', filename=item.image, width=200, height=200, quality=95)}}" alt="{{item.name}}" class="img-thumbnail img-fluid rounded"/>
                   {% endif %}
+      
                   <h4 class="text-center">{{item.name}}</h4>
-
+                  <div class="block-inline">
+                    <a href="{{url_for('showItem', category_name=item.category.name, item_name=item.name)}}"><i class="fas fa-eye fa-1x"></i></a>
+                    <a href="{{url_for('home')}}"><i class="far fa-edit fa-1x"></i></a>
+                    <a href="{{url_for('home')}}"><i class="far fa-trash-alt fa-1x"></i></a>
+                  </div>
+                    
                 </div> 
               </div> 
-             {% endfor %}
+            {% endfor %}
           </div>
+
         </div>
       </div>
     </div    
