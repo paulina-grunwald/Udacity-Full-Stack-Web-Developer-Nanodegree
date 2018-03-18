@@ -1,17 +1,23 @@
 
 body {
   min-height: 75rem;
-  padding-top: 5rem;
+  padding-top: 2rem;
 }
 
 .navbar-brand {
-    font-size: 10em;
+	padding-left: 1em;
+	font-size: 1.8em;
 }
 
+.login {
+	padding-right: 1.4em;
+}
 
-.navbar {
-    width: 100%;
-    float: left;
-    margin: 0 0 1em 0;
-    padding: 0;
+.navbar-nav {
+	font-size: 1.2em;
+}
+
+.nav-item {
+	padding-right: 0.2em;
+	padding-left: 0.2em;
 }
