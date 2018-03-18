@@ -1,14 +1,27 @@
 
-
-.banner {
-    padding-left: 0;
+/*styling specific for home.html*/
+.container-home{
+    margin:2em;
 }
-/*
 .jumbotron {
-     background-color: #C4A7B0;
+     padding: 0;
+}
+
+.title-jumbotron {
+    padding: 0.5em;
+    padding-top: 1em;
+    font-family: "Noto Sans Japanese", bold;
+    font-size: 5em;
+}
+.lead-jumbotron {
+    padding: 2em;
 
 }
-*/
+.text-jumbotron{
+    padding: 2em;
+}
+
+
 /*font styling for h1, h3, h2, h3 and h4*/
 
 h1 {
