@@ -169,9 +169,11 @@ In this project I have used Flask framework.
 
 6. Create authentication&Authorization
 
-Crete Google Sign in:
+Create Google Sign in:
 
 
+
+gconnect route responds to POST request. It accepts the authorization code from client, exchanges it for an access token, uses makes an API call to Oauth server and responds to the client.
  Page login
 
 Public pages:
@@ -187,7 +189,8 @@ The users will be able to delete, edit, add category and dish items only when lo
 - https://app.pluralsight.com/library/courses/flask-micro-framework-introduction/table-of-contents
 - https://code.tutsplus.com/tutorials/intro-to-flask-adding-a-contact-page--net-28982
 - https://stackoverflow.com/questions/6654958/make-body-have-100-of-the-browser-height
-
+- http://nipponcolors.com/
+- https://en.wikipedia.org/wiki/Japanese_cuisine
 
 # 7. Image REFERENCES
 - https://en.wikipedia.org/wiki/Gy%C5%ABdon#/media/File:Gyuu-don_001.jpg
@@ -196,3 +199,4 @@ The users will be able to delete, edit, add category and dish items only when lo
 - https://images-na.ssl-images-amazon.com/images/I/91YVVQkl4%2BL._SL1500_.jpg
 - http://4.bp.blogspot.com/_UIXOn06Pz70/SgTFecsU3hI/AAAAAAAAGzU/NaxCppCjfrY/s800/Okonomiyaki+1+500.jpg
 - https://www.japan-talk.com/jt/new/japanese-desserts
+- http://sites.dartmouth.edu/folklorearchive/files/2016/11/japan.jpg
