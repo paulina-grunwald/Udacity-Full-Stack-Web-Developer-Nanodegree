@@ -1,0 +1,17 @@
+@import "reset";
+
+@import "variables";
+
+@import "small-default";
+
+
+@media only screen and (min-width: 560px) {
+    @import "medium";    
+    
+} // end media query
+
+
+@media only screen and (min-width: 1140px) {
+    @import "large";
+        
+} // end media query
