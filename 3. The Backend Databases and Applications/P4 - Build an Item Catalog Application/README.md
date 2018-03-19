@@ -191,7 +191,7 @@ The users will be able to delete, edit, add category and dish items only when lo
 - https://stackoverflow.com/questions/6654958/make-body-have-100-of-the-browser-height
 - http://nipponcolors.com/
 - https://en.wikipedia.org/wiki/Japanese_cuisine
-
+- https://app.pluralsight.com/library/courses/responsive-web-design-media-queries-css-preprocessing/table-of-contents
 # 7. Image REFERENCES
 - https://en.wikipedia.org/wiki/Gy%C5%ABdon#/media/File:Gyuu-don_001.jpg
 - https://www.chopstickchronicles.com/yakimeshi-japanese-fried-rice/
