@@ -4,6 +4,7 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 /*  apply a natural box layout model to all elements  */
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
+
 /* -------------------- NAVBAR --------------------------- */
 
 .navbar-brand {
@@ -24,6 +25,15 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 	padding-right: 0.2em;
 	padding-left: 0.2em;
 }
+
+ul li a {
+  display: black;
+  text-align: center;
+  padding: 0.5rem 0;
+  transition: back-ground 0.75 ease, color 0.75s ease;
+}
+
+
 /* -------------------- HEADER  --------------------------- */
 
 .jumbotron {
@@ -34,14 +44,25 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 
 .title {
     font-family: "Noto Sans Japanese", bold;
+    font-size: 2em;
     padding-top: 0.7em;
     padding-bottom: 0.25em;
     padding-left: 0.25em;
+
+}
+
+.fadeAway {
+  background: linear-gradient(to right, rgba(66,78,100,1)
+  0%, rgba(66,78,100,0.01)100%);
+  height: 2px;
+  border: none;
+  margin:0 2%;
+
 }
 
 .lead-jumbotron {
-    font-size: 1.5em;
-    padding-left: 0.5em;
+    font-size: 1em;
+    padding-left: 1em;
     padding-right: 0.25em;
     padding-bottom: 0.5em;
 
@@ -59,8 +80,39 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 }
 
 
+
 /* -------------------- BODY ------------------------------ */
 
 
 
+.container-fluid{
+  padding-top: 5em;
+}
+
+.container-about{
+  margin-top: 5em;
+}
 /* -------------------- FOOTER ------------------------------ */
+
+footer {
+    position: fixed;
+    padding-top: 5px;
+    font-size: 0.5em;
+    clear:both;
+    width: 100%;
+    bottom:0px;
+    z-index: 0;
+
+    background-color: $primaryColor;
+    
+    p {
+        text-align: center;
+        font-size:1.2em;
+        color: $secondaryColor;
+        padding: .75rem 0;
+        
+    } // end p
+    
+    p a {color: $secondaryColor;}
+    
+} // end footer
