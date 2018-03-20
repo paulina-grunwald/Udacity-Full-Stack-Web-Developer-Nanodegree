@@ -6,34 +6,50 @@ html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
 
 
 /* -------------------- NAVBAR --------------------------- */
+header{
+  .navbar-brand {
+  	padding-left: 1em;
+  	font-size: 1.3em;
 
-.navbar-brand {
-	padding-left: 1em;
-	font-size: 1.3em;
+  }
+
+  .login {
+  	padding-right: 1.4em;
+  }
+
+  .navbar-nav {
+  	font-size: 1em;
+  }
+
+  .nav-item {
+  	padding-right: 0.2em;
+  	padding-left: 0.2em;
+  }
+
+  ul li a {
+    display: black;
+    text-align: center;
+    padding: 0.5rem 0;
+    transition: back-ground 0.75 ease, color 0.75s ease;
+  }
+
+
+  form {
+    float:right;
+  }
+  form input {
+        text-align: center;
+        width: 4rem;
+        border-radius: 10px;
+        margin-right:2%;
+        padding: .2rem;
+        border: none;
+        transition: width .5s;
+
+    }
+  .form-control:not(:focus) {width:10rem;}
 
 }
-
-.login {
-	padding-right: 1.4em;
-}
-
-.navbar-nav {
-	font-size: 1em;
-}
-
-.nav-item {
-	padding-right: 0.2em;
-	padding-left: 0.2em;
-}
-
-ul li a {
-  display: black;
-  text-align: center;
-  padding: 0.5rem 0;
-  transition: back-ground 0.75 ease, color 0.75s ease;
-}
-
-
 /* -------------------- HEADER  --------------------------- */
 
 .jumbotron {
@@ -92,6 +108,8 @@ ul li a {
 .container-about{
   margin-top: 5em;
 }
+
+
 /* -------------------- FOOTER ------------------------------ */
 
 footer {
@@ -104,15 +122,15 @@ footer {
     z-index: 0;
 
     background-color: $primaryColor;
-    
+
     p {
         text-align: center;
         font-size:1.2em;
         color: $secondaryColor;
         padding: .75rem 0;
-        
+
     } // end p
-    
+
     p a {color: $secondaryColor;}
-    
+
 } // end footer
