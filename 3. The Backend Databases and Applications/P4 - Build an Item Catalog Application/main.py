@@ -339,6 +339,24 @@ def addItem():
 # Delete  item to a category
 
 # Edit  item to a category
+@app.route('/catalog/<category_name>/<item_name>/edit', methods=['GET','POST'])
+def editItem(category_name, item_name):
+  categories = session.query(Category).order_by(asc(Category.name))
+  editingItemCategory = session.query(Category).filter_by(name=category_name).one()
+  editingItem = session.query(Dish).filter_by(name=item_name, category=editingItemCategory).one()
+  """Save edited item to the database"""
+  if request.method == 'POST':
+      if request.form['name']:
+          editingItem.name = request.form['name']
+      if request.form['description']:
+          editingItem.description = request.form['description']
+      if request.form['category']:
+          editingItem.category = session.query(Category).filter_by(name=request.form['category']).one()
+      session.add(editingItem)
+      session.commit()
+      return redirect(url_for('showItem', category_name=editingItemCategory.name, item_name=editingItem.name))
+  else: 
+    return render_template('editItem.html', categories=categories, editingItemCategory=editingItemCategory, item=editingItem)
 
 # Add routing to error 404 and 505 pages
 
