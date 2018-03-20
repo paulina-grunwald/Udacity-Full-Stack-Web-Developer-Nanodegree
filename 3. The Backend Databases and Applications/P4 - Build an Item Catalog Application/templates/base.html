@@ -9,19 +9,18 @@
         <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet"/>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/errorpages.css')}}"/>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css')}}"/>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/navbar-top.css')}}"/>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css')}}"/>
         <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     </head>
     <body>
         {% block content %}
         {% endblock %}
         <footer class="footer">
-            <p>Catalog App, Inc</p>
+            <hr class="fadeAway">
+            <p class="footer">&copy; 2018 Paulina's Japanese Food Catalog App, Inc</p>
         </footer>
         <script src="https://use.fontawesome.com/ccc891835b.js"></script>
         <script src="../static/js/jquery-1.12.4.min.js"></script>
         <script src="../static/js/bootstrap.bundle.min.js"></script>
-        <script src="../static/js/holder.min.js"></script>
     </body>
 </html>

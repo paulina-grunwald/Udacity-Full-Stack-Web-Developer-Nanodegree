@@ -614,6 +614,8 @@ SOAP - simple object access protocol
 XML -  extensible markup language
 JSON - JavaScript Object Notation
 
+
+
 # Accessing Published APIs
 
 HTTP is a ``pull protocol`` where the communication is always initiated by the client and the server will respond with the response message.
