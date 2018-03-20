@@ -593,12 +593,26 @@ In project folder create fb_client_secrets.json
 ```
 Add client site functionality to login.html. Facebook has two options to perform OAuth login:
 - import the Facebook JavaScript (https://developers.facebook.com/docs/facebook-login/web) SDK and use Facebook functions.
+- Set up facebook login and add ``http://localhost:5000/`` to the Valid OAuth redirect URIs section.
 - construct your OAuth manually.
 
 In this example I will import the Facebook JS SDK. I will add facebook connect and disconnect methods to project.py.
 
-
 # What's and Why's of APIs
+APIs - Application Programming Interface
+APIs are responsible for sharing information between two applications.
+OSI - Open Interconnection model is built from number of layers:
+- application,
+- presentation,
+- session,
+- transport,
+- network,
+- data link,
+- psychical,
+
+SOAP - simple object access protocol
+XML -  extensible markup language
+JSON - JavaScript Object Notation
 
 # Accessing Published APIs
 
