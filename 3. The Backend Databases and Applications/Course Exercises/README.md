@@ -715,8 +715,36 @@ https://developer.foursquare.com/docs/api/venues/search
 #### Requesting From Python Code
 Now let's create request and response using python:
 
+```Python
+import httplib2
+import json
+
+def getGeocodeLocation(inputString):
+  google_api_key = "PASTE_Your_key"
+  locationString = inputString.replace(" ", "+")
+  url = ('http://maps.googleapis.com/maps/api/geocode/json?address=%skey=%s'%(locationString,google_api_key))
+  h = httplib2.Http()
+  response, content = h.request(url, 'GET')
+  result = json.loads(content)
+  print "response header: %s \n \n" % response
+```
+The file must be placed in the vagrant directory and vagrant needs to be on. Next we type in the terminal python to start python instance. Once the python instance is on we input:
+```python
+# import getGeocodeLocation function from geocode.py
+from geocode import getGeocodeLocation
+# Run getGeocodeLocation function with selected input
+getGeocodeLocation("Warsaw, Poland")
+```
+
+We get following response:
+
+```http
+{u'status': u'OK', u'results': [{u'geometry': {u'location_type': u'APPROXIMATE', u'bounds': {u'northeast': {u'lat': 52.3679992, u'lng': 21.2710984}, u'southwest': {u'lat': 52.0978767, u'lng': 20.8512898}}, u'viewport': {u'northeast': {u'lat': 52.3679992, u'lng': 21.2710984}, u'southwest': {u'lat': 52.0978767, u'lng': 20.8512898}}, u'location': {u'lat': 52.2296756, u'lng': 21.0122287}}, u'address_components': [{u'long_name': u'Warsaw', u'types': [u'locality', u'political'], u'short_name': u'Warsaw'}, {u'long_name': u'Warszawa', u'types': [u'administrative_area_level_2', u'political'], u'short_name': u'Warszawa'}, {u'long_name': u'Masovian Voivodeship', u'types': [u'administrative_area_level_1', u'political'], u'short_name': u'Masovian Voivodeship'}, {u'long_name': u'Poland', u'types': [u'country', u'political'], u'short_name': u'PL'}, {u'long_name': u'05', u'types': [u'postal_code', u'postal_code_prefix'], u'short_name': u'05'}], u'place_id': u'ChIJAZ-GmmbMHkcR_NPqiCq-8HI', u'formatted_address': u'Warsaw, Poland', u'types': [u'locality', u'political']}]}
+```
 
 
+
+The response includes successful 200 status as well as other methadata.
 # Creating your own API Endpoints
 
 # Securing your API
