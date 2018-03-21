@@ -633,6 +633,90 @@ __HTTP response__ may consists of:
 2. space (blank line)
 3. body (optional): includes additional info
 
+
+``Query string`` is the part of a uniform resource locator (URL) containing data that does not fit conveniently into a hierarchical path structure. The query string commonly includes fields added to a base URL by a Web browser or other client application, for example as part of an HTML form e.g title=Main_page&action=raw
+
+#### Google Maps API
+
+In next exercise my task was to find long and lat of couple of locations using [Google Maps API](https://developers.google.com/maps/?hl=en) and [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop).
+After reading Google API documentation I have constructed URL and sent a GET request in Postman:
+``https://maps.googleapis.com/maps/api/geocode/json?address=Tokyo,Japan&key=MY_API_KEY``
+The result of that request was  json file which included long and lat of Tokyo city in Japan.
+```json
+{
+    "results": [
+        {
+            "address_components": [
+                {
+                    "long_name": "Tokyo",
+                    "short_name": "Tokyo",
+                    "types": [
+                        "administrative_area_level_1",
+                        "locality",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "Japan",
+                    "short_name": "JP",
+                    "types": [
+                        "country",
+                        "political"
+                    ]
+                }
+            ],
+            "formatted_address": "Tokyo, Japan",
+            "geometry": {
+                "bounds": {
+                    "northeast": {
+                        "lat": 35.8986468,
+                        "lng": 153.9876115
+                    },
+                    "southwest": {
+                        "lat": 24.2242626,
+                        "lng": 138.942758
+                    }
+                },
+                "location": {
+                    "lat": 35.6894875,
+                    "lng": 139.6917064
+                },
+                "location_type": "APPROXIMATE",
+                "viewport": {
+                    "northeast": {
+                        "lat": 35.817813,
+                        "lng": 139.910202
+                    },
+                    "southwest": {
+                        "lat": 35.528873,
+                        "lng": 139.510574
+                    }
+                }
+            },
+            "place_id": "ChIJ51cu8IcbXWARiRtXIothAS4",
+            "types": [
+                "administrative_area_level_1",
+                "locality",
+                "political"
+            ]
+        }
+    ],
+    "status": "OK"
+}
+
+```
+
+#### Forequare APIs
+
+Next exercise consisted of finding venues using Foresquare API using provided lat and long.
+```
+https://developer.foursquare.com/docs/api/venues/search
+```
+#### Requesting From Python Code
+Now let's create request and response using python:
+
+
+
 # Creating your own API Endpoints
 
 # Securing your API
