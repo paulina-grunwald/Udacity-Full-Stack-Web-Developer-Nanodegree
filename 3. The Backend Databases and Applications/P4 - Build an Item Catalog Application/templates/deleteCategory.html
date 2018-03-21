@@ -2,7 +2,19 @@
 {% block content %}
 {% include "header.html" %}
   <div class="jumbotron">
-    {% include 'includes/include_del_cat.html' %}
+    <div class='h1'>Choose category to delete</div>
+      <form action="" method="post">
+        {% for category in categories %}
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</button>
+        {% for category in categories %}
+          <div class="dropdown-menu" aria-labelledby="dropdownmenu">
+            <option value="dropdown-item" type="button">{{category.name}}</option>
+          </div>
+          {% endfor %}
+    
+        <button type="button" class="btn btn-default">Cancel</button>
+      </form>
+    </div>
   </div>
 
 {% endblock %}
