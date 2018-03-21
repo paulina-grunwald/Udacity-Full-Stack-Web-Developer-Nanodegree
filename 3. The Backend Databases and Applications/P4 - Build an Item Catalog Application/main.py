@@ -130,6 +130,8 @@ def gconnect():
     login_session['picture'] = data['picture']
     login_session['email'] = data['email']
 
+    
+
     output = ''
     output += '<h1>Welcome, '
     output += login_session['username']
@@ -297,6 +299,31 @@ def itemJSON(category_name, item_name):
   category = session.query(Category).filter_by(name=category_name).one()
   item = session.query(Dish).filter_by(category=category).one()
   return jsonify(Item = [i.serialize for i in item])
+
+
+# User Helper Functions
+
+
+def createUser(login_session):
+  newUser = User(name=login_session['username'], email=login_session[
+                 'email'], picture=login_session['picture'])
+  session.add(newUser)
+  session.commit()
+  user = session.query(User).filter_by(email=login_session['email']).one()
+  return user.id
+
+def getUserInfo(user_id):
+    user = session.query(User).filter_by(id=user_id).one()
+    return user
+
+
+def getUserID(email):
+    try:
+        user = session.query(User).filter_by(email=email).one()
+        return user.id
+    except:
+        return None
+
 
 # Show home page (this is the front page for the application)
 @app.route('/')
