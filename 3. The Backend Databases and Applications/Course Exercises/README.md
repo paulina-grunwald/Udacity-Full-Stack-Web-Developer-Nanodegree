@@ -742,16 +742,34 @@ We get following response:
 {u'status': u'OK', u'results': [{u'geometry': {u'location_type': u'APPROXIMATE', u'bounds': {u'northeast': {u'lat': 52.3679992, u'lng': 21.2710984}, u'southwest': {u'lat': 52.0978767, u'lng': 20.8512898}}, u'viewport': {u'northeast': {u'lat': 52.3679992, u'lng': 21.2710984}, u'southwest': {u'lat': 52.0978767, u'lng': 20.8512898}}, u'location': {u'lat': 52.2296756, u'lng': 21.0122287}}, u'address_components': [{u'long_name': u'Warsaw', u'types': [u'locality', u'political'], u'short_name': u'Warsaw'}, {u'long_name': u'Warszawa', u'types': [u'administrative_area_level_2', u'political'], u'short_name': u'Warszawa'}, {u'long_name': u'Masovian Voivodeship', u'types': [u'administrative_area_level_1', u'political'], u'short_name': u'Masovian Voivodeship'}, {u'long_name': u'Poland', u'types': [u'country', u'political'], u'short_name': u'PL'}, {u'long_name': u'05', u'types': [u'postal_code', u'postal_code_prefix'], u'short_name': u'05'}], u'place_id': u'ChIJAZ-GmmbMHkcR_NPqiCq-8HI', u'formatted_address': u'Warsaw, Poland', u'types': [u'locality', u'political']}]}
 ```
 
+The response includes successful 200 status as well as other metadata.
+If we would like to extract only lat and long we need to add following code piece:
+```python
+latitude = result['results'][0]['geometry']['location']['lat']
+longitude = result['results'][0]['geometry']['location']['lng']
+return (latitude,longitude)
+```
+
+#### Make Your Own API Mashup
 
 
-The response includes successful 200 status as well as other methadata.
+
 # Creating your own API Endpoints
 
+
+
 # Securing your API
+ Hashing algorithms are one way functions.
+Paslib
+
 
 # Writing Developer-Friendly APIs
+If you create new APIs for your app make sure you have good documentation with examples for developers to use and play with them.
+URI - uniform Resource Identifier
 
+URI should refer to resources not to the action being performed. It's recommend to use plural form for each resource name.
 
+Error messages sent to users should be short and informative.
 
 # REFERENCES
 - https://www.vagrantup.com/docs/networking/forwarded_ports.html
@@ -763,3 +781,4 @@ The response includes successful 200 status as well as other methadata.
 - https://www.safaribooksonline.com/library/view/web-programming-with/9781926873992/
 - https://en.wikipedia.org/wiki/HTML#Character_and_entity_references
 - http://flask.pocoo.org/docs/0.10/quickstart/#url-building
+- http://flask.pocoo.org/docs/0.10/quickstart/
