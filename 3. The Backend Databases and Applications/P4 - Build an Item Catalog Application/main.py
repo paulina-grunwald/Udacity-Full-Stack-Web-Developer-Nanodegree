@@ -130,7 +130,12 @@ def gconnect():
     login_session['picture'] = data['picture']
     login_session['email'] = data['email']
 
-    
+    # Check if user exists, if not make new account localy
+    user_id = getUserID(login_session['email'])
+    if not user_id:
+      # If new user create new user
+      user_id = createUser(login_session)
+    login_session['user_id'] = user_id
 
     output = ''
     output += '<h1>Welcome, '
