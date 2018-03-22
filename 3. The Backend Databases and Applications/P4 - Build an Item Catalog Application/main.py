@@ -487,6 +487,15 @@ def editItem(category_name, item_name):
   else: 
     return render_template('editItem.html', categories=categories, editingItemCategory=editingItemCategory, item=editingItem)
 
+# Disconnect user (depending if the user logged in with facebook or google)
+@app.route('/disconnect')
+def disconnect():
+  try:
+    if login_session['provider'] == 'facebook':
+      return redirect('/fbdisconnect')
+  except:
+    return redirect('/gdisconnect')
+
 # Add routing to error 404 and 505 pages
 @app.errorhandler(404)
 def page_not_found(e):
