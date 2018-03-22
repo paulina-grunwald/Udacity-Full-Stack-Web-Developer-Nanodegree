@@ -8,6 +8,7 @@ from flask_images import Images
 import os
 from werkzeug.utils import secure_filename
 from werkzeug import url_decode
+import requests
 
 # import CRUD Operations
 from database_setup import Base, Category, Dish, User
@@ -32,9 +33,8 @@ app.secret_key = 'super_secret_key'
 images = Images(app)
 
 # Create client ID
-CLIENT_ID = json.loads(
-    open('client_secrets.json', 'r').read())['web']['client_id']
-APPLICATION_NAME = "Restaurant Menu Application"
+CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())['web']['client_id']
+APPLICATION_NAME = "Japanse Catalog App"
 
 
 
@@ -46,7 +46,7 @@ session = DBSession()
 
 
 
-# Create anti-forgery state token
+### Create anti-forgery state token
 # It wll be stored in the session for later validation
 @app.route('/login')
 def showLogin():
@@ -57,7 +57,7 @@ def showLogin():
     return render_template('login.html',  STATE=state)
 
 
-# Add GConnect function
+### Add GConnect function
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
     # Validate state token
@@ -123,7 +123,6 @@ def gconnect():
     userinfo_url = "https://www.googleapis.com/oauth2/v1/userinfo"
     params = {'access_token': credentials.access_token, 'alt': 'json'}
     answer = requests.get(userinfo_url, params=params)
-
     data = answer.json()
 
     login_session['username'] = data['name']
@@ -147,10 +146,9 @@ def gconnect():
     flash("you are now logged in as %s" % login_session['username'])
     print "done!"
     return output
-    return redirect(url_for('categories'))
+    return redirect(url_for('/'))
 
-# DISCONNECT - Revoke a current user's token and reset their login_session
-
+### DISCONNECT - Revoke a current user's token and reset their login_session
 
 @app.route('/gdisconnect')
 def gdisconnect():
@@ -174,15 +172,17 @@ def gdisconnect():
         del login_session['username']
         del login_session['email']
         del login_session['picture']
-        response = make_response(json.dumps('Successfully disconnected.'), 200)
-        response.headers['Content-Type'] = 'application/json'
-        return response
+        #response = make_response(json.dumps('Successfully disconnected.'), 200)
+        #response.headers['Content-Type'] = 'application/json'
+        #return response
+        flash("You are now successfully logged out.")
+        return redirect(url_for('home'))
     else:
         response = make_response(json.dumps('Failed to revoke token for given user.', 400))
         response.headers['Content-Type'] = 'application/json'
         return response
 
-# Add fbconnect login functionality
+### Add fbconnect login functionality
 
 @app.route('/fbconnect', methods=['POST'])
 def fbconnect():
@@ -193,12 +193,13 @@ def fbconnect():
     access_token = request.data
     print "access token received %s " % access_token
 
+    #Exchange clinet token for long-lived server-side token with GET/oauth/access_token
 
     app_id = json.loads(open('fb_client_secrets.json', 'r').read())[
         'web']['app_id']
     app_secret = json.loads(
         open('fb_client_secrets.json', 'r').read())['web']['app_secret']
-    url = 'https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id=%s&client_secret=%s&fb_exchange_token=%s' % (
+    url = 'https://graph/book.com/oauth/access_token?grant_type=fb_exchange_token&client_id=%s&client_secret=%s&fb_exchange_token=%s' % (
         app_id, app_secret, access_token)
     h = httplib2.Http()
     result = h.request(url, 'GET')[1]
@@ -237,7 +238,7 @@ def fbconnect():
 
     login_session['picture'] = data["data"]["url"]
 
-    # see if user exists
+    # see if user exists, if it doesn't create new user
     user_id = getUserID(login_session['email'])
     if not user_id:
         user_id = createUser(login_session)
@@ -255,7 +256,7 @@ def fbconnect():
     flash("Now logged in as %s" % login_session['username'])
     return output
 
-# Add facebook login disconnect method 
+### Add facebook login disconnect method 
 
 @app.route('/fbdisconnect')
 def fbdisconnect():
@@ -265,6 +266,13 @@ def fbdisconnect():
     url = 'https://graph.facebook.com/%s/permissions?access_token=%s' % (facebook_id,access_token)
     h = httplib2.Http()
     result = h.request(url, 'DELETE')[1]
+
+    # Reset the user's session
+    del login_session['provider']
+    del login_session['username']
+    del login_session['email']
+    del login_session['facebook_id']
+    flash("You've successfully logged out")
     return "you have been logged out"
 
 @app.route('/uploads/<filename>', methods=["GET"])
@@ -272,27 +280,27 @@ def download_file(filename):
   return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 
-# API endpoints for all users
+### API endpoints for all users
 @app.route('/users.json')
 def userJSON():
   users = session.query(User).all()
   return jsonify(User = [u.serialize for u in users])
 
 
-# add API endpoints for all categories and items
+### Add API endpoints for all categories and items
 @app.route('/catalog/json')
 def catalogJSON():
   categories = session.query(Category).all()
   items = session.query(Dish).all()
   return jsonify(Categories = [c.serialize for c in categories], Items = [i.serialize for i in items])
 
-# add API endpoints for all categories
+### add API endpoints for all categories
 @app.route('/categories/json')
 def categoriesJSON():
   categories = session.query(Category).all()
   return jsonify(Categories = [c.serialize for c in categories])
 
-# API endpoints for all items from a specific category
+### API endpoints for all items from a specific category
 @app.route('/<category_name>/items/json')
 def itemsJSON(category_name):
   category = session.query(Category).filter_by(name=category_name).one()
@@ -306,25 +314,28 @@ def itemJSON(category_name, item_name):
   return jsonify(Item = [i.serialize for i in item])
 
 
-# User Helper Functions
-
-
+### Create new user function
 def createUser(login_session):
+  # Extract necessary info about new user
   newUser = User(name=login_session['username'], email=login_session[
                  'email'], picture=login_session['picture'])
   session.add(newUser)
   session.commit()
   user = session.query(User).filter_by(email=login_session['email']).one()
+  # Return new user ID of the newly created user
   return user.id
 
+### Create getUserInfo function
 def getUserInfo(user_id):
-    user = session.query(User).filter_by(id=user_id).one()
-    return user
+  user = session.query(User).filter_by(id=user_id).one()
+  # return user object that is asign to specific user ID
+  return user
 
-
+### Create getUserID function
 def getUserID(email):
     try:
         user = session.query(User).filter_by(email=email).one()
+        # return user ID associated to the e-mail
         return user.id
     except:
         return None
@@ -376,16 +387,19 @@ def showItem(category_name, item_name):
   return render_template('showItem.html', item=item)
 
 # Add new category
-@app.route('/catalog/addcategory', methods=['GET','POST'])
+@app.route('/catalog/newcategory', methods=['GET','POST'])
 def addCategory():
+  if 'username' not in login_session:
+    return redirect('/login')
   if request.method == 'POST':
-    addCategory = Category(name=request.form['name'])
+    newCategory = Category(name=request.form['name'])
+    user_id = login_session['user_id']
     session.add(addCategory)
     session.commit()
     flash("You've successfully added new category!")
     return redirect(url_for('categories'))
   else:
-    return render_template('addCategory.html', )
+    return render_template('newCategory.html', )
 
 
 
@@ -474,7 +488,6 @@ def editItem(category_name, item_name):
     return render_template('editItem.html', categories=categories, editingItemCategory=editingItemCategory, item=editingItem)
 
 # Add routing to error 404 and 505 pages
-
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
@@ -482,8 +495,6 @@ def page_not_found(e):
 @app.errorhandler(500)
 def server_error(e):
     return render_template('500.html'), 500
-
-
 
 # Execute only if file is run by python interpreter
 if __name__ == '__main__':
