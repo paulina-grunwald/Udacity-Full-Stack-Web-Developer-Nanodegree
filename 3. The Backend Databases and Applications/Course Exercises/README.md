@@ -531,10 +531,11 @@ Now I will add callback method to handle response that google sends. The google 
 __Creating GConnect__
 
 
-this client_secret.json includes:
+Add client_secret.json which includes:
 - client_id,
 - client secret
 - javascript_origins
+
 
 # Local Permission System
 
@@ -576,7 +577,41 @@ Now we need to connect our new User table with back end The back end code will l
 
 First let's import ``User Module`` to project.py
 
+Now in project.py we need to create ``createUser function``. It takes login_session as an input and creates new user in the database. It also extracts all the necessary info about the user to create new login (e-mail, picture). At the end it returns new user ID.
+```python
+def createUser(login_session):
+    newUser = User(name=login_session['username'], email=login_session[
+                   'email'], picture=login_session['picture'])
+    session.add(newUser)
+    session.commit()
+    user = session.query(User).filter_by(email=login_session['email']).one()
+    return user.id
 
+```
+
+
+```python
+def getUserInfo(user_id):
+    user = session.query(User).filter_by(id=user_id).one()
+    return user
+
+
+def getUserID(email):
+    try:
+        user = session.query(User).filter_by(email=email).one()
+        return user.id
+    except:
+        return None
+```
+
+Add additional code piece in gconnect function that will check if user exists and if it doesn't then the new user will be created.
+
+```python
+user_id = getUserID(login_session['email'])
+  if not user_id:
+    user_id = createUser(login_session)
+  login_session['user_id'] = user_id
+```
 
 # Adding Facebook and other providers
 
