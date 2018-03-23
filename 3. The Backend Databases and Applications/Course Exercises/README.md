@@ -589,6 +589,7 @@ def createUser(login_session):
 
 ```
 
+Then I added two more functions getUserInfo (which simply returns user object for specific user id) and getUserID (takes as an input e-mail and returns user ID if it exits in the database).
 
 ```python
 def getUserInfo(user_id):
