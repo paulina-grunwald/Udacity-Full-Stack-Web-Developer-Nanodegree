@@ -36,6 +36,7 @@ header{
 
   form {
     float:right;
+    padding: 0.5rem 0;
   }
   form input {
         text-align: center;
@@ -56,6 +57,13 @@ header{
      padding-top: 2em;
      padding-right:0;
      padding-left: 0;
+}
+
+.jumbotron-item {
+    padding-top: 5em;
+    padding-right:2em;
+    padding-left: 2em;
+
 }
 
 .title {
@@ -105,7 +113,7 @@ header{
   padding-top: 5em;
 }
 
-.container-about{
+.container-main{
   margin-top: 5em;
 }
 
