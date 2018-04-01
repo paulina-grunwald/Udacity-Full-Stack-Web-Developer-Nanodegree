@@ -77,7 +77,7 @@ $body.append('<img class="bgimg" src="' + streetviewUrl + '"/>');
 ```
 
 Now using NY Times API key I will try to find articles regarding selected by user location and view them on the page together with the photo of the location.
-For this I will use NY Times ``API Key``.
+For this I will use [NY Times ``API Key``](http://developer.nytimes.com/).
 
 
 # 3. Changing Expectations
