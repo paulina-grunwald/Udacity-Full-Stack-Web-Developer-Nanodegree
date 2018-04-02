@@ -1,10 +1,19 @@
 
-var elem = document.getElementById('img');
+var elemMisza = document.getElementById('Misza');
+var elemChewie = document.getElementById('Chewie');
 var i = 0;
-elem.addEventListener('click', function(){
+
+elemChewie.addEventListener('click', function(){
   i++
   console.log(i);
-  document.getElementById("count").innerHTML = i;
-}, false);
+  document.getElementById("count1").innerHTML = i;
+ }, false);
+
+elemMisza.addEventListener('click', function(){
+  i++
+  console.log(i);
+  document.getElementById("count2").innerHTML = i;
+ }, false);
+
 
 
