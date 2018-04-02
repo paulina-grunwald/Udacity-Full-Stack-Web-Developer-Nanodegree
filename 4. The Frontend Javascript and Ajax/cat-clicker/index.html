@@ -2,15 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cat Clicker</title>
+    <title>Cat Clicker APP</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Cat clicker</h1>
-    <img src="https://images.pexels.com/photos/126407/pexels-photo-126407.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" id ="img" class="banner img-fluid d-block mx-auto" width="50%" alt="cat"/>
-    <p>Cat clicker result:</p>
-    <p id="count">0</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xs-6 col-lg-6  text-center text-uppercase">
+                <p>Chewie</p>
+            </div>
+            <div class="col-md-6 col-xs-6 col-lg-6  text-center text-uppercase">
+                <p>Misza</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-6 col-lg-6  text-center text-uppercase">
+                <img src="https://images.pexels.com/photos/126407/pexels-photo-126407.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" id ="Chewie" class="img-responsive img-thumbnail mx-auto rounded" alt="cat">
+            </div>
+            <div class="col-md-6 col-xs-6 col-lg-6  text-center text-uppercase">
+                <img src="https://visualhunt.com/photos/7/pet-cat-eye.jpg?s=s" id ="Misza" class="img-responsive img-thumbnail img-fluid mx-auto rounded" alt="cat">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-6 col-lg-6  text-center text-uppercase">
+                <p>Click count:</p><p id="count1">0</p>
+            </div>
+            <div class="col-md-6 col-xs-6 col-lg-6  text-center text-uppercase">
+                <p>Click count:</p><p id="count2">0</p>
+            </div>       
+        </div>
+    </div>
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
