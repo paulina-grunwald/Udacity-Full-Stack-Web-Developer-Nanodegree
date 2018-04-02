@@ -77,10 +77,29 @@ $body.append('<img class="bgimg" src="' + streetviewUrl + '"/>');
 ```
 
 Now using NY Times API key I will try to find articles regarding selected by user location and view them on the page together with the photo of the location.
-For this I will use [NY Times ``API Key``](http://developer.nytimes.com/).
+For this I will use [NY Times ``API Key``](http://developer.nytimes.com/). My task will be to fire off AJAX request, iterate through response and present articles on the page inside <ul id="nytimes-articles"></ul>.
 
 
 # 3. Changing Expectations
+
+__Cat Clicker App:__
+
+The goal of the exercise in this chapter is to create cat-clicker. The application should display few cats. Each cat includes the cat's name, a picture of the cat, text showing the number of clicks The specifics of the layout do not matter, so style it however you'd like. The number of clicks should increment when each cat picture is clicked.
+
+ I used here .addEventListener to
+
+ __Cat Clicker Premium:__
+ The application should display:
+ -  a list of at least 5 cats, listed by name,
+ - an area to display the selected cat.
+
+In the cat display area, the following should be displayed:
+- the cat's name,
+- a picture of the cat,
+- text showing the number of clicks.
+
+The specifics of the layout do not matter, so style it however you'd like.
+
 
 # 4. Refactoring with Separation of Concepts
 # 5. Using an Organization Library
