@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+  
+  <div class = 'flash'>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+              <li> <strong> {{ message }} </strong> </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <div class="container-fluid catalog-menu">
+    <div class="row">
+      <div class="col-sm-3 col-lg-3 col-md-3">
+        <ul class=" category-list list">
+          {% for category in categories %}
+            <a href="{{url_for('categories', category_name=category.name)}}" class="list-group-item">{{category
+                          .name}}</a>
+          {% endfor %}
+        </ul>
+      </div>
+
+
+      <div class="col-md-9">
+        <div class=jumbotron>
+          <div class="row justify-content-between">
+            <div class="col-md-10 text-left">
+              <h2>{{selectedCategory.name}}</h2>
+            </div>
+            <div class="col-md-2">
+              <h2 class="btn-outline-success btn-sm">Add item</h2>
+            </div>
+          </div>
+          <div class="row">
+            {% for item in items %}
+              <div class="col-sm-4 col-lg-4 col-md-4">
+                <div class="card">
+                  {% if item.image == '' %}
+                    <img src={{url_for('static', filename="no-image.png")}}>
+                  {% else %}
+                    <img src="{{item.image}}" alt="{{item.name}} Image">
+                  {% endif %}
+                  <h4 class="text-center">{{item.name}}</h4>
+                </div> 
+              </div> 
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div    
+  </div>
+
+{% endblock %}
+
+
