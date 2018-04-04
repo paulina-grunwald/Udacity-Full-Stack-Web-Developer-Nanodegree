@@ -20,12 +20,10 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="{{url_for('home') }}">日本 食べ物 Japanese Catalog App</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
     </nav>
   </header> 
-  <div class="container jumbotron">
+
+  <div class="container jumbotron container-main">
     <h1>Japanese Food Catalog app</h1>
     <div class="row">
       <div id="signin" class="col-md-4 col-md-offset-4 well text-center">
@@ -33,7 +31,7 @@
           <div class="col-md-6 col-xs-6"><p>Login with Google</p></div>
         </div>
         <div class="row">
-          <div class="class="col-md-6 col-xs-6">
+          <div class="col-md-6 col-xs-6">
             <!-- GOOGLE PLUS SIGN IN BUTTON-->
             <div id="signinButton">
               <span class="g-signin"
