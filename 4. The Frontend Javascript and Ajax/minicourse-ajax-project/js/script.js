@@ -1,4 +1,3 @@
-
 function loadData() {
 
     var $body = $('body');
@@ -11,44 +10,39 @@ function loadData() {
     $wikiElem.text("");
     $nytElem.text("");
 
-    // assign streetStr to value of the text inputed in the form with id="street"
-    var streetStr = $('#street').val();
-    var cityStr  = $('#city').val();
-    // create full address
-    var address = streetStr + ', ' + cityStr;
-    console.log(address);
+    var $streetAdd = $('#street').val();
+    var $cityAdd = $('#city').val();
+    var concatAdd = $streetAdd + ", " + $cityAdd;
 
-    $greeting.text('Do you want to live in ' + address + '?');
+    var nytUrl = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+    nytUrl += '?' + $.param({'api-key': "2c73c53d428343089d7481de12b1f645", 'q': $cityAdd});
 
-    //create URL
-    var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x300&location=' + address + '';
-    $body.append('<img class="bgimg" src="' + streetviewUrl + '"/>');
-    return false;
+    console.log(nytUrl);
 
-    var streetviewURL = 'https://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + loc + '&key=AIzaSyD26gIGcZOJpPCBDGVrQLt_Pwhcl56nzE4';
-    $body.append('<img class="bgimg" src="'+ streetviewURL + '">');
+    // load streetview
 
+    concatAdd = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + concatAdd;
 
-    // New York Times Articles
-    var nytimesUrl = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+ cityStr + '&sort=newest&api-key=2c73c53d428343089d7481de12b1f645';
-    $.getJSON(nytimesUrl, function(data){
-        $nytHeaderElem.text('New York Times Articles About ' + cityStr);
-        articles = data.response.docs;
-        for (var i = 0; i < articles.length; i++) {
-            var article = articles[i];
-            $nytElem.append('<li class="article">'+
-                '<a href="'+article.web_url+'">'+article.headline.main+'</a>'+
-                '<p>' + article.snippet + '</p>'+
-                '</li>');
-            };
-    }).error(function(e){
-        $nytHeaderElem.text('New York Times Articles Could Not Be Loaded');
-    });
+    var fullAppend = '<img class="bgimg" src="' + concatAdd +'">';
 
+    // YOUR CODE GOES HERE!
+
+    $body.append(fullAppend);
+
+    $.ajax({
+        dataType: "json",
+        url: nytUrl, 
+        method: 'GET',
+    }).done(function(result) {
+        console.log(result.response.docs[0]);
+    }).fail(function(err){
+        throw err;
+    })
 
 
     return false;
 };
+
 
 
 
